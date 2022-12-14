@@ -3,17 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev --turbo\" \"postcss app/globals.css --output app/output.css --watch\"",
+    "dev": "concurrently \"next dev\" \"postcss app/globals.css --output app/output.css --watch\"",
     "build": "postcss app/globals.css --output app/output.css && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/font": "^13.0.6",
     "@prisma/client": "^4.7.1",
     "@types/node": "18.11.10",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.9",
     "autoprefixer": "^10.4.13",
+    "class-variance-authority": "^0.4.0",
     "concurrently": "^7.6.0",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.6",
