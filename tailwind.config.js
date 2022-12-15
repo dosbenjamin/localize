@@ -17,7 +17,7 @@ module.exports = {
       }
     },
     fontFamily: {
-      mono: ['var(--font-inconsolata)']
+      mono: 'var(--font-inconsolata)'
     },
     fontSize: {
       base: ['100%', { lineHeight: '1.5' }],
