@@ -1,9 +1,9 @@
-// eslint-disable-next-line
 const plugin = require('tailwindcss/plugin')
+const { join, dirname } = require('path')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: [join(dirname(require.resolve('ui')), '**/*.tsx'), './app/**/*.tsx'],
   theme: {
     colors: {
       white: '#FFF',
@@ -13,71 +13,77 @@ module.exports = {
         360: '#211F32',
         540: '#171624',
         720: '#14131F',
-        900: '#0F0E17'
-      }
+        900: '#0F0E17',
+      },
     },
     fontFamily: {
-      mono: 'var(--font-inconsolata)'
+      mono: 'Inconsolata, monospace',
     },
     fontSize: {
       base: ['100%', { lineHeight: '1.5' }],
       md: ['1.414rem', { lineHeight: '1.41467727675' }],
       lg: ['1.999rem', { lineHeight: '1.25039074711' }],
-      xl: ['2.827rem', { lineHeight: '1.23811629449' }]
+      xl: ['2.827rem', { lineHeight: '1.23811629449' }],
     },
     fontVariationSettings: {
       wght: {
         400: '400',
         500: '400',
-        600: '600'
+        600: '600',
       },
       wdth: {
         100: '100',
         125: '125',
-        150: '150'
-      }
-    }
+        150: '150',
+      },
+    },
   },
   plugins: [
-    plugin(({ addBase, addUtilities, theme }) => {
+    plugin(({ addBase, theme }) => {
       addBase({
         html: {
-          fontSize: theme('fontSize.base')
-        }
-      })
-
-      addUtilities({
-        '.optimize-legibility': {
-          textRendering: 'optimizeLegibility'
-        }
+          fontSize: theme('fontSize.base'),
+        },
+        body: {
+          textRendering: 'optimizeLegibility',
+          fontFamily: theme('fontFamily.mono'),
+          '-webkit-font-smoothing': 'antialiased',
+        },
       })
     }),
-    plugin(({ matchUtilities, theme }) => {
+    plugin(({ addBase, matchUtilities, theme }) => {
       const fontVariationSettings = "'wght' var(--tw-variation-wght), 'wdth' var(--tw-variation-wdth)"
+
+      addBase({
+        ':root': {
+          '--tw-variation-wght': '400',
+          '--tw-variation-wdth': '100',
+        },
+      })
 
       matchUtilities(
         {
           'variation-wght': (/** @type {string} */ value) => ({
             '--tw-variation-wght': value,
-            fontVariationSettings
-          })
+            fontVariationSettings,
+          }),
         },
         {
-          values: theme('fontVariationSettings.wght')
-        }
+          values: theme('fontVariationSettings.wght'),
+        },
       )
 
       matchUtilities(
         {
           'variation-wdth': (/** @type {string} */ value) => ({
             '--tw-variation-wdth': value,
-            fontVariationSettings
-          })
+            fontVariationSettings,
+          }),
         },
         {
-          values: theme('fontVariationSettings.wdth')
-        }
+          values: theme('fontVariationSettings.wdth'),
+        },
       )
-    })
-  ]
+    }),
+  ],
 }

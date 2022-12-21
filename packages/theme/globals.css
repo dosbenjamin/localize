@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Inconsolata';
+    src: url('./Inconsolata-VF.woff2');
+    font-stretch: 50 200;
+    font-weight: 200 900;
+  }
+}

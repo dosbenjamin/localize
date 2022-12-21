@@ -1,0 +1,13 @@
+{
+  "name": "theme",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "ui": "workspace:*"
+  },
+  "files": [
+    "globals.css",
+    "tailwind.config.cjs",
+    "postcss.config.cjs"
+  ]
+}
