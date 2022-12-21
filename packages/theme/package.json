@@ -7,7 +7,7 @@
   },
   "files": [
     "globals.css",
-    "tailwind.config.cjs",
-    "postcss.config.cjs"
+    "postcss.config.cjs",
+    "tailwind.config.cjs"
   ]
 }

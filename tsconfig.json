@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES5",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     // "exactOptionalPropertyTypes": true,
@@ -18,20 +18,15 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "outDir": "dist",
     "sourceMap": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
     "allowJs": true
   },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.cjs"],
   "exclude": ["node_modules"]
 }

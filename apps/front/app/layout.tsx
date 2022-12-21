@@ -1,9 +1,7 @@
-import type { ReactNode } from 'react'
+import type { PropsWithChildren } from 'react'
 import 'theme/globals.css'
 
-type RootLayoutProps = {
-  children: ReactNode
-}
+type RootLayoutProps = PropsWithChildren
 
 const RootLayout = ({ children }: RootLayoutProps) => (
   <html lang="en">
