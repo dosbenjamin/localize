@@ -1,5 +1,5 @@
-import { cva, VariantProps } from 'class-variance-authority'
-import type { PropsWithChildren } from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
+import type { ComponentPropsWithoutRef } from 'react'
 
 const buttonVariants = cva('uppercase text-center', {
   variants: {
@@ -16,7 +16,7 @@ const buttonVariants = cva('uppercase text-center', {
   },
 })
 
-type ButtonProps = PropsWithChildren<VariantProps<typeof buttonVariants>>
+type ButtonProps = ComponentPropsWithoutRef<'button'> & VariantProps<typeof buttonVariants>
 
 export const Button = ({ intent, size, ...props }: ButtonProps) => (
   <button className={buttonVariants({ intent, size })} {...props} />
