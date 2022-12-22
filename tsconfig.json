@@ -25,7 +25,12 @@
     "jsx": "preserve",
     "incremental": true,
     "sourceMap": true,
-    "allowJs": true
+    "allowJs": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.cjs"],
   "exclude": ["node_modules"]

@@ -7,11 +7,6 @@
     "build": "pnpm -r build",
     "storybook": "pnpm --filter './packages/ui' storybook"
   },
-  "dependencies": {
-    "autoprefixer": "^10.4.13",
-    "class-variance-authority": "^0.4.0",
-    "tailwindcss": "^3.2.4"
-  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
