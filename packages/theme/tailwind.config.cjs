@@ -3,7 +3,7 @@ const path = require('path') // eslint-disable-line @typescript-eslint/no-var-re
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [path.join(path.dirname(require.resolve('ui')), '**/*.tsx'), './app/**/*.tsx'],
+  content: [path.join(path.dirname(require.resolve('ui')), '**/*.tsx'), './app/**/*.tsx', './features/**/*.tsx'],
   theme: {
     colors: {
       white: '#FFF',
@@ -15,6 +15,7 @@ module.exports = {
         720: '#14131F',
         900: '#0F0E17',
       },
+      danger: '#FF2406',
     },
     fontFamily: {
       mono: 'Inconsolata, monospace',
@@ -28,7 +29,7 @@ module.exports = {
     fontVariationSettings: {
       wght: {
         400: '400',
-        500: '400',
+        500: '500',
         600: '600',
       },
       wdth: {

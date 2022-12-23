@@ -9,3 +9,4 @@ const config: Meta<typeof Input> = {
 export default config
 
 export const Default = () => <Input placeholder="Input" />
+export const Error = () => <Input errorMessage="Error message" placeholder="Input" />
