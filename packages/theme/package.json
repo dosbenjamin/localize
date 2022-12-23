@@ -5,6 +5,9 @@
   "dependencies": {
     "ui": "workspace:*"
   },
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  },
   "files": [
     "globals.css",
     "postcss.config.cjs",
