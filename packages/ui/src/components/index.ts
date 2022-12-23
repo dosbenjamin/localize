@@ -1,3 +1,7 @@
 export { Button } from './Button'
 export { Divider } from './Divider'
 export * as Form from './form'
+export { Heading } from './Heading'
+export { Link } from './Link'
+export { Logo } from './Logo'
+export * as Stack from './stack'
