@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    // "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "lib/*": ["lib/*"],
+      "features/*": ["features/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.cjs"],
+  "exclude": ["node_modules"]
+}

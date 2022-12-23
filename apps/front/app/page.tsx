@@ -1,4 +1,3 @@
-import { Button } from 'ui'
+const Home = () => <div>Home</div>
 
-const Home = () => <Button>Hello World!</Button>
 export default Home
