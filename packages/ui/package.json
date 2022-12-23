@@ -9,6 +9,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@polymorphic-factory/react": "^0.2.2",
     "autoprefixer": "^10.4.13",
     "class-variance-authority": "^0.4.0",
     "react": "^18.2.0",
