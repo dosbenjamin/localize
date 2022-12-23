@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import type { ComponentPropsWithoutRef } from 'react'
 
-const buttonVariants = cva('uppercase text-center', {
+const buttonVariants = cva('uppercase text-center outline-none', {
   variants: {
     intent: {
       primary: 'bg-orange text-white',
