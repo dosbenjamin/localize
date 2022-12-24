@@ -2,6 +2,6 @@
   "root": true,
   "extends": ["@localize/eslint-config"],
   "parserOptions": {
-    "project": ["apps/front/tsconfig.eslint.json"]
+    "project": ["apps/web/tsconfig.eslint.json"]
   }
 }

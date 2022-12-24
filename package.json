@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "scripts": {
     "storybook": "pnpm --filter ui storybook",
-    "dev:front": "pnpm --filter front dev",
+    "dev:web": "pnpm --filter web dev",
     "dev": "pnpm -r dev",
-    "build:front": "pnpm --filter front build",
+    "build:web": "pnpm --filter web build",
     "build": "pnpm -r build",
-    "lint:front": "pnpm --filter front lint",
+    "lint:web": "pnpm --filter web lint",
     "lint": "pnpm -r build"
   },
   "devDependencies": {
