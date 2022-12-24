@@ -1,0 +1,7 @@
+{
+  "root": true,
+  "extends": ["@localize/eslint-config"],
+  "parserOptions": {
+    "project": ["packages/ui/tsconfig.eslint.json"]
+  }
+}

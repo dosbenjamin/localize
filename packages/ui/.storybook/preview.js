@@ -1,4 +1,4 @@
-import 'theme/globals.css'
+import '@localize/theme/globals.css'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

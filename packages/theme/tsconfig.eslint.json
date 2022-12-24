@@ -1,4 +1,4 @@
 {
   "extends": "@localize/tsconfig/base.json",
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": ["**/*.cjs"]
 }

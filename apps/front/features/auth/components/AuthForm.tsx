@@ -1,7 +1,7 @@
 'use client'
 
+import { Stack } from '@localize/ui'
 import type { FormEventHandler, PropsWithChildren, ReactNode } from 'react'
-import { Stack } from 'ui'
 
 type AuthFormProps = PropsWithChildren<{
   top: ReactNode

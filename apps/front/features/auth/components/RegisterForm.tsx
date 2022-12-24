@@ -1,10 +1,10 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Button, Form, Heading, Link as CustomLink, Stack } from '@localize/ui'
 import { supabase } from 'lib/supabase.client'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
-import { Button, Form, Heading, Link as CustomLink, Stack } from 'ui'
 import * as z from 'zod'
 import { AuthForm } from './AuthForm'
 

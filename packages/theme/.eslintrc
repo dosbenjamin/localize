@@ -1,0 +1,12 @@
+{
+  "root": true,
+  "extends": ["@localize/eslint-config"],
+  "parserOptions": {
+    "project": ["packages/theme/tsconfig.eslint.json"]
+  },
+  "rules": {
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off"
+  }
+}

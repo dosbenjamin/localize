@@ -1,5 +1,5 @@
+import { Divider, Logo } from '@localize/ui'
 import type { PropsWithChildren } from 'react'
-import { Divider, Logo } from 'ui'
 
 type AuhenticationLayoutProps = PropsWithChildren
 

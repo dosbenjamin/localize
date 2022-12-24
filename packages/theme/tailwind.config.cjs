@@ -1,9 +1,13 @@
-const plugin = require('tailwindcss/plugin') // eslint-disable-line @typescript-eslint/no-var-requires
-const path = require('path') // eslint-disable-line @typescript-eslint/no-var-requires
+const plugin = require('tailwindcss/plugin')
+const path = require('path') // eslint-disable-line @typescript-eslint/no-unsafe-assignment
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [path.join(path.dirname(require.resolve('ui')), '**/*.tsx'), './app/**/*.tsx', './features/**/*.tsx'],
+  content: [
+    path.join(path.dirname(require.resolve('@localize/ui')), '**/*.tsx'),
+    './app/**/*.tsx',
+    './features/**/*.tsx',
+  ],
   theme: {
     colors: {
       white: '#FFF',

@@ -1,1 +1,3 @@
-module.exports = require('theme/tailwind.config.cjs')
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
+module.exports = require('@localize/theme/tailwind.config.cjs')

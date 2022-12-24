@@ -1,7 +1,7 @@
+import '@localize/theme/globals.css'
 import { SupabaseListener } from 'features/auth'
 import { createClient } from 'lib/supabase.server'
 import type { PropsWithChildren } from 'react'
-import 'theme/globals.css'
 
 type RootLayoutProps = PropsWithChildren
 

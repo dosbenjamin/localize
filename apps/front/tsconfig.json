@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/base.json",
+  "extends": "@localize/tsconfig/base.json",
   "compilerOptions": {
     "plugins": [
       {
@@ -10,7 +10,8 @@
     "paths": {
       "lib/*": ["lib/*"],
       "features/*": ["features/*"]
-    }
+    },
+    "noEmit": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }

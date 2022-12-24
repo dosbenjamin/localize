@@ -1,4 +1,4 @@
-const path = require('path') // eslint-disable-line @typescript-eslint/no-var-requires
+const path = require('path')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,7 +6,7 @@ const nextConfig = {
     appDir: true,
   },
   reactStrictMode: true,
-  transpilePackages: ['ui'],
+  transpilePackages: ['@localize/ui'],
   webpack(config) {
     config.resolve.alias = {
       ...config.resolve.alias,
