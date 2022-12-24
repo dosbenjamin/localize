@@ -1,0 +1,4 @@
+{
+  "extends": "@localize/tsconfig/base.json",
+  "include": ["**/*.js"]
+}

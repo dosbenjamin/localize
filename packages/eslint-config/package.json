@@ -2,6 +2,7 @@
   "name": "@localize/eslint-config",
   "main": "index.js",
   "devDependencies": {
+    "@localize/tsconfig": "workspace:*",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
     "eslint": "8.28.0",
