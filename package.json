@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "storybook": "pnpm --filter ui storybook",
+    "dev:front": "pnpm --filter front dev",
     "dev": "pnpm -r dev",
     "build": "pnpm -r build",
-    "lint": "pnpm -r lint",
-    "storybook": "pnpm --filter './packages/ui' storybook"
+    "lint": "pnpm -r lint"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.46.1",
@@ -15,6 +16,7 @@
     "eslint-config-next": "13.0.6",
     "eslint-plugin-tailwindcss": "^3.7.1",
     "prettier": "^2.8.1",
-    "prettier-plugin-tailwindcss": "^0.2.1"
+    "prettier-plugin-tailwindcss": "^0.2.1",
+    "tsconfig": "workspace:*"
   }
 }
