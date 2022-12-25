@@ -1,6 +1,8 @@
 import { Divider, Logo } from '@localize/ui'
 import type { PropsWithChildren } from 'react'
 
+export const dynamic = 'force-static'
+
 type AuhenticationLayoutProps = PropsWithChildren
 
 const AuhenticationLayout = ({ children }: AuhenticationLayoutProps) => (
