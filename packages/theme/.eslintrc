@@ -2,7 +2,7 @@
   "root": true,
   "extends": ["@localize/eslint-config"],
   "parserOptions": {
-    "project": ["packages/theme/tsconfig.eslint.json"]
+    "project": ["tsconfig.eslint.json"]
   },
   "rules": {
     "@typescript-eslint/no-var-requires": "off",

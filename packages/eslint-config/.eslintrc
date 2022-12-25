@@ -2,6 +2,6 @@
   "root": true,
   "extends": ["./index.js"],
   "parserOptions": {
-    "project": ["packages/eslint-config/tsconfig.eslint.json"]
+    "project": ["tsconfig.eslint.json"]
   }
 }
