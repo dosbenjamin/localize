@@ -2,31 +2,30 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Form, Heading, Link as CustomLink, Stack } from '@localize/ui'
-import { supabase } from 'lib/supabase.client'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
-import * as z from 'zod'
+import toast from 'react-hot-toast/headless'
+import { useSignUp } from '../hooks/use-sign-up'
+import { signUpSchema, SignUpSchema } from '../schemas/sign-up'
 import { AuthForm } from './AuthForm'
-
-const registerSchema = z
-  .object({
-    email: z.string().email(),
-    password: z.string().min(8),
-    confirmPassword: z.string().min(8),
-  })
-  .strict()
 
 export const RegisterForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<z.infer<typeof registerSchema>>({
-    resolver: zodResolver(registerSchema),
+  } = useForm<SignUpSchema>({
+    resolver: zodResolver(signUpSchema),
   })
 
-  const handleRegister = handleSubmit(async (values) => {
-    await supabase.auth.signUp(values)
+  const { mutateAsync: signUp, isLoading } = useSignUp()
+
+  const handleRegister = handleSubmit(async (data) => {
+    await toast.promise(signUp(data), {
+      loading: 'Signing up...',
+      success: (message: string) => message,
+      error: (message: string) => message,
+    })
   })
 
   return (
@@ -34,15 +33,17 @@ export const RegisterForm = () => {
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={handleRegister}
       top={
-        <Heading as="h1" size="large" align="center">
+        <Heading size="large" align="center">
           Register
         </Heading>
       }
       bottom={
         <>
-          <Button>Sign up</Button>
+          <Button disabled={isLoading} loading={isLoading} loadingMessage="Signing up">
+            Sign up
+          </Button>
           <CustomLink as={Link} href="/login">
-            Already have an account? Log in instead!
+            Already have an account? Sign in instead!
           </CustomLink>
         </>
       }
