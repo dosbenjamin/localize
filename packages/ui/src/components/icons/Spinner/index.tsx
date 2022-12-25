@@ -5,7 +5,7 @@ export type SpinnerProps = ComponentPropsWithoutRef<'svg'>
 
 export const Spinner = ({ className, ...props }: SpinnerProps) => (
   <svg className={cx('animate-spin', className)} fill="none" viewBox="0 0 24 24" {...props}>
-    <circle opacity="0.25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+    <circle opacity="0.25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
     <path
       opacity="0.75"
       fill="currentColor"
