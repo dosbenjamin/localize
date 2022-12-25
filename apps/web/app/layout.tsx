@@ -1,4 +1,5 @@
 import '@localize/theme/globals.css'
+import { QueryClient } from 'components/QueryClient'
 import { Toaster } from 'components/Toaster'
 import { SupabaseListener } from 'features/auth'
 import { createClient } from 'lib/supabase.server'
@@ -23,7 +24,7 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
       <body className="grid min-h-screen bg-purple-900 text-white">
         <SupabaseListener accessToken={session?.access_token} />
         <Toaster />
-        {children}
+        <QueryClient>{children}</QueryClient>
       </body>
     </html>
   )
