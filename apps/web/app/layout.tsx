@@ -1,4 +1,5 @@
 import '@localize/theme/globals.css'
+import { Toaster } from 'components/Toaster'
 import { SupabaseListener } from 'features/auth'
 import { createClient } from 'lib/supabase.server'
 import type { PropsWithChildren } from 'react'
@@ -21,6 +22,7 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
       <head />
       <body className="grid min-h-screen bg-purple-900 text-white">
         <SupabaseListener accessToken={session?.access_token} />
+        <Toaster />
         {children}
       </body>
     </html>

@@ -12,8 +12,9 @@ const nextConfig = {
   webpack(config) {
     config.resolve.alias = {
       ...config.resolve.alias,
-      lib: path.resolve('lib'),
+      components: path.resolve('components'),
       features: path.resolve('features'),
+      lib: path.resolve('lib'),
     }
 
     return config

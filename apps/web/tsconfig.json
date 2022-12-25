@@ -8,8 +8,9 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "lib/*": ["lib/*"],
-      "features/*": ["features/*"]
+      "components/*": ["components/*"],
+      "features/*": ["features/*"],
+      "lib/*": ["lib/*"]
     },
     "noEmit": true
   },
