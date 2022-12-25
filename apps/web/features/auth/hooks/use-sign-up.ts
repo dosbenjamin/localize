@@ -1,7 +1,7 @@
 'use client'
 
+import { useMutation } from '@tanstack/react-query'
 import { supabase } from 'lib/supabase.client'
-import { useMutation } from 'react-query'
 import type { SignUpSchema } from '../schemas/sign-up'
 
 export const useSignUp = () => {
