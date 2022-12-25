@@ -9,9 +9,9 @@ export const useSignIn = () => {
     const { error } = await supabase.auth.signInWithPassword(credentials)
 
     if (error) {
-      return Promise.reject('Invalid login credentials')
+      return Promise.reject(error.message)
     }
 
-    return Promise.resolve('Successfully logged in')
+    return Promise.resolve('Successfully signed in')
   })
 }

@@ -22,7 +22,7 @@ export const LoginForm = () => {
 
   const handleLogin = handleSubmit(async (data) => {
     await toast.promise(signIn(data), {
-      loading: 'Connecting...',
+      loading: 'Signing in...',
       success: (message: string) => message,
       error: (message: string) => message,
     })
