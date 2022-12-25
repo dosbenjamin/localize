@@ -2,30 +2,30 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Form, Heading, Link as CustomLink, Stack } from '@localize/ui'
-import { supabase } from 'lib/supabase.client'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
-import * as z from 'zod'
+import toast from 'react-hot-toast/headless'
+import { useSignIn } from '../hooks/use-sign-in'
+import { signInSchema, type SignInSchema } from '../schemas/sign-in'
 import { AuthForm } from './AuthForm'
-
-const loginSchema = z
-  .object({
-    email: z.string().email(),
-    password: z.string().min(8),
-  })
-  .strict()
 
 export const LoginForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<z.infer<typeof loginSchema>>({
-    resolver: zodResolver(loginSchema),
+  } = useForm<SignInSchema>({
+    resolver: zodResolver(signInSchema),
   })
 
-  const handleLogin = handleSubmit(async (values) => {
-    await supabase.auth.signInWithPassword(values)
+  const { mutateAsync: signIn } = useSignIn()
+
+  const handleLogin = handleSubmit(async (data) => {
+    await toast.promise(signIn(data), {
+      loading: 'Connecting...',
+      success: (message: string) => message,
+      error: (message: string) => message,
+    })
   })
 
   return (
@@ -33,7 +33,7 @@ export const LoginForm = () => {
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={handleLogin}
       top={
-        <Heading as="h1" size="large" align="center">
+        <Heading size="large" align="center">
           Login
         </Heading>
       }
