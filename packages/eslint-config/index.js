@@ -11,5 +11,12 @@ module.exports = {
   plugins: ['@typescript-eslint', 'tailwindcss'],
   rules: {
     '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
+    'tailwindcss/no-arbitrary-value': 'warn',
+    'tailwindcss/classnames-order': 'off',
+  },
+  settings: {
+    tailwindcss: {
+      config: 'packages/theme/tailwind.config.cjs',
+    },
   },
 }
