@@ -5,8 +5,9 @@ const path = require('path') // eslint-disable-line @typescript-eslint/no-unsafe
 module.exports = {
   content: [
     path.join(path.dirname(require.resolve('@localize/ui')), '**/*.tsx'),
-    './app/**/*.tsx',
+    './components/**/*.tsx',
     './features/**/*.tsx',
+    './app/**/*.tsx',
   ],
   theme: {
     colors: {
@@ -19,7 +20,8 @@ module.exports = {
         720: '#14131F',
         900: '#0F0E17',
       },
-      danger: '#FF2406',
+      danger: '#EF3D25',
+      success: '#1CE46C',
     },
     fontFamily: {
       mono: 'Inconsolata, monospace',
