@@ -1,3 +1,5 @@
+'use client'
+
 import { supabase } from 'lib/supabase.client'
 import { useMutation } from 'react-query'
 import type { SignUpSchema } from '../schemas/sign-up'
