@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Form, Heading, Link as CustomLink, Stack } from '@localize/ui'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
-import toast from 'react-hot-toast/headless'
+import { toast } from 'react-hot-toast/headless'
 import { useSignIn } from '../hooks/use-sign-in'
 import { signInSchema, type SignInSchema } from '../schemas/sign-in'
 import { AuthForm } from './AuthForm'
@@ -18,7 +18,7 @@ export const LoginForm = () => {
     resolver: zodResolver(signInSchema),
   })
 
-  const { mutateAsync: signIn } = useSignIn()
+  const { mutateAsync: signIn, isLoading } = useSignIn()
 
   const handleLogin = handleSubmit(async (data) => {
     await toast.promise(signIn(data), {
@@ -39,9 +39,11 @@ export const LoginForm = () => {
       }
       bottom={
         <>
-          <Button>Log in</Button>
+          <Button disabled={isLoading} loading={isLoading} loadingMessage="Signing in">
+            Sign in
+          </Button>
           <CustomLink as={Link} href="/register">
-            No account? Register here!
+            No account? Sign up here!
           </CustomLink>
         </>
       }
