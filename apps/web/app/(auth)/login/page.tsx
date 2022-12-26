@@ -1,4 +1,4 @@
-import { LoginForm } from 'features/auth'
+import { LoginForm } from 'features/auth/components/LoginForm'
 
 const Login = () => <LoginForm />
 

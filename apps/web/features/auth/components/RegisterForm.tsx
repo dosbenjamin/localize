@@ -2,12 +2,12 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Form, Heading, Link as CustomLink, Stack } from '@localize/ui'
-import { AuthError } from '@supabase/supabase-js'
+import type { AuthError } from '@supabase/supabase-js'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
-import toast from 'react-hot-toast/headless'
+import { toast } from 'react-hot-toast/headless'
 import { useSignUp } from '../hooks/use-sign-up'
-import { signUpSchema, SignUpSchema } from '../schemas/sign-up'
+import { signUpSchema, type SignUpSchema } from '../schemas/sign-up'
 import { AuthForm } from './AuthForm'
 
 export const RegisterForm = () => {

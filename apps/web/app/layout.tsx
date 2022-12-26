@@ -1,7 +1,7 @@
 import '@localize/theme/globals.css'
 import { QueryClient } from 'components/QueryClient'
 import { Toaster } from 'components/Toaster'
-import { SupabaseListener } from 'features/auth'
+import { SupabaseListener } from 'features/auth/components/SupabaseListener'
 import { createClient } from 'lib/supabase.server'
 import type { PropsWithChildren } from 'react'
 
