@@ -2,6 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Form, Heading, Link as CustomLink, Stack } from '@localize/ui'
+import { AuthError } from '@supabase/supabase-js'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast/headless'
@@ -21,11 +22,15 @@ export const RegisterForm = () => {
   const { mutateAsync: signUp, isLoading } = useSignUp()
 
   const handleRegister = handleSubmit(async (data) => {
-    await toast.promise(signUp(data), {
-      loading: 'Signing up...',
-      success: (message: string) => message,
-      error: (message: string) => message,
-    })
+    try {
+      await toast.promise(signUp(data), {
+        loading: 'Signing up...',
+        success: () => 'Successfully signed up',
+        error: ({ message }: AuthError) => message,
+      })
+    } catch {
+      toast('😔 Try again!')
+    }
   })
 
   return (

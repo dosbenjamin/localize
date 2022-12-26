@@ -5,13 +5,15 @@ import { supabase } from 'lib/supabase.client'
 import type { SignInSchema } from '../schemas/sign-in'
 
 export const useSignIn = () => {
-  return useMutation(async (credentials: SignInSchema) => {
-    const { error } = await supabase.auth.signInWithPassword(credentials)
+  return useMutation({
+    mutationFn: async (credentials: SignInSchema) => {
+      const { data, error } = await supabase.auth.signInWithPassword(credentials)
 
-    if (error) {
-      return Promise.reject(error.message)
-    }
+      if (error) {
+        return Promise.reject(error)
+      }
 
-    return Promise.resolve('Successfully signed in')
+      return Promise.resolve(data)
+    },
   })
 }
