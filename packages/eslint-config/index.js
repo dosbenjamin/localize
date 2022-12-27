@@ -14,9 +14,4 @@ module.exports = {
     'tailwindcss/no-arbitrary-value': 'warn',
     'tailwindcss/classnames-order': 'off',
   },
-  settings: {
-    tailwindcss: {
-      config: 'packages/theme/tailwind.config.cjs',
-    },
-  },
 }

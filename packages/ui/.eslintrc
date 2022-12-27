@@ -3,5 +3,10 @@
   "extends": ["@localize/eslint-config"],
   "parserOptions": {
     "project": ["tsconfig.eslint.json"]
+  },
+  "settings": {
+    "tailwindcss": {
+      "config": "tailwind.config.cjs"
+    }
   }
 }
