@@ -6,7 +6,7 @@ export const dynamic = 'force-static'
 type AuhenticationLayoutProps = PropsWithChildren
 
 const AuhenticationLayout = ({ children }: AuhenticationLayoutProps) => (
-  <main className="grid place-items-center">
+  <main className="grid flex-1 place-items-center">
     <section className="bg-purple-720 relative w-full max-w-md">
       <Logo className="absolute -top-8 left-1/2 h-8 -translate-y-full -translate-x-1/2" />
       <Divider className="absolute top-0 left-1/2 w-screen -translate-x-1/2" />

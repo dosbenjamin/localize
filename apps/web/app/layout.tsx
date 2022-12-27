@@ -1,7 +1,7 @@
 import '@localize/theme/globals.css'
 import { QueryClient } from 'components/QueryClient'
 import { Toaster } from 'components/Toaster'
-import { SupabaseListener } from 'features/auth/components/SupabaseListener'
+import { SupabaseListener } from 'features/auth/client'
 import { createClient } from 'lib/supabase.server'
 import type { PropsWithChildren } from 'react'
 
@@ -21,7 +21,7 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
       head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
     */}
       <head />
-      <body className="grid min-h-screen bg-purple-900 text-white">
+      <body className="flex min-h-screen flex-col bg-purple-900 text-white">
         <SupabaseListener accessToken={session?.access_token} />
         <Toaster />
         <QueryClient>{children}</QueryClient>
