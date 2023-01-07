@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Form, Heading, Link as CustomLink, Stack } from '@localize/ui'
 import type { AuthError } from '@supabase/supabase-js'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast/headless'
 import { useSignUp } from '../hooks/use-sign-up'
@@ -11,6 +12,9 @@ import { signUpSchema, type SignUpSchema } from '../schemas/sign-up'
 import { AuthForm } from './AuthForm'
 
 export const RegisterForm = () => {
+  const router = useRouter()
+  const { mutateAsync: signUp, isLoading } = useSignUp()
+
   const {
     register,
     handleSubmit,
@@ -19,18 +23,18 @@ export const RegisterForm = () => {
     resolver: zodResolver(signUpSchema),
   })
 
-  const { mutateAsync: signUp, isLoading } = useSignUp()
-
   const handleRegister = handleSubmit(async (data) => {
     try {
       await toast.promise(signUp(data), {
+        error: ({ message }: AuthError) => message,
         loading: 'Signing up...',
         success: () => 'Successfully signed up',
-        error: ({ message }: AuthError) => message,
       })
     } catch {
       toast('😔 Try again!')
     }
+
+    router.push('/dashboard')
   })
 
   return (
