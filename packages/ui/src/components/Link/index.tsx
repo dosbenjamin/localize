@@ -1,14 +1,13 @@
 import { polymorphicFactory } from '@polymorphic-factory/react'
 import { cva, type VariantProps } from 'class-variance-authority'
-import type { ElementType } from 'react'
+import type { ComponentPropsWithRef, ElementType } from 'react'
 
 const linkVariants = cva('uppercase outline-none', {
+  defaultVariants: {
+    color: 'purple-180',
+    size: 'base',
+  },
   variants: {
-    align: {
-      left: 'text-left',
-      center: 'text-center',
-      right: 'text-right',
-    },
     color: {
       'purple-180': 'text-purple-180',
     },
@@ -16,20 +15,15 @@ const linkVariants = cva('uppercase outline-none', {
       base: 'text-base variation-wght-500',
     },
   },
-  defaultVariants: {
-    align: 'center',
-    color: 'purple-180',
-    size: 'base',
-  },
 })
 
-type LinkProps = VariantProps<typeof linkVariants>
+export type LinkProps = ComponentPropsWithRef<'a'> & VariantProps<typeof linkVariants>
 
 const poly = polymorphicFactory<ElementType, LinkProps>({
   styled:
     (component) =>
-    ({ align, color, size, as: Component = component, ...props }) =>
-      <Component className={linkVariants({ align, color, size })} {...props} />,
+    ({ className, color, size, as: Component = component, ...props }) =>
+      <Component className={linkVariants({ className, color, size })} {...props} />,
 })
 
 export const Link = poly<'a', LinkProps>('a')

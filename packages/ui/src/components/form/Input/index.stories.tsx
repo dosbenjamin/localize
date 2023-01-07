@@ -2,8 +2,8 @@ import type { Meta } from '@storybook/react'
 import { Input } from '.'
 
 const config: Meta<typeof Input> = {
-  title: 'Components/Form/Input',
   component: Input,
+  title: 'Components/Form/Input',
 }
 
 export default config

@@ -2,6 +2,10 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import type { ComponentPropsWithRef } from 'react'
 
 const labelVariants = cva('uppercase', {
+  defaultVariants: {
+    color: 'white',
+    size: 'base',
+  },
   variants: {
     color: {
       white: 'text-white',
@@ -10,13 +14,9 @@ const labelVariants = cva('uppercase', {
       base: 'text-base variation-wght-500',
     },
   },
-  defaultVariants: {
-    color: 'white',
-    size: 'base',
-  },
 })
 
-type LabelProps = ComponentPropsWithRef<'label'> & VariantProps<typeof labelVariants>
+export type LabelProps = ComponentPropsWithRef<'label'> & VariantProps<typeof labelVariants>
 
 export const Label = ({ size, color, ...props }: LabelProps) => (
   <label className={labelVariants({ color, size })} {...props} />

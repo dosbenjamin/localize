@@ -3,6 +3,15 @@ import type { PropsWithChildren } from 'react'
 import { Spinner } from '../icons'
 
 const notificationVariants = cva('border border-purple-720 uppercase p-4 w-80 variation-wght-600', {
+  compoundVariants: [
+    {
+      className: 'flex items-center',
+      intent: 'loading',
+    },
+  ],
+  defaultVariants: {
+    intent: 'blank',
+  },
   variants: {
     intent: {
       blank: 'bg-purple-900 text-white',
@@ -10,15 +19,6 @@ const notificationVariants = cva('border border-purple-720 uppercase p-4 w-80 va
       loading: 'bg-purple-900 text-white',
       success: 'bg-success text-purple-900',
     },
-  },
-  compoundVariants: [
-    {
-      intent: 'loading',
-      className: 'flex items-center',
-    },
-  ],
-  defaultVariants: {
-    intent: 'blank',
   },
 })
 

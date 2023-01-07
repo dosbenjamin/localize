@@ -1,6 +1,6 @@
 import type { ComponentPropsWithRef } from 'react'
 
-type LogoProps = ComponentPropsWithRef<'svg'>
+export type LogoProps = ComponentPropsWithRef<'svg'>
 
 export const Logo = (props: LogoProps) => (
   <svg viewBox="0 0 235 27" {...props}>

@@ -2,8 +2,8 @@ import type { Meta } from '@storybook/react'
 import { Logo } from '.'
 
 const config: Meta<typeof Logo> = {
-  title: 'Components/Logo',
   component: Logo,
+  title: 'Components/Logo',
 }
 
 export default config

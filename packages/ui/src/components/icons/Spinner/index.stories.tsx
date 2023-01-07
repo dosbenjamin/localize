@@ -2,8 +2,8 @@ import type { Meta } from '@storybook/react'
 import { Spinner } from '.'
 
 const config: Meta<typeof Spinner> = {
-  title: 'Components/Icons/Spinner',
   component: Spinner,
+  title: 'Components/Icons/Spinner',
 }
 
 export default config

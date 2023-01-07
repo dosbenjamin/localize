@@ -2,8 +2,8 @@ import type { Meta } from '@storybook/react'
 import { Label } from '.'
 
 const config: Meta<typeof Label> = {
-  title: 'Components/Form/Label',
   component: Label,
+  title: 'Components/Form/Label',
 }
 
 export default config
