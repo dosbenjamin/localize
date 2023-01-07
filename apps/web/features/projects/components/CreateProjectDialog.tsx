@@ -58,10 +58,10 @@ export const CreateProjectDialog = ({ children, userId }: CreateProjectDialogPro
           >
             {children}
             <div className="space-y-4">
-              <div className="space-y-2">
+              <Form.Control>
                 <Form.Label>Name</Form.Label>
                 <Form.Input placeholder="Localize" errorMessage={errors.name?.message} {...register('name')} />
-              </div>
+              </Form.Control>
             </div>
             <Button loading={isLoading} disabled={isLoading}>
               Create
