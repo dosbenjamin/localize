@@ -13,13 +13,15 @@ const headingVariants = cva('uppercase', {
   },
 })
 
-export type HeadingProps = VariantProps<typeof headingVariants>
+export type HeadingProps = VariantProps<typeof headingVariants> & {
+  className?: string | undefined
+}
 
 const poly = polymorphicFactory<ElementType, HeadingProps>({
   styled:
     (component) =>
-    ({ as: Component = component, size, ...props }) =>
-      <Component className={headingVariants({ size })} {...props} />,
+    ({ as: Component = component, size, className, ...props }) =>
+      <Component className={headingVariants({ className, size })} {...props} />,
 })
 
 export const Heading = poly<'h1', HeadingProps>('h1')

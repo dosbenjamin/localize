@@ -1,7 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Button, Form, Heading, Link as CustomLink, Stack } from '@localize/ui'
+import { Button, Form, Heading, Link as CustomLink } from '@localize/ui'
 import type { AuthError } from '@supabase/supabase-js'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -42,7 +42,7 @@ export const LoginForm = () => {
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={handleLogin}
       top={
-        <Heading size="large" align="center">
+        <Heading size="large" className="text-center">
           Login
         </Heading>
       }
@@ -51,13 +51,13 @@ export const LoginForm = () => {
           <Button disabled={isLoading} loading={isLoading} loadingMessage="Signing in">
             Sign in
           </Button>
-          <CustomLink as={Link} href="/register">
+          <CustomLink as={Link} href="/register" className="text-center">
             No account? Sign up here!
           </CustomLink>
         </>
       }
     >
-      <Stack.Vertical>
+      <Form.Control>
         <Form.Label>Email</Form.Label>
         <Form.Input
           type="email"
@@ -65,8 +65,8 @@ export const LoginForm = () => {
           errorMessage={errors.email?.message}
           {...register('email')}
         />
-      </Stack.Vertical>
-      <Stack.Vertical>
+      </Form.Control>
+      <Form.Control>
         <Form.Label>Password</Form.Label>
         <Form.Input
           type="password"
@@ -74,7 +74,7 @@ export const LoginForm = () => {
           errorMessage={errors.password?.message}
           {...register('password')}
         />
-      </Stack.Vertical>
+      </Form.Control>
     </AuthForm>
   )
 }

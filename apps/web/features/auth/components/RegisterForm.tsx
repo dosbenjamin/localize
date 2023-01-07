@@ -1,7 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Button, Form, Heading, Link as CustomLink, Stack } from '@localize/ui'
+import { Button, Form, Heading, Link as CustomLink } from '@localize/ui'
 import type { AuthError } from '@supabase/supabase-js'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -42,7 +42,7 @@ export const RegisterForm = () => {
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={handleRegister}
       top={
-        <Heading size="large" align="center">
+        <Heading size="large" className="text-center">
           Register
         </Heading>
       }
@@ -51,13 +51,13 @@ export const RegisterForm = () => {
           <Button disabled={isLoading} loading={isLoading} loadingMessage="Signing up">
             Sign up
           </Button>
-          <CustomLink as={Link} href="/login">
+          <CustomLink as={Link} href="/login" className="text-center">
             Already have an account? Sign in instead!
           </CustomLink>
         </>
       }
     >
-      <Stack.Vertical>
+      <Form.Control>
         <Form.Label>Email</Form.Label>
         <Form.Input
           type="email"
@@ -65,8 +65,8 @@ export const RegisterForm = () => {
           errorMessage={errors.email?.message}
           {...register('email')}
         />
-      </Stack.Vertical>
-      <Stack.Vertical>
+      </Form.Control>
+      <Form.Control>
         <Form.Label>Password</Form.Label>
         <Form.Input
           type="password"
@@ -74,8 +74,8 @@ export const RegisterForm = () => {
           errorMessage={errors.password?.message}
           {...register('password')}
         />
-      </Stack.Vertical>
-      <Stack.Vertical>
+      </Form.Control>
+      <Form.Control>
         <Form.Label>Confirm password</Form.Label>
         <Form.Input
           type="password"
@@ -83,7 +83,7 @@ export const RegisterForm = () => {
           errorMessage={errors.confirmPassword?.message}
           {...register('confirmPassword')}
         />
-      </Stack.Vertical>
+      </Form.Control>
     </AuthForm>
   )
 }

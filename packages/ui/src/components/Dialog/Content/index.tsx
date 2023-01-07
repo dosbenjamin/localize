@@ -5,7 +5,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { cx } from 'class-variance-authority'
 
 export type ContentProps = PropsWithChildren<{
-  className?: string
+  className?: string | undefined
 }>
 
 export const Content = ({ className, ...props }: ContentProps) => (
