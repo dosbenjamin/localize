@@ -1,11 +1,17 @@
 import type { Meta } from '@storybook/react'
-import { Button } from '.'
+import { Button, type ButtonProps } from '.'
 
 const config: Meta<typeof Button> = {
-  title: 'Components/Button',
+  argTypes: {
+    intent: {
+      control: { type: 'select' },
+      options: ['danger', 'primary'],
+    },
+  },
   component: Button,
+  title: 'Components/Button',
 }
 
 export default config
 
-export const Default = () => <Button>Button</Button>
+export const Default = (args: ButtonProps) => <Button {...args}>Button</Button>
