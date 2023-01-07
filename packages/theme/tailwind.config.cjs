@@ -54,6 +54,7 @@ module.exports = {
         body: {
           textRendering: 'optimizeLegibility',
           fontFamily: theme('fontFamily.mono'),
+          color: theme('colors.white'),
           '-webkit-font-smoothing': 'antialiased',
         },
       })
