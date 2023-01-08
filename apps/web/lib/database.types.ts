@@ -32,18 +32,21 @@ export interface Database {
           created_at: string
           profile_id: string
           project_id: string
+          role: Database["public"]["Enums"]["role"]
         }
         Insert: {
           id?: string
           created_at?: string
           profile_id: string
           project_id: string
+          role?: Database["public"]["Enums"]["role"]
         }
         Update: {
           id?: string
           created_at?: string
           profile_id?: string
           project_id?: string
+          role?: Database["public"]["Enums"]["role"]
         }
       }
       projects: {
@@ -69,12 +72,12 @@ export interface Database {
     }
     Functions: {
       create_project: {
-        Args: { name: string; profile_id: string }
+        Args: { name: string }
         Returns: unknown
       }
     }
     Enums: {
-      [_ in never]: never
+      role: "Administrator" | "Editor" | "Contributor"
     }
   }
 }

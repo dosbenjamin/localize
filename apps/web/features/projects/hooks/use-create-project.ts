@@ -4,11 +4,8 @@ import type { CreateProjectSchema } from '../schemas/create-project'
 
 export const useCreateProject = () => {
   return useMutation({
-    mutationFn: async ({ name, ownerId }: CreateProjectSchema) => {
-      const { data, error } = await supabase.rpc('create_project', {
-        name,
-        profile_id: ownerId,
-      })
+    mutationFn: async (values: CreateProjectSchema) => {
+      const { data, error } = await supabase.rpc('create_project', values)
 
       if (error) {
         return Promise.reject(error)

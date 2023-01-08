@@ -24,7 +24,6 @@ export const CreateProjectDialog = ({ children, userId }: CreateProjectDialogPro
     handleSubmit,
     formState: { errors },
   } = useForm<CreateProjectSchema>({
-    defaultValues: { ownerId: userId },
     resolver: zodResolver(createProjectSchema),
   })
 
