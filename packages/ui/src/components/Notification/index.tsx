@@ -22,7 +22,7 @@ const notificationVariants = cva('border border-purple-720 uppercase p-4 w-80 va
   },
 })
 
-export type NotificationProps = PropsWithChildren<VariantProps<typeof notificationVariants>>
+type NotificationProps = PropsWithChildren<VariantProps<typeof notificationVariants>>
 
 export const Notification = ({ children, intent, ...props }: NotificationProps) => (
   <div className={notificationVariants({ intent })} {...props}>

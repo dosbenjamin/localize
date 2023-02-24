@@ -3,7 +3,7 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import type { PropsWithChildren } from 'react'
 
-export type PortalProps = PropsWithChildren
+type PortalProps = PropsWithChildren
 
 export const Portal = (props: PortalProps) => (
   <Dialog.Portal>

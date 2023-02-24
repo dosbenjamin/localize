@@ -13,7 +13,7 @@ const headingVariants = cva('uppercase', {
   },
 })
 
-export type HeadingProps = VariantProps<typeof headingVariants> & {
+type HeadingProps = VariantProps<typeof headingVariants> & {
   className?: string | undefined
 }
 

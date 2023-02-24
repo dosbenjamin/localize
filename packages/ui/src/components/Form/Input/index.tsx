@@ -19,7 +19,7 @@ const inputVariants = cva('w-full placeholder:uppercase outline-none focus:ring-
   },
 })
 
-export type InputProps = ComponentPropsWithoutRef<'input'> &
+type InputProps = ComponentPropsWithoutRef<'input'> &
   VariantProps<typeof inputVariants> & {
     errorMessage?: string
   }

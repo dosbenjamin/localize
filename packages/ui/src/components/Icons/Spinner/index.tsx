@@ -1,7 +1,7 @@
 import { cx } from 'class-variance-authority'
 import type { ComponentPropsWithoutRef } from 'react'
 
-export type SpinnerProps = ComponentPropsWithoutRef<'svg'>
+type SpinnerProps = ComponentPropsWithoutRef<'svg'>
 
 export const Spinner = ({ className, ...props }: SpinnerProps) => (
   <svg className={cx('animate-spin', className)} fill="none" viewBox="0 0 24 24" {...props}>

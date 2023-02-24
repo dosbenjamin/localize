@@ -24,7 +24,7 @@ const buttonVariants = cva('uppercase text-center outline-none', {
   },
 })
 
-export type ButtonProps = ComponentPropsWithoutRef<'button'> &
+type ButtonProps = ComponentPropsWithoutRef<'button'> &
   VariantProps<typeof buttonVariants> & {
     loading?: boolean
     loadingMessage?: ReactNode

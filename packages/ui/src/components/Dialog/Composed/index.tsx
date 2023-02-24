@@ -3,7 +3,7 @@
 import { type PropsWithChildren, type ReactNode, useState } from 'react'
 import * as Dialog from '..'
 
-export type ComposedProps = PropsWithChildren<{
+type ComposedProps = PropsWithChildren<{
   trigger?: ReactNode
 }>
 

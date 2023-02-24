@@ -16,7 +16,7 @@ const labelVariants = cva('uppercase', {
   },
 })
 
-export type LabelProps = ComponentPropsWithRef<'label'> & VariantProps<typeof labelVariants>
+type LabelProps = ComponentPropsWithRef<'label'> & VariantProps<typeof labelVariants>
 
 export const Label = ({ size, color, ...props }: LabelProps) => (
   <label className={labelVariants({ color, size })} {...props} />

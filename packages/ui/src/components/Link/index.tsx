@@ -17,7 +17,7 @@ const linkVariants = cva('uppercase outline-none', {
   },
 })
 
-export type LinkProps = ComponentPropsWithRef<'a'> & VariantProps<typeof linkVariants>
+type LinkProps = ComponentPropsWithRef<'a'> & VariantProps<typeof linkVariants>
 
 const poly = polymorphicFactory<ElementType, LinkProps>({
   styled:

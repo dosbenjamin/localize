@@ -17,7 +17,7 @@ const dividerVariants = cva('', {
   },
 })
 
-export type DividerProps = ComponentPropsWithoutRef<'div'> & VariantProps<typeof dividerVariants>
+type DividerProps = ComponentPropsWithoutRef<'div'> & VariantProps<typeof dividerVariants>
 
 export const Divider = ({ className, color, orientation, ...props }: DividerProps) => (
   <div className={dividerVariants({ className, color, orientation })} {...props} />

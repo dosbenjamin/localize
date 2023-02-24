@@ -2,7 +2,7 @@ import { cx } from 'class-variance-authority'
 import { ComponentPropsWithoutRef } from 'react'
 import { Icon } from '..'
 
-export type CrossButtonProps = ComponentPropsWithoutRef<'button'>
+type CrossButtonProps = ComponentPropsWithoutRef<'button'>
 
 export const CrossButton = ({ className, ...props }: CrossButtonProps) => (
   <button className={cx('bg-purple-540 grid aspect-square place-content-center', className)} {...props}>
