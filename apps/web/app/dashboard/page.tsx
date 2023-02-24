@@ -7,10 +7,6 @@ import Link from 'next/link'
 const Dashboard = async () => {
   const supabase = createClient()
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
   const { data: projects } = await supabase.from('projects').select().order('created_at', { ascending: false })
 
   return (
@@ -24,7 +20,7 @@ const Dashboard = async () => {
         }
       >
         <Heading size="large">New project</Heading>
-        <CreateProjectForm userId={user?.id} />
+        <CreateProjectForm />
       </Dialog.Composed>
       {projects?.map(({ id, name }) => (
         <article key={id} className="bg-purple-720">
