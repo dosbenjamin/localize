@@ -8,10 +8,13 @@
     "build:web": "pnpm --filter web build",
     "build": "pnpm -r build",
     "lint:web": "pnpm --filter web lint",
-    "lint": "pnpm -r build"
+    "lint:eslint-config": "pnpm --filter eslint-config lint",
+    "lint:theme": "pnpm --filter theme lint",
+    "lint:ui": "pnpm --filter ui lint",
+    "lint": "pnpm -r lint"
   },
   "devDependencies": {
-    "prettier": "^2.8.1",
-    "prettier-plugin-tailwindcss": "^0.2.1"
+    "prettier": "^2.8.4",
+    "prettier-plugin-tailwindcss": "^0.2.3"
   }
 }
