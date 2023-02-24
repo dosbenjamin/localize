@@ -7,7 +7,7 @@ import { type PropsWithChildren, useState } from 'react'
 import { toast } from 'react-hot-toast/headless'
 import { useDeleteProject } from '../hooks/use-delete-project'
 
-export type DeleteProjectDialogProps = PropsWithChildren<{
+type DeleteProjectDialogProps = PropsWithChildren<{
   projectId: string
 }>
 

@@ -5,7 +5,7 @@ import { Button, Form } from '@localize/ui'
 import { useForm } from 'react-hook-form'
 import { inviteMemberSchema, type InviteMemberSchema } from '../client'
 
-export type InviteMemberFormProps = {
+type InviteMemberFormProps = {
   projectId: string
 }
 
