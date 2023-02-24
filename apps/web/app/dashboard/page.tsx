@@ -1,6 +1,6 @@
-import { Heading, Link as CustomLink } from '@localize/ui'
+import { CrossButton, Dialog, Heading, Icon, Link as CustomLink } from '@localize/ui'
 import { ProjectFolder } from 'features/projects/server'
-import { CreateProjectDialog } from 'features/projects/client'
+import { CreateProjectForm, InviteMemberForm } from 'features/projects/client'
 import { createClient } from 'lib/supabase.server'
 import Link from 'next/link'
 
@@ -11,29 +11,28 @@ const Dashboard = async () => {
     data: { user },
   } = await supabase.auth.getUser()
 
-  const { data: projects } = await supabase
-    .from('projects')
-    .select(
-      `
-      id,
-      name
-    `,
-    )
-    .order('created_at', { ascending: false })
+  const { data: projects } = await supabase.from('projects').select().order('created_at', { ascending: false })
 
   return (
     <div className="space-y-8 p-8">
       <Heading size="medium">Projects</Heading>
-      <CreateProjectDialog userId={user?.id}>
+      <Dialog.Composed
+        trigger={
+          <button className="bg-purple-720 grid h-48 w-full place-content-center p-8 outline-none">
+            <CustomLink as="span">New project</CustomLink>
+          </button>
+        }
+      >
         <Heading size="large">New project</Heading>
-      </CreateProjectDialog>
+        <CreateProjectForm userId={user?.id} />
+      </Dialog.Composed>
       {projects?.map(({ id, name }) => (
         <article key={id} className="bg-purple-720">
-          <div className="border-purple-360 flex items-center justify-between border-b p-8">
+          <header className="border-purple-360 flex items-center justify-between border-b p-8">
             <Heading size="large">
               <Link href={`/dashboard/projects/${id}`}>{name}</Link>
             </Heading>
-          </div>
+          </header>
           <div className="divide-purple-360 flex divide-x">
             <ProjectFolder
               header={
@@ -46,9 +45,15 @@ const Dashboard = async () => {
               }
             >
               <div className="flex space-x-4">
-                <div className="bg-purple-540 aspect-square flex-1"></div>
-                <div className="bg-purple-540 aspect-square flex-1"></div>
-                <div className="bg-purple-540 aspect-square flex-1"></div>
+                {Array.from({ length: 2 }, (_, index) => (
+                  <div className="bg-purple-540 aspect-square flex-1" key={index} />
+                ))}
+                <button
+                  className="bg-purple-540 grid aspect-square flex-1 place-content-center"
+                  aria-label="Add a team member"
+                >
+                  <Icon.Cross className="fill-purple-180 h-10 w-10" />
+                </button>
               </div>
             </ProjectFolder>
             <ProjectFolder
@@ -62,15 +67,13 @@ const Dashboard = async () => {
               }
             >
               <div className="grid grid-cols-6 gap-4">
-                <div className="bg-purple-540 aspect-square"></div>
-                <div className="bg-purple-540 aspect-square"></div>
-                <div className="bg-purple-540 aspect-square"></div>
-                <div className="bg-purple-540 aspect-square"></div>
-                <div className="bg-purple-540 aspect-square"></div>
-                <div className="bg-purple-540 aspect-square"></div>
-                <div className="bg-purple-540 aspect-square"></div>
-                <div className="bg-purple-540 aspect-square"></div>
-                <div className="bg-purple-540 col-start-5 col-end-7 row-start-1 row-end-3 aspect-square"></div>
+                {Array.from({ length: 8 }, (_, index) => (
+                  <div className="bg-purple-540 aspect-square" key={index} />
+                ))}
+                <Dialog.Composed trigger={<CrossButton className="col-start-5 col-end-7 row-start-1 row-end-3" />}>
+                  <Heading size="large">Invite a member</Heading>
+                  <InviteMemberForm projectId={id} />
+                </Dialog.Composed>
               </div>
             </ProjectFolder>
           </div>
