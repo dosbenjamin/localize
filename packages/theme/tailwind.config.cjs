@@ -1,3 +1,5 @@
+/* eslint-disable sort-keys */
+
 const plugin = require('tailwindcss/plugin')
 const path = require('path') // eslint-disable-line @typescript-eslint/no-unsafe-assignment
 
@@ -42,6 +44,11 @@ module.exports = {
         100: '100',
         125: '125',
         150: '150',
+      },
+    },
+    extend: {
+      minWidth: {
+        md: '28rem',
       },
     },
   },
