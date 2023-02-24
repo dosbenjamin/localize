@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
-import { Spinner } from '../icons'
+import { Spinner } from '../Icons'
 
 const buttonVariants = cva('uppercase text-center outline-none', {
   defaultVariants: {
