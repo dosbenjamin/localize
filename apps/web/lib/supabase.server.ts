@@ -4,6 +4,6 @@ import type { Database } from './database.types'
 
 export const createClient = () =>
   createServerComponentSupabaseClient<Database>({
-    headers,
     cookies,
+    headers,
   })

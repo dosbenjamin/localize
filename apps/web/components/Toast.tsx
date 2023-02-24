@@ -1,5 +1,8 @@
-import { Notification, type NotificationProps } from '@localize/ui'
+import { Notification } from '@localize/ui'
+import { ComponentPropsWithoutRef } from 'react'
 import type { ToastType } from 'react-hot-toast/headless'
+
+type NotificationProps = ComponentPropsWithoutRef<typeof Notification>
 
 const toasts: Record<ToastType, (props: NotificationProps) => JSX.Element> = {
   blank: (props) => <Notification {...props} />,
