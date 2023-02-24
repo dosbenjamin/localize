@@ -9,5 +9,8 @@ export type ContentProps = PropsWithChildren<{
 }>
 
 export const Content = ({ className, ...props }: ContentProps) => (
-  <Dialog.Content className={cx('border-purple-360 z-10 max-w-md border bg-purple-900 p-12', className)} {...props} />
+  <Dialog.Content
+    className={cx('border-purple-360 min-w-md z-10 space-y-8 border bg-purple-900 p-12', className)}
+    {...props}
+  />
 )
