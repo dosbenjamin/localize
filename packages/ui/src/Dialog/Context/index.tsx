@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext, type PropsWithChildren } from 'react'
 
 export const Context = createContext<ContextValue | null>(null)

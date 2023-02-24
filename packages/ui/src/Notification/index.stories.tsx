@@ -1,5 +1,8 @@
 import type { Meta } from '@storybook/react'
-import { Notification, type NotificationProps } from '.'
+import type { ComponentPropsWithoutRef } from 'react'
+import { Notification } from '.'
+
+type NotificationProps = ComponentPropsWithoutRef<typeof Notification>
 
 const config: Meta<typeof Notification> = {
   argTypes: {

@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { useToaster } from 'react-hot-toast/headless'
 import { Toast } from './Toast'
 

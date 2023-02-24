@@ -1,5 +1,5 @@
 import { cx } from 'class-variance-authority'
-import { ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import { Icon } from '..'
 
 type CrossButtonProps = ComponentPropsWithoutRef<'button'>

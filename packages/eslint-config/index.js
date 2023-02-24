@@ -11,8 +11,9 @@ module.exports = {
   plugins: ['@typescript-eslint', 'tailwindcss'],
   rules: {
     '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
-    'sort-keys': 'warn',
+    '@typescript-eslint/consistent-type-imports': 'error',
+    'sort-keys': 'error',
     'tailwindcss/classnames-order': 'off',
-    'tailwindcss/no-arbitrary-value': 'warn',
+    'tailwindcss/no-arbitrary-value': 'error',
   },
 }

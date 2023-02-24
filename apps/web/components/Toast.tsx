@@ -1,5 +1,5 @@
 import { Notification } from '@localize/ui'
-import { ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import type { ToastType } from 'react-hot-toast/headless'
 
 type NotificationProps = ComponentPropsWithoutRef<typeof Notification>

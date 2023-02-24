@@ -1,5 +1,8 @@
 import type { Meta } from '@storybook/react'
-import { Button, type ButtonProps } from '.'
+import type { ComponentPropsWithoutRef } from 'react'
+import { Button } from '.'
+
+type ButtonProps = ComponentPropsWithoutRef<typeof Button>
 
 const config: Meta<typeof Button> = {
   argTypes: {

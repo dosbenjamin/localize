@@ -1,9 +1,10 @@
 'use client'
 
 import { Button, Dialog } from '@localize/ui'
-import { PostgrestError } from '@supabase/supabase-js'
+import type { PostgrestError } from '@supabase/supabase-js'
 import { useRouter } from 'next/navigation'
-import { type PropsWithChildren, useState } from 'react'
+import { useState } from 'react'
+import type { PropsWithChildren } from 'react'
 import { toast } from 'react-hot-toast/headless'
 import { useDeleteProject } from '../hooks/use-delete-project'
 

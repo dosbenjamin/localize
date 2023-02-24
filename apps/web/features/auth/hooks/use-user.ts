@@ -3,7 +3,7 @@ import { supabase } from 'lib/supabase.client'
 
 export const useUser = () => {
   return useQuery({
-    queryKey: ['user'],
     queryFn: () => supabase.auth.getUser(),
+    queryKey: ['user'],
   })
 }

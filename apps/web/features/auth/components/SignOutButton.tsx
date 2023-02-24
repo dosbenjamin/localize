@@ -14,9 +14,9 @@ export const SignOutButton = () => {
   const handleSignOut = async () => {
     try {
       await toast.promise(signOut(), {
-        loading: 'Signing out...',
-        success: () => 'Successfully signed out',
         error: ({ message }: AuthError) => message,
+        loading: 'Signing out...',
+        success: 'Successfully signed out',
       })
 
       router.push('/login')
