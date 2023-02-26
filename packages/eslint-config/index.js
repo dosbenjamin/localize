@@ -17,7 +17,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
     '@typescript-eslint/consistent-type-imports': 'error',
-    'sort-keys': 'error',
+    'sort-keys': 'warn',
     'tailwindcss/classnames-order': 'off',
     'tailwindcss/no-arbitrary-value': 'error',
   },
