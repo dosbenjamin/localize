@@ -1,0 +1,19 @@
+name: Main
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+    steps:
+      - uses: actions/checkout@master
+      - uses: pnpm/action-setup@master
+        with:
+          version: latest
+      - uses: actions/setup-node@master
+        with:
+          node-version: '16'
+          cache: 'pnpm'
+      - run: pnpm install
+      - run: pnpm lint
