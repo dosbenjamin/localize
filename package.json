@@ -2,9 +2,9 @@
   "name": "localize",
   "version": "0.0.1",
   "scripts": {
-    "storybook": "pnpm --filter ui storybook",
-    "dev:web": "pnpm --filter web dev",
-    "dev": "pnpm -r dev",
+    "dev:web": "turbo --filter web dev",
+    "dev:ui": "turbo --filter ui dev",
+    "dev": "turbo dev",
     "build:web": "pnpm --filter web build",
     "build": "pnpm -r build",
     "lint:web": "pnpm --filter web lint",
