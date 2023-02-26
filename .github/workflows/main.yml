@@ -21,4 +21,6 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install
       - run: pnpm build
-      - run: vercel deploy --token=${{ secrets.VERCEL_TOKEN }}
+      - run: vercel pull --yes --environment=${{ env.vars.ENVIRONMENT }} --token=${{ secrets.VERCEL_TOKEN }}
+      - run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+      - run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
