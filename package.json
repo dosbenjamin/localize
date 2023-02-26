@@ -19,6 +19,7 @@
     "prettier-plugin-tailwindcss": "^0.2.3"
   },
   "dependencies": {
-    "turbo": "^1.8.2"
+    "turbo": "^1.8.2",
+    "vercel": "^28.16.7"
   }
 }
