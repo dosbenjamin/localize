@@ -12,7 +12,7 @@
     "lint:theme": "turbo lint --filter theme",
     "lint:ui": "turbo lint --filter ui",
     "lint:web": "turbo lint --filter web",
-    "lint": "turbo lint --team=TURBO_TEAM --token=TURBO_TOKEN"
+    "lint": "turbo lint"
   },
   "devDependencies": {
     "prettier": "^2.8.4",
