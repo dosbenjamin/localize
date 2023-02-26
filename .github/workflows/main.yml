@@ -21,4 +21,4 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install
       - run: pnpm build
-      - run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+      - run: vercel deploy --token=${{ secrets.VERCEL_TOKEN }}
