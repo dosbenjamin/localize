@@ -8,6 +8,8 @@ jobs:
       TURBO_TEAM: ${{ secrets.VERCEL_TEAM_SLUG }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
     steps:
       - uses: actions/checkout@master
       - uses: pnpm/action-setup@master
@@ -19,6 +21,6 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install
       - run: pnpm build
-      - run: vercel pull --yes --environment=${{ env.ENVIRONMENT }} --token=${{ secrets.VERCEL_TOKEN }}
+      - run: vercel pull --yes --environment=${{ vars.ENVIRONMENT }} --token=${{ secrets.VERCEL_TOKEN }}
       - run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
       - run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
