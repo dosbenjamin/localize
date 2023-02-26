@@ -7,6 +7,11 @@ module.exports = {
     'plugin:tailwindcss/recommended',
     'next/core-web-vitals',
   ],
+  overrides: [
+    {
+      files: '*.{js,cjs,ts,tsx}',
+    },
+  ],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'tailwindcss'],
   rules: {

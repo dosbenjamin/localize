@@ -1,7 +1,7 @@
 {
   "name": "@localize/theme",
-  "dependencies": {
-    "@localize/ui": "workspace:*"
+  "scripts": {
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@localize/eslint-config": "workspace:*",
