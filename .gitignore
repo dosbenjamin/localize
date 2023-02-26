@@ -39,7 +39,7 @@ next-env.d.ts
 settings.json
 
 # turborepo
-.turbo/
+.turbo
 
 # storybook
 storybook-static/
