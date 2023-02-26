@@ -2,15 +2,16 @@
   "name": "localize",
   "version": "0.0.1",
   "scripts": {
-    "dev:web": "turbo dev --filter web",
+    "build:ui": "turbo build --filter ui",
+    "build:web": "turbo build --filter web",
+    "build": "turbo build",
     "dev:ui": "turbo dev --filter ui",
+    "dev:web": "turbo dev --filter web",
     "dev": "turbo dev",
-    "build:web": "pnpm --filter web build",
-    "build": "pnpm -r build",
-    "lint:web": "turbo lint --filter web",
-    "lint:ui": "turbo lint --filter ui",
     "lint:eslint-config": "turbo lint --filter eslint-config",
     "lint:theme": "turbo lint --filter theme",
+    "lint:ui": "turbo lint --filter ui",
+    "lint:web": "turbo lint --filter web",
     "lint": "turbo lint"
   },
   "devDependencies": {

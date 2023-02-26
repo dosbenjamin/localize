@@ -40,3 +40,6 @@ settings.json
 
 # turborepo
 .turbo/
+
+# storybook
+storybook-static/
