@@ -1,0 +1,21 @@
+name: CI
+on:
+  pull_request:
+    branches: dev
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      TURBO_TEAM: ${{ secrets.VERCEL_TEAM_SLUG }}
+    steps:
+      - uses: actions/checkout@master
+      - uses: pnpm/action-setup@master
+        with:
+          version: latest
+      - uses: actions/setup-node@master
+        with:
+          node-version: '16'
+          cache: 'pnpm'
+      - run: pnpm install
+      - run: pnpm build
