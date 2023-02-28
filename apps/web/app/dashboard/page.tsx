@@ -9,6 +9,8 @@ const Dashboard = async () => {
 
   const { data: projects } = await supabase.from('projects').select().order('created_at', { ascending: false })
 
+  console.log('hello')
+
   return (
     <div className="space-y-8 p-8">
       <Heading size="medium">Projects</Heading>
