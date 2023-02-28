@@ -1,7 +1,7 @@
-name: Deploy Production
+name: CI
 on:
-  push:
-    branches: main
+  pull_request:
+    branches: dev
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,7 +19,5 @@ jobs:
         with:
           node-version: '16'
           cache: 'pnpm'
-      - run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-        if:
-      - run: vercel build --token=${{ secrets.VERCEL_TOKEN }} --prod
-      - run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }} --prod
+      - run: vercel pull --token=${{ secrets.VERCEL_TOKEN }} --yes --environment=preview
+      - run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
