@@ -15,6 +15,7 @@
     "lint": "turbo lint"
   },
   "devDependencies": {
+    "@types/node": "18.11.10",
     "prettier": "^2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.3"
   },
