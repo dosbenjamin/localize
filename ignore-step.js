@@ -10,5 +10,5 @@ if (VERCEL_GIT_COMMIT_REF && branchesToBuild.includes(VERCEL_GIT_COMMIT_REF)) {
 } else {
   // Don't build
   console.log('🛑 - Build cancelled')
-  process.exit(1)
+  process.exit(0)
 }
