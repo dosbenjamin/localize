@@ -14,6 +14,8 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
     data: { session },
   } = await supabase.auth.getSession()
 
+  console.log('hello')
+
   return (
     <html lang="en">
       {/*
