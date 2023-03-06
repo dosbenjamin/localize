@@ -11,7 +11,7 @@ const Dashboard = async () => {
 
   return (
     <div className="space-y-8 p-8">
-      <Heading size="medium">Projects</Heading>
+      <Heading size="large">Projects</Heading>
       <Dialog.Composed
         trigger={
           <button className="bg-purple-720 grid h-48 w-full place-content-center p-8 outline-none">
