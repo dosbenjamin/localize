@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast/headless'
 import { useCreateProject } from '../hooks/use-create-project'
-import { createProjectSchema, type CreateProjectSchema } from '../schemas/create-project'
+import { createProjectSchema, type CreateProjectSchema } from '../schemas/create-project-schema'
 import useDialog = Dialog.useDialog
 
 export const CreateProjectForm = () => {
