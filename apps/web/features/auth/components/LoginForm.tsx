@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast/headless'
 import { useSignIn } from '../hooks/use-sign-in'
-import { signInSchema, type SignInSchema } from '../schemas/sign-in'
+import { signInSchema, type SignInSchema } from '../schemas/sign-in-schema'
 import { AuthForm } from './AuthForm'
 
 export const LoginForm = () => {

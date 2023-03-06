@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import { supabase } from 'lib/supabase.client'
-import type { SignInSchema } from '../schemas/sign-in'
+import type { SignInSchema } from '../schemas/sign-in-schema'
 
 export const useSignIn = () => {
   return useMutation({
