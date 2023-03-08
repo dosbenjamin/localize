@@ -1,5 +1,5 @@
-import type { Meta } from '@storybook/react'
 import * as Dialog from '..'
+import type { Meta } from '@storybook/react'
 
 const config: Meta<typeof Dialog.Composed> = {
   component: Dialog.Composed,

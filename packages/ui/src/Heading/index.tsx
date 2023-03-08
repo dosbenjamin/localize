@@ -1,6 +1,6 @@
-import { polymorphicFactory } from '@polymorphic-factory/react'
-import { cva, type VariantProps } from 'class-variance-authority'
+import { type VariantProps, cva } from 'class-variance-authority'
 import type { ElementType } from 'react'
+import { polymorphicFactory } from '@polymorphic-factory/react'
 
 const headingVariants = cva('uppercase', {
   variants: {

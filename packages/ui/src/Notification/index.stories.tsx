@@ -1,5 +1,5 @@
-import type { Meta } from '@storybook/react'
 import type { ComponentPropsWithoutRef } from 'react'
+import type { Meta } from '@storybook/react'
 import { Notification } from '.'
 
 type NotificationProps = ComponentPropsWithoutRef<typeof Notification>

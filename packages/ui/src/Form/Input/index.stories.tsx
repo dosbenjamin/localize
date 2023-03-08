@@ -1,5 +1,5 @@
-import type { Meta } from '@storybook/react'
 import { Input } from '.'
+import type { Meta } from '@storybook/react'
 
 const config: Meta<typeof Input> = {
   component: Input,

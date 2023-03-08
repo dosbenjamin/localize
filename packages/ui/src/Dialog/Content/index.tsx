@@ -1,7 +1,7 @@
 'use client'
 
-import type { PropsWithChildren } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
+import type { PropsWithChildren } from 'react'
 import { cx } from 'class-variance-authority'
 
 type ContentProps = PropsWithChildren<{

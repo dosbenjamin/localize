@@ -1,7 +1,7 @@
 'use client'
 
-import { useContext } from 'react'
 import * as Dialog from '..'
+import { useContext } from 'react'
 
 export const useDialog = (): Dialog.ContextValue => {
   const context = useContext(Dialog.Context)

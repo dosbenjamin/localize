@@ -1,5 +1,5 @@
-import { cx } from 'class-variance-authority'
 import type { ComponentPropsWithoutRef } from 'react'
+import { cx } from 'class-variance-authority'
 
 type SpinnerProps = ComponentPropsWithoutRef<'svg'>
 

@@ -1,8 +1,8 @@
 'use client'
 
+import * as Dialog from '..'
 import { type PropsWithChildren, type ReactNode } from 'react'
 import { useState } from 'react'
-import * as Dialog from '..'
 
 type ComposedProps = PropsWithChildren<{
   trigger?: ReactNode

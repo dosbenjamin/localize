@@ -1,5 +1,5 @@
-import type { Meta } from '@storybook/react'
 import { Cross } from '.'
+import type { Meta } from '@storybook/react'
 
 const config: Meta<typeof Cross> = {
   component: Cross,

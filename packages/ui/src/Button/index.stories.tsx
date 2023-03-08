@@ -1,6 +1,6 @@
-import type { Meta } from '@storybook/react'
-import type { ComponentPropsWithoutRef } from 'react'
 import { Button } from '.'
+import type { ComponentPropsWithoutRef } from 'react'
+import type { Meta } from '@storybook/react'
 
 type ButtonProps = ComponentPropsWithoutRef<typeof Button>
 
