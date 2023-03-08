@@ -5,7 +5,7 @@ import { Spinner } from '../Icons'
 const buttonVariants = cva('uppercase text-center outline-none', {
   defaultVariants: {
     intent: 'primary',
-    size: 'medium',
+    size: 'base',
   },
   variants: {
     disabled: {
@@ -19,7 +19,7 @@ const buttonVariants = cva('uppercase text-center outline-none', {
       true: 'flex items-center justify-center',
     },
     size: {
-      medium: 'text-md px-8 py-4 variation-wght-600',
+      base: 'text-base px-8 py-4 variation-wght-600',
     },
   },
 })
