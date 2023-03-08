@@ -1,6 +1,6 @@
 import { CrossButton, Dialog, Heading, Icon, Link as CustomLink } from '@localize/ui'
 import { ProjectFolder } from 'features/projects/server'
-import { CreateProjectForm, InviteMemberForm } from 'features/projects/client'
+import { CreateProjectForm, InviteMemberForm, DeleteProjectButton } from 'features/projects/client'
 import { createClient } from 'lib/supabase.server'
 import Link from 'next/link'
 
@@ -28,6 +28,11 @@ const Dashboard = async () => {
             <Heading size="large">
               <Link href={`/dashboard/projects/${id}`}>{name}</Link>
             </Heading>
+            <Dialog.Composed trigger={<button>Delete</button>}>
+              <Heading size="large">Delete</Heading>
+              <p>Do you really want to delete <strong className="variation-wght-600">{name}</strong> project?</p>
+              <DeleteProjectButton projectId={id} />
+            </Dialog.Composed>
           </header>
           <div className="divide-purple-360 flex divide-x">
             <ProjectFolder
