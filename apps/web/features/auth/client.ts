@@ -3,7 +3,6 @@
 export * from './components/LoginForm'
 export * from './components/RegisterForm'
 export * from './components/SignOutButton'
-export * from './components/SupabaseListener'
 export * from './hooks/use-sign-in'
 export * from './hooks/use-sign-out'
 export * from './hooks/use-sign-up'
