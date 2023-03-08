@@ -1,8 +1,8 @@
 'use client'
 
 import { supabase } from 'lib/supabase.client'
-import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 type SupabaseListenerProps = {
   accessToken?: string

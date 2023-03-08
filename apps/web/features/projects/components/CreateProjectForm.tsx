@@ -1,14 +1,14 @@
 'use client'
 
-import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Form } from '@localize/ui'
+import { type CreateProjectSchema, createProjectSchema } from '../schemas/create-project-schema'
 import { Dialog } from '@localize/ui'
 import type { PostgrestError } from '@supabase/supabase-js'
-import { useRouter } from 'next/navigation'
-import { useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast/headless'
 import { useCreateProject } from '../hooks/use-create-project'
-import { createProjectSchema, type CreateProjectSchema } from '../schemas/create-project-schema'
+import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/navigation'
+import { zodResolver } from '@hookform/resolvers/zod'
 import useDialog = Dialog.useDialog
 
 export const CreateProjectForm = () => {

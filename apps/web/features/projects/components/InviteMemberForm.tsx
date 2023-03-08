@@ -1,9 +1,9 @@
 'use client'
 
-import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Form } from '@localize/ui'
+import { type InviteMemberSchema, inviteMemberSchema } from '../client'
 import { useForm } from 'react-hook-form'
-import { inviteMemberSchema, type InviteMemberSchema } from '../client'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 type InviteMemberFormProps = {
   projectId: string

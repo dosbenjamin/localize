@@ -1,9 +1,9 @@
 'use client'
 
-import { Link } from '@localize/ui'
 import type { AuthError } from '@supabase/supabase-js'
-import { useRouter } from 'next/navigation'
+import { Link } from '@localize/ui'
 import { toast } from 'react-hot-toast/headless'
+import { useRouter } from 'next/navigation'
 import { useSignOut } from '../hooks/use-sign-out'
 
 export const SignOutButton = () => {

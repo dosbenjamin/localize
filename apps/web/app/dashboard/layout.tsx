@@ -1,7 +1,7 @@
 import { Logo } from '@localize/ui'
+import type { PropsWithChildren } from 'react'
 import { SignOutButton } from 'features/auth/client'
 import { createClient } from 'lib/supabase.server'
-import type { PropsWithChildren } from 'react'
 
 type DashboardLayoutProps = PropsWithChildren
 

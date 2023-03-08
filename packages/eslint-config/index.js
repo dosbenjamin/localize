@@ -17,6 +17,16 @@ module.exports = {
   rules: {
     '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
     '@typescript-eslint/consistent-type-imports': 'error',
+    'sort-imports': [
+      'error',
+      {
+        allowSeparatedGroups: false,
+        ignoreCase: false,
+        ignoreDeclarationSort: false,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+      },
+    ],
     'sort-keys': 'warn',
     'tailwindcss/classnames-order': 'off',
     'tailwindcss/no-arbitrary-value': 'error',

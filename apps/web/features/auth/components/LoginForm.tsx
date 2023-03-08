@@ -1,13 +1,13 @@
 'use client'
 
-import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Form } from '@localize/ui'
+import { type SignInSchema, signInSchema } from '../schemas/sign-in-schema'
 import type { AuthError } from '@supabase/supabase-js'
-import { useRouter } from 'next/navigation'
-import { useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast/headless'
+import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/navigation'
 import { useSignIn } from '../hooks/use-sign-in'
-import { signInSchema, type SignInSchema } from '../schemas/sign-in-schema'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 export const LoginForm = () => {
   const router = useRouter()

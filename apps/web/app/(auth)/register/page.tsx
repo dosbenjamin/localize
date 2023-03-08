@@ -1,4 +1,4 @@
-import { Heading, Link as CustomLink } from '@localize/ui'
+import { Link as CustomLink, Heading } from '@localize/ui'
 import Link from 'next/link'
 import { RegisterForm } from 'features/auth/client'
 

@@ -1,6 +1,6 @@
-import { Heading, Link as CustomLink } from '@localize/ui'
-import { LoginForm } from 'features/auth/client'
+import { Link as CustomLink, Heading } from '@localize/ui'
 import Link from 'next/link'
+import { LoginForm } from 'features/auth/client'
 
 const Login = () => (
   <>

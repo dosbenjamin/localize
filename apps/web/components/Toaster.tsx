@@ -1,8 +1,8 @@
 'use client'
 
 import type { ReactNode } from 'react'
-import { useToaster } from 'react-hot-toast/headless'
 import { Toast } from './Toast'
+import { useToaster } from 'react-hot-toast/headless'
 
 export const Toaster = () => {
   const {

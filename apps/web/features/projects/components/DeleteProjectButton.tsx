@@ -2,9 +2,9 @@
 
 import { Button } from '@localize/ui'
 import type { PostgrestError } from '@supabase/supabase-js'
-import { useRouter } from 'next/navigation'
 import { toast } from 'react-hot-toast/headless'
 import { useDeleteProject } from '../hooks/use-delete-project'
+import { useRouter } from 'next/navigation'
 
 type DeleteProjectDialogProps = {
   projectId: string
