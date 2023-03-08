@@ -1,4 +1,4 @@
-import type { SignInSchema } from '../schemas/sign-in-schema'
+import type { SignInSchema } from 'features/auth/client'
 import { supabase } from 'lib/supabase.client'
 import { useMutation } from '@tanstack/react-query'
 

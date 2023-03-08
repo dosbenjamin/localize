@@ -1,4 +1,4 @@
-import type { CreateProjectSchema } from '../schemas/create-project-schema'
+import type { CreateProjectSchema } from 'features/projects/client'
 import { supabase } from 'lib/supabase.client'
 import { useMutation } from '@tanstack/react-query'
 

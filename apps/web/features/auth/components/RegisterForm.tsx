@@ -1,12 +1,11 @@
 'use client'
 
 import { Button, Form } from '@localize/ui'
-import { type SignUpSchema, signUpSchema } from '../schemas/sign-up-schema'
+import { type SignUpSchema, signUpSchema, useSignUp } from 'features/auth/client'
 import type { AuthError } from '@supabase/supabase-js'
 import { toast } from 'react-hot-toast/headless'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
-import { useSignUp } from '../hooks/use-sign-up'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 export const RegisterForm = () => {

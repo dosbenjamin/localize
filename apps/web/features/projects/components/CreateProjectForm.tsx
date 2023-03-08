@@ -1,11 +1,10 @@
 'use client'
 
 import { Button, Form } from '@localize/ui'
-import { type CreateProjectSchema, createProjectSchema } from '../schemas/create-project-schema'
+import { type CreateProjectSchema, createProjectSchema, useCreateProject } from 'features/projects/client'
 import { Dialog } from '@localize/ui'
 import type { PostgrestError } from '@supabase/supabase-js'
 import { toast } from 'react-hot-toast/headless'
-import { useCreateProject } from '../hooks/use-create-project'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'

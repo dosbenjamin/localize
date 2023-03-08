@@ -1,12 +1,11 @@
 'use client'
 
 import { Button, Form } from '@localize/ui'
-import { type SignInSchema, signInSchema } from '../schemas/sign-in-schema'
+import { type SignInSchema, signInSchema, useSignIn } from 'features/auth/client'
 import type { AuthError } from '@supabase/supabase-js'
 import { toast } from 'react-hot-toast/headless'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
-import { useSignIn } from '../hooks/use-sign-in'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 export const LoginForm = () => {
