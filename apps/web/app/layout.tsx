@@ -1,8 +1,6 @@
 import '@localize/theme/globals.css'
+import { QueryClient, SupabaseListener, Toaster } from 'shared/client'
 import type { PropsWithChildren } from 'react'
-import { QueryClient } from 'components/QueryClient'
-import { SupabaseListener } from 'components/SupabaseListener'
-import { Toaster } from 'components/Toaster'
 import { createClient } from 'lib/supabase.server'
 
 type RootLayoutProps = PropsWithChildren
