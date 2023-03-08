@@ -4,7 +4,7 @@ import type { AuthError } from '@supabase/supabase-js'
 import { Link } from '@localize/ui'
 import { toast } from 'react-hot-toast/headless'
 import { useRouter } from 'next/navigation'
-import { useSignOut } from 'features/auth/client'
+import { useSignOut } from '@localize/web/features/auth/client'
 
 export const SignOutButton = () => {
   const { mutateAsync: signOut } = useSignOut()

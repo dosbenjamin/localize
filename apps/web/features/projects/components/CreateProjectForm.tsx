@@ -1,7 +1,7 @@
 'use client'
 
 import { Button, Form } from '@localize/ui'
-import { type CreateProjectSchema, createProjectSchema, useCreateProject } from 'features/projects/client'
+import { type CreateProjectSchema, createProjectSchema, useCreateProject } from '@localize/web/features/projects/client'
 import { Dialog } from '@localize/ui'
 import type { PostgrestError } from '@supabase/supabase-js'
 import { toast } from 'react-hot-toast/headless'

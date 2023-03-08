@@ -1,7 +1,7 @@
 'use client'
 
 import { Button, Form } from '@localize/ui'
-import { type SignInSchema, signInSchema, useSignIn } from 'features/auth/client'
+import { type SignInSchema, signInSchema, useSignIn } from '@localize/web/features/auth/client'
 import type { AuthError } from '@supabase/supabase-js'
 import { toast } from 'react-hot-toast/headless'
 import { useForm } from 'react-hook-form'

@@ -1,6 +1,6 @@
 import { Link as CustomLink, Heading } from '@localize/ui'
 import Link from 'next/link'
-import { RegisterForm } from 'features/auth/client'
+import { RegisterForm } from '@localize/web/features/auth/client'
 
 const Register = () => (
   <>

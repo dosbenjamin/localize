@@ -1,7 +1,7 @@
 'use client'
 
 import type { ReactNode } from 'react'
-import { Toast } from './Toast'
+import { Toast } from '@localize/web/shared/server'
 import { useToaster } from 'react-hot-toast/headless'
 
 export const Toaster = () => {

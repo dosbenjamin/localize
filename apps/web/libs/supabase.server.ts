@@ -1,5 +1,5 @@
 import { cookies, headers } from 'next/headers'
-import type { Database } from './database.types'
+import type { Database } from '@localize/web/libs/supabase.types'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
 
 export const createClient = () =>

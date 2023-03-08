@@ -1,5 +1,5 @@
-import type { SignUpSchema } from 'features/auth/client'
-import { supabase } from 'lib/supabase.client'
+import type { SignUpSchema } from '@localize/web/features/auth/client'
+import { supabase } from '@localize/web/libs/supabase.client'
 import { useMutation } from '@tanstack/react-query'
 
 export const useSignUp = () => {

@@ -1,5 +1,5 @@
-import type { CreateProjectSchema } from 'features/projects/client'
-import { supabase } from 'lib/supabase.client'
+import type { CreateProjectSchema } from '@localize/web/features/projects/client'
+import { supabase } from '@localize/web/libs/supabase.client'
 import { useMutation } from '@tanstack/react-query'
 
 export const useCreateProject = () => {

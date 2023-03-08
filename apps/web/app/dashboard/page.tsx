@@ -1,8 +1,8 @@
-import { CreateProjectForm, DeleteProjectButton, InviteMemberForm } from 'features/projects/client'
+import { CreateProjectForm, DeleteProjectButton, InviteMemberForm } from '@localize/web/features/projects/client'
 import { CrossButton, Link as CustomLink, Dialog, Heading, Icon } from '@localize/ui'
 import Link from 'next/link'
-import { ProjectFolder } from 'features/projects/server'
-import { createClient } from 'lib/supabase.server'
+import { ProjectFolder } from '@localize/web/features/projects/server'
+import { createClient } from '@localize/web/libs/supabase.server'
 
 const Dashboard = async () => {
   const supabase = createClient()

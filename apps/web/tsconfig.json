@@ -8,9 +8,9 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "features/*": ["features/*"],
-      "lib/*": ["lib/*"],
-      "shared/*": ["shared/*"],
+      "@localize/web/features/*": ["features/*"],
+      "@localize/web/libs/*": ["libs/*"],
+      "@localize/web/shared/*": ["shared/*"],
     },
     "noEmit": true
   },
