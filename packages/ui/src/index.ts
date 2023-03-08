@@ -1,6 +1,5 @@
 export * from './Button'
 export * from './CrossButton'
-export * from './Divider'
 export * as Form from './Form'
 export * from './Heading'
 export * as Icon from './Icons'
