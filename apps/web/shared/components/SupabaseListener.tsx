@@ -12,11 +12,13 @@ export const SupabaseListener = ({ accessToken }: SupabaseListenerProps) => {
   const router = useRouter()
 
   useEffect(() => {
-    supabase.auth.onAuthStateChange((_, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
       if (session?.access_token !== accessToken) {
         router.refresh()
       }
     })
+
+    return () => subscription.unsubscribe()
   }, [accessToken, router])
 
   return null

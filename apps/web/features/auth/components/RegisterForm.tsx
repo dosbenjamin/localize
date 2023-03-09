@@ -5,12 +5,10 @@ import { type SignUpSchema, signUpSchema, useSignUp } from '@localize/web/featur
 import type { AuthError } from '@supabase/supabase-js'
 import { toast } from 'react-hot-toast/headless'
 import { useForm } from 'react-hook-form'
-import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 export const RegisterForm = () => {
-  const router = useRouter()
-  const { mutateAsync: signUp, isLoading } = useSignUp()
+  const { mutateAsync: signUp, isLoading: isSigningUp } = useSignUp()
 
   const {
     register,
@@ -25,13 +23,11 @@ export const RegisterForm = () => {
       await toast.promise(signUp(data), {
         error: ({ message }: AuthError) => message,
         loading: 'Signing up...',
-        success: () => 'Successfully signed up',
+        success: 'Successfully signed up',
       })
     } catch {
       toast('😔 Try again!')
     }
-
-    router.push('/dashboard')
   })
 
   return (
@@ -69,7 +65,7 @@ export const RegisterForm = () => {
           />
         </Form.Control>
       </form>
-      <Button id="register-form" disabled={isLoading} loading={isLoading} loadingMessage="Signing up">
+      <Button id="register-form" disabled={isSigningUp} loading={isSigningUp} loadingMessage="Signing up">
         Sign up
       </Button>
     </>

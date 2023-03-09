@@ -5,12 +5,10 @@ import { type SignInSchema, signInSchema, useSignIn } from '@localize/web/featur
 import type { AuthError } from '@supabase/supabase-js'
 import { toast } from 'react-hot-toast/headless'
 import { useForm } from 'react-hook-form'
-import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 export const LoginForm = () => {
-  const router = useRouter()
-  const { mutateAsync: signIn, isLoading } = useSignIn()
+  const { mutateAsync: signIn, isLoading: isSigningIn } = useSignIn()
 
   const {
     register,
@@ -27,8 +25,6 @@ export const LoginForm = () => {
         loading: 'Signing in...',
         success: 'Successfully signed in',
       })
-
-      router.push('/dashboard')
     } catch {
       toast('😔 Try again!')
     }
@@ -61,7 +57,7 @@ export const LoginForm = () => {
           />
         </Form.Control>
       </form>
-      <Button form="login-form" disabled={isLoading} loading={isLoading} loadingMessage="Signing in">
+      <Button form="login-form" disabled={isSigningIn} loading={isSigningIn} loadingMessage="Signing in">
         Sign in
       </Button>
     </>

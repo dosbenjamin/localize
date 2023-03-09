@@ -3,13 +3,12 @@
 import type { AuthError } from '@supabase/supabase-js'
 import { Link } from '@localize/ui'
 import { toast } from 'react-hot-toast/headless'
-import { useRouter } from 'next/navigation'
+import { useQueryClient } from '@tanstack/react-query'
 import { useSignOut } from '@localize/web/features/auth/client'
 
 export const SignOutButton = () => {
+  const queryClient = useQueryClient()
   const { mutateAsync: signOut } = useSignOut()
-
-  const router = useRouter()
 
   const handleSignOut = async () => {
     try {
@@ -18,8 +17,7 @@ export const SignOutButton = () => {
         loading: 'Signing out...',
         success: 'Successfully signed out',
       })
-
-      router.push('/login')
+      await queryClient.invalidateQueries()
     } catch {
       toast('😔 Try again!')
     }
