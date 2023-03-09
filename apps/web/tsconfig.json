@@ -10,7 +10,6 @@
     "paths": {
       "@localize/web/features/*": ["features/*"],
       "@localize/web/libs/*": ["libs/*"],
-      "@localize/web/shared/*": ["shared/*"],
     },
     "noEmit": true
   },

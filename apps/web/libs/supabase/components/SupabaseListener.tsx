@@ -1,8 +1,8 @@
 'use client'
 
-import { supabase } from '@localize/web/libs/supabase.client'
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { useSupabase } from '../client'
 
 type SupabaseListenerProps = {
   accessToken?: string
@@ -10,6 +10,7 @@ type SupabaseListenerProps = {
 
 export const SupabaseListener = ({ accessToken }: SupabaseListenerProps) => {
   const router = useRouter()
+  const { supabase } = useSupabase()
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
@@ -19,7 +20,7 @@ export const SupabaseListener = ({ accessToken }: SupabaseListenerProps) => {
     })
 
     return () => subscription.unsubscribe()
-  }, [accessToken, router])
+  }, [accessToken, router, supabase])
 
   return null
 }
