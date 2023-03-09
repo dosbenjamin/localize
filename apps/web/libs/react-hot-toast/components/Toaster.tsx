@@ -14,7 +14,7 @@ export const Toaster = () => {
     <>
       {!!toasts.length && (
         <div
-          className="absolute top-0 right-0 z-10 flex max-h-screen flex-col items-end space-y-2 overflow-hidden p-4"
+          className="absolute bottom-0 right-0 z-10 flex max-h-screen flex-col items-end space-y-2 overflow-hidden p-4"
           onMouseEnter={startPause}
           onMouseLeave={endPause}
         >
