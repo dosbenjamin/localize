@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { useSupabase } from '../client'
+import { useSupabase } from '@localize/web/libs/supabase/client'
 
 type SupabaseListenerProps = {
   accessToken?: string
