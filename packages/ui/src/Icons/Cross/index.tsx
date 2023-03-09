@@ -1,6 +1,6 @@
-import type { ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithRef } from 'react'
 
-type CrossProps = ComponentPropsWithoutRef<'svg'>
+type CrossProps = ComponentPropsWithRef<'svg'>
 
 export const Cross = (props: CrossProps) => (
   <svg viewBox="0 0 32 32" {...props}>

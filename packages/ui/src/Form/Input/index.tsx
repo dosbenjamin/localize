@@ -1,4 +1,4 @@
-import { type ComponentPropsWithoutRef, forwardRef } from 'react'
+import { type ComponentPropsWithRef, forwardRef } from 'react'
 import { type VariantProps, cva } from 'class-variance-authority'
 
 const inputVariants = cva('w-full placeholder:uppercase outline-none focus:ring-1', {
@@ -19,7 +19,7 @@ const inputVariants = cva('w-full placeholder:uppercase outline-none focus:ring-
   },
 })
 
-type InputProps = ComponentPropsWithoutRef<'input'> &
+type InputProps = ComponentPropsWithRef<'input'> &
   VariantProps<typeof inputVariants> & {
     errorMessage?: string
   }

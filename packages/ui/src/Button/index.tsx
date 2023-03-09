@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, ReactNode } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 import { type VariantProps, cva } from 'class-variance-authority'
 import { Spinner } from '../Icons'
 
@@ -24,7 +24,7 @@ const buttonVariants = cva('uppercase text-center outline-none', {
   },
 })
 
-type ButtonProps = ComponentPropsWithoutRef<'button'> &
+type ButtonProps = ComponentPropsWithRef<'button'> &
   VariantProps<typeof buttonVariants> & {
     loading?: boolean
     loadingMessage?: ReactNode
