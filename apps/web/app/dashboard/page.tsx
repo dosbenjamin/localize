@@ -1,4 +1,4 @@
-import { AlertDialog, CrossButton, Link as CustomLink, Dialog, Heading, Icon } from '@localize/ui'
+import { AlertDialog, CrossButton, Link as CustomLink, Dialog, Dropdown, Heading, Icon } from '@localize/ui'
 import { CreateProjectForm, DeleteProjectButton, InviteMemberForm } from '@localize/web/features/projects/client'
 import Link from 'next/link'
 import { ProjectFolder } from '@localize/web/features/projects/server'
@@ -28,17 +28,38 @@ const Dashboard = async () => {
             <Heading size="large">
               <Link href={`/dashboard/projects/${id}`}>{name}</Link>
             </Heading>
-            <AlertDialog.Container trigger={<button>Delete</button>}>
-              <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
-              <AlertDialog.Description className="max-w-md">
-                This action cannot be undone. This will permanently delete
-                <strong className="variation-wght-600">{name}</strong> project.
-              </AlertDialog.Description>
-              <div className="grid grid-cols-2 gap-4">
-                <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
-                <DeleteProjectButton projectId={id} />
-              </div>
-            </AlertDialog.Container>
+            <Dropdown.Container
+              trigger={
+                <button className="outline-none" aria-label={`${name} project settings`}>
+                  <Icon.Gear className="h-6 w-6 transform-gpu opacity-50 transition-all hover:rotate-90 hover:opacity-100" />
+                </button>
+              }
+            >
+              <Dropdown.Item asChild>
+                <CustomLink as="button" disabled>Create dictionary</CustomLink>
+              </Dropdown.Item>
+              <Dropdown.Item asChild>
+                <CustomLink as="button" disabled>Invite team member</CustomLink>
+              </Dropdown.Item>
+              <Dropdown.Separator />
+              <Dropdown.Item asChild>
+                <CustomLink as="button" disabled>Settings</CustomLink>
+              </Dropdown.Item>
+              <Dropdown.Separator />
+              <Dropdown.Item asChild>
+                <AlertDialog.Container trigger={<CustomLink as="button" color="danger">Delete</CustomLink>}>
+                  <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
+                  <AlertDialog.Description>
+                    This action cannot be undone. This will permanently delete{' '}
+                    <strong className="variation-wght-600">{name}</strong> project.
+                  </AlertDialog.Description>
+                  <div className="grid grid-cols-2 gap-4">
+                    <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
+                    <DeleteProjectButton projectId={id} />
+                  </div>
+                </AlertDialog.Container>
+              </Dropdown.Item>
+            </Dropdown.Container>
           </header>
           <div className="divide-purple-360 flex divide-x">
             <ProjectFolder

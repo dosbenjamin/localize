@@ -9,6 +9,7 @@ const linkVariants = cva('uppercase outline-none', {
   },
   variants: {
     color: {
+      'danger': 'text-danger',
       'purple-180': 'text-purple-180',
     },
     size: {
