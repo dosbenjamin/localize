@@ -12,27 +12,32 @@ const Dashboard = async () => {
   return (
     <div className="space-y-8 p-8">
       <Heading size="large">Projects</Heading>
-      <Dialog.Composed
+      <Dialog.Container
         trigger={
           <button className="bg-purple-720 grid h-48 w-full place-content-center p-8 outline-none">
             <CustomLink as="span">New project</CustomLink>
           </button>
         }
       >
-        <Heading size="large">New project</Heading>
+        <Dialog.Title>New project</Dialog.Title>
         <CreateProjectForm />
-      </Dialog.Composed>
+      </Dialog.Container>
       {projects?.map(({ id, name }) => (
         <article key={id} className="bg-purple-720">
           <header className="border-purple-360 flex items-center justify-between border-b p-8">
             <Heading size="large">
               <Link href={`/dashboard/projects/${id}`}>{name}</Link>
             </Heading>
-            <Dialog.Composed trigger={<button>Delete</button>}>
-              <Heading size="large">Delete</Heading>
-              <p>Do you really want to delete <strong className="variation-wght-600">{name}</strong> project?</p>
-              <DeleteProjectButton projectId={id} />
-            </Dialog.Composed>
+            <Dialog.Container trigger={<button>Delete</button>}>
+              <Dialog.Title>Are you absolutely sure?</Dialog.Title>
+              <Dialog.Description className="max-w-md">
+                This action cannot be undone. This will permanently delete
+                <strong className="variation-wght-600">{name}</strong> project.
+              </Dialog.Description>
+              <div className="flex space-x-4">
+                <DeleteProjectButton projectId={id} />
+              </div>
+            </Dialog.Container>
           </header>
           <div className="divide-purple-360 flex divide-x">
             <ProjectFolder
@@ -71,10 +76,10 @@ const Dashboard = async () => {
                 {Array.from({ length: 8 }, (_, index) => (
                   <div className="bg-purple-540 aspect-square" key={index} />
                 ))}
-                <Dialog.Composed trigger={<CrossButton className="col-start-5 col-end-7 row-start-1 row-end-3" />}>
-                  <Heading size="large">Invite a member</Heading>
+                <Dialog.Container trigger={<CrossButton className="col-start-5 col-end-7 row-start-1 row-end-3" />}>
+                  <Dialog.Title>Invite a member</Dialog.Title>
                   <InviteMemberForm projectId={id} />
-                </Dialog.Composed>
+                </Dialog.Container>
               </div>
             </ProjectFolder>
           </div>

@@ -5,7 +5,7 @@ import type { PropsWithChildren } from 'react'
 import { cx } from 'class-variance-authority'
 
 type ContentProps = PropsWithChildren<{
-  className?: string | undefined
+  className?: string
 }>
 
 export const Content = ({ className, ...props }: ContentProps) => (

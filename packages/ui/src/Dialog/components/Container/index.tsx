@@ -1,14 +1,14 @@
 'use client'
 
-import * as Dialog from '..'
+import * as Dialog from '../..'
 import { type PropsWithChildren, type ReactNode } from 'react'
 import { useState } from 'react'
 
-type ComposedProps = PropsWithChildren<{
+type ContainerProps = PropsWithChildren<{
   trigger?: ReactNode
 }>
 
-export const Composed = ({ trigger, children }: ComposedProps) => {
+export const Container = ({ trigger, children }: ContainerProps) => {
   const [dialogOpen, setDialogOpen] = useState(false)
   const toggleDialog = () => setDialogOpen((dialogOpen) => !dialogOpen)
 
