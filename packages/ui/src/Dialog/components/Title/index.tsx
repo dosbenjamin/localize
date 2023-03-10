@@ -1,8 +1,8 @@
 import * as Dialog from '@radix-ui/react-dialog'
-import type { ComponentPropsWithoutRef } from 'react'
 import { Heading } from '../../../Heading'
+import type { PropsWithChildren } from 'react'
 
-type TitleProps = ComponentPropsWithoutRef<typeof Heading>
+type TitleProps = PropsWithChildren
 
 export const Title = (props: TitleProps) => (
   <Heading as={Dialog.Title} size="large" {...props} />
