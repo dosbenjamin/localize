@@ -1,8 +1,6 @@
 import { Logo } from '@localize/ui'
 import type { PropsWithChildren } from 'react'
 
-export const dynamic = 'force-static'
-
 type AuthLayoutProps = PropsWithChildren
 
 const AuthLayout = ({ children }: AuthLayoutProps) => (
