@@ -26,9 +26,9 @@ type InputProps = ComponentPropsWithRef<'input'> &
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(({ errorMessage = '', intent, size, ...props }, ref) => {
   return (
-    <div>
+    <div className="space-y-1">
       <input ref={ref} className={inputVariants({ error: !!errorMessage, intent, size })} {...props} />
-      <p role="alert" aria-atomic="true" className="text-danger mt-1">
+      <p role="alert" aria-atomic="true" className="text-danger empty:absolute">
         {errorMessage}
       </p>
     </div>
