@@ -1,5 +1,5 @@
+import { AlertDialog, CrossButton, Link as CustomLink, Dialog, Heading, Icon } from '@localize/ui'
 import { CreateProjectForm, DeleteProjectButton, InviteMemberForm } from '@localize/web/features/projects/client'
-import { CrossButton, Link as CustomLink, Dialog, Heading, Icon } from '@localize/ui'
 import Link from 'next/link'
 import { ProjectFolder } from '@localize/web/features/projects/server'
 import { createClient } from '@localize/web/libs/supabase/server'
@@ -28,16 +28,17 @@ const Dashboard = async () => {
             <Heading size="large">
               <Link href={`/dashboard/projects/${id}`}>{name}</Link>
             </Heading>
-            <Dialog.Container trigger={<button>Delete</button>}>
-              <Dialog.Title>Are you absolutely sure?</Dialog.Title>
-              <Dialog.Description className="max-w-md">
+            <AlertDialog.Container trigger={<button>Delete</button>}>
+              <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
+              <AlertDialog.Description className="max-w-md">
                 This action cannot be undone. This will permanently delete
                 <strong className="variation-wght-600">{name}</strong> project.
-              </Dialog.Description>
-              <div className="flex space-x-4">
+              </AlertDialog.Description>
+              <div className="grid grid-cols-2 gap-4">
+                <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
                 <DeleteProjectButton projectId={id} />
               </div>
-            </Dialog.Container>
+            </AlertDialog.Container>
           </header>
           <div className="divide-purple-360 flex divide-x">
             <ProjectFolder

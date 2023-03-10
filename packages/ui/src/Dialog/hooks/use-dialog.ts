@@ -7,7 +7,7 @@ export const useDialog = (): Dialog.ContextValue => {
   const context = useContext(Dialog.Context)
 
   if (!context) {
-    throw new Error('`useDialog` should be used within `ContextProvider`')
+    throw new Error('useDialog should be used within DialogContextProvider')
   }
 
   return context

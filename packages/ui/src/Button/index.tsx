@@ -13,6 +13,7 @@ const buttonVariants = cva('uppercase text-center outline-none', {
     },
     intent: {
       danger: 'bg-danger text-white',
+      neutral: 'bg-white text-purple-900',
       primary: 'bg-orange text-white disabled:brightness-50',
     },
     loading: {

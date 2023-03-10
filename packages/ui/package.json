@@ -10,6 +10,7 @@
     "@localize/theme": "workspace:*",
     "@localize/tsconfig": "workspace:*",
     "@polymorphic-factory/react": "^0.2.2",
+    "@radix-ui/react-alert-dialog": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.2",
     "autoprefixer": "^10.4.13",
     "class-variance-authority": "^0.4.0",
