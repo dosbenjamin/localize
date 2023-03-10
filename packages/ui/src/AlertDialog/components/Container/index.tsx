@@ -5,7 +5,7 @@ import { type PropsWithChildren, type ReactNode } from 'react'
 import { useState } from 'react'
 
 type ContainerProps = PropsWithChildren<{
-  trigger?: ReactNode
+  trigger: ReactNode
 }>
 
 export const Container = ({ trigger, children }: ContainerProps) => {

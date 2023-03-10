@@ -1,5 +1,10 @@
 'use client'
 
 import * as Dialog from '@radix-ui/react-dialog'
+import { Cloak } from '../../../Cloak'
 
-export const Overlay = () => <Dialog.Overlay className="fixed inset-0 bg-purple-900/50" />
+export const Overlay = () => (
+  <Dialog.Overlay asChild>
+    <Cloak />
+  </Dialog.Overlay>
+)

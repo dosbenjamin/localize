@@ -1,5 +1,10 @@
 'use client'
 
 import * as AlertDialog from '@radix-ui/react-alert-dialog'
+import { Cloak } from '../../../Cloak'
 
-export const Overlay = () => <AlertDialog.Overlay className="fixed inset-0 bg-purple-900/50" />
+export const Overlay = () => (
+  <AlertDialog.Overlay asChild>
+    <Cloak />
+  </AlertDialog.Overlay>
+)
