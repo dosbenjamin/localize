@@ -42,7 +42,7 @@ export const CreateProjectForm = () => {
     >
       <Form.Control>
         <Form.Label>Name</Form.Label>
-        <Form.Input placeholder="Localize" errorMessage={errors.name?.message} {...register('name')} />
+        <Form.Input placeholder="Localize" errorMessage={errors.title?.message} {...register('title')} />
       </Form.Control>
       <Button loading={isLoading} disabled={isLoading}>
         Create

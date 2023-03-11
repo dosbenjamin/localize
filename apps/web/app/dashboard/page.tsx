@@ -22,15 +22,15 @@ const Dashboard = async () => {
         <Dialog.Title>New project</Dialog.Title>
         <CreateProjectForm />
       </Dialog.Container>
-      {projects?.map(({ id, name }) => (
+      {projects?.map(({ id, title }) => (
         <article key={id} className="bg-purple-720">
           <header className="border-purple-360 flex items-center justify-between border-b p-8">
             <Heading size="large">
-              <Link href={`/dashboard/projects/${id}`}>{name}</Link>
+              <Link href={`/dashboard/projects/${id}`}>{title}</Link>
             </Heading>
             <Dropdown.Container
               trigger={
-                <button className="outline-none" aria-label={`${name} project settings`}>
+                <button className="outline-none" aria-label={`${title} project settings`}>
                   <Icon.Gear className="h-6 w-6 transform-gpu opacity-50 transition-all hover:rotate-90 hover:opacity-100" />
                 </button>
               }
@@ -51,7 +51,7 @@ const Dashboard = async () => {
                   <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
                   <AlertDialog.Description>
                     This action cannot be undone. This will permanently delete{' '}
-                    <strong className="variation-wght-600">{name}</strong> project.
+                    <strong className="variation-wght-600">{title}</strong> project.
                   </AlertDialog.Description>
                   <div className="grid grid-cols-2 gap-4">
                     <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
