@@ -14,7 +14,7 @@ const headingVariants = cva('uppercase', {
 })
 
 type HeadingProps = VariantProps<typeof headingVariants> & {
-  className?: string | undefined
+  className?: string
 }
 
 const poly = polymorphicFactory<ElementType, HeadingProps>({

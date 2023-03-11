@@ -8,7 +8,7 @@ const config: Meta<typeof Button> = {
   argTypes: {
     intent: {
       control: { type: 'select' },
-      options: ['danger', 'primary'],
+      options: ['danger', 'primary', 'neutral'],
     },
   },
   component: Button,
