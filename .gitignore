@@ -43,3 +43,7 @@ settings.json
 
 # storybook
 storybook-static/
+
+# supabase
+.branches
+.temp
