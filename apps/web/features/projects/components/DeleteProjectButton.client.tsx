@@ -6,13 +6,12 @@ import { toast } from 'react-hot-toast/headless'
 import { useDeleteProject } from '@localize/web/features/projects/client'
 import { useRouter } from 'next/navigation'
 
-type DeleteProjectDialogProps = {
+type DeleteProjectButtonProps = {
   projectId: string
 }
 
-export const DeleteProjectButton = ({ projectId }: DeleteProjectDialogProps) => {
+export const DeleteProjectButton = ({ projectId }: DeleteProjectButtonProps) => {
   const router = useRouter()
-
   const { mutateAsync: deleteProject, isLoading: isDeleting } = useDeleteProject()
 
   const handleProjectDelete = async () => {

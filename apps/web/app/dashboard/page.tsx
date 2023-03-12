@@ -1,13 +1,16 @@
 import { AlertDialog, CrossButton, Link as CustomLink, Dialog, Dropdown, Heading, Icon } from '@localize/ui'
-import { CreateProjectForm, DeleteProjectButton, InviteMemberForm } from '@localize/web/features/projects/client'
+import {
+  CreateMemberInvitationForm,
+  CreateProjectForm,
+  DeleteProjectButton,
+} from '@localize/web/features/projects/client'
+import { ProjectFolder, readProjects } from '@localize/web/features/projects/server'
 import Link from 'next/link'
-import { ProjectFolder } from '@localize/web/features/projects/server'
 import { createClient } from '@localize/web/libs/supabase/server'
 
 const Dashboard = async () => {
   const supabase = createClient()
-
-  const { data: projects } = await supabase.from('projects').select().order('created_at', { ascending: false })
+  const projects = await readProjects(supabase)
 
   return (
     <div className="space-y-8 p-8">
@@ -22,7 +25,7 @@ const Dashboard = async () => {
         <Dialog.Title>New project</Dialog.Title>
         <CreateProjectForm />
       </Dialog.Container>
-      {projects?.map(({ id, title }) => (
+      {projects.map(({ id, title }) => (
         <article key={id} className="bg-purple-720">
           <header className="border-purple-360 flex items-center justify-between border-b p-8">
             <Heading size="large">
@@ -36,18 +39,30 @@ const Dashboard = async () => {
               }
             >
               <Dropdown.Item asChild>
-                <CustomLink as="button" disabled>Create dictionary</CustomLink>
+                <CustomLink as="button" disabled>
+                  Create dictionary
+                </CustomLink>
               </Dropdown.Item>
               <Dropdown.Item asChild>
-                <CustomLink as="button" disabled>Invite team member</CustomLink>
+                <CustomLink as="button" disabled>
+                  Invite team member
+                </CustomLink>
               </Dropdown.Item>
               <Dropdown.Separator />
               <Dropdown.Item asChild>
-                <CustomLink as="button" disabled>Settings</CustomLink>
+                <CustomLink as="button" disabled>
+                  Settings
+                </CustomLink>
               </Dropdown.Item>
               <Dropdown.Separator />
               <Dropdown.Item asChild>
-                <AlertDialog.Container trigger={<CustomLink as="button" color="danger">Delete</CustomLink>}>
+                <AlertDialog.Container
+                  trigger={
+                    <CustomLink as="button" color="danger">
+                      Delete
+                    </CustomLink>
+                  }
+                >
                   <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
                   <AlertDialog.Description>
                     This action cannot be undone. This will permanently delete{' '}
@@ -100,7 +115,7 @@ const Dashboard = async () => {
                 ))}
                 <Dialog.Container trigger={<CrossButton className="col-start-5 col-end-7 row-start-1 row-end-3" />}>
                   <Dialog.Title>Invite a member</Dialog.Title>
-                  <InviteMemberForm projectId={id} />
+                  <CreateMemberInvitationForm projectId={id} />
                 </Dialog.Container>
               </div>
             </ProjectFolder>
