@@ -1,7 +1,7 @@
 'use client'
 
 import { Button, Form } from '@localize/ui'
-import { type SignUpSchema, signUpSchema, useSignUp } from '@localize/web/features/auth/client'
+import { SignUpSchema, type SignUpValues, useSignUp } from '@localize/web/features/auth/client'
 import type { AuthError } from '@supabase/supabase-js'
 import { toast } from 'react-hot-toast/headless'
 import { useForm } from 'react-hook-form'
@@ -14,8 +14,8 @@ export const RegisterForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignUpSchema>({
-    resolver: zodResolver(signUpSchema),
+  } = useForm<SignUpValues>({
+    resolver: zodResolver(SignUpSchema),
   })
 
   const handleRegister = handleSubmit(async (data) => {

@@ -1,19 +1,7 @@
-import type { SignUpSchema } from '@localize/web/features/auth/client'
+import { type SignUpValues, signUp } from '@localize/web/features/auth/client'
+import type { AuthResponse } from '@supabase/supabase-js'
+import type { WrappedUseMutation } from '@localize/web/libs/react-query'
 import { useMutation } from '@tanstack/react-query'
-import { useSupabase } from '@localize/web/libs/supabase/client'
 
-export const useSignUp = () => {
-  const { supabase } = useSupabase()
-
-  return useMutation({
-    mutationFn: async (credentials: SignUpSchema) => {
-      const { data, error } = await supabase.auth.signUp(credentials)
-
-      if (error) {
-        return Promise.reject(error)
-      }
-
-      return Promise.resolve(data)
-    },
-  })
-}
+export const useSignUp: WrappedUseMutation<AuthResponse['data'], AuthResponse['error'], SignUpValues> = (options) =>
+  useMutation(signUp, options)

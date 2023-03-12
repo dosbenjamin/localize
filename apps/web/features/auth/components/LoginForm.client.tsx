@@ -1,33 +1,31 @@
 'use client'
 
 import { Button, Form } from '@localize/ui'
-import { type SignInSchema, signInSchema, useSignIn } from '@localize/web/features/auth/client'
+import { SignInSchema, type SignInValues, useSignIn } from '@localize/web/features/auth/client'
 import type { AuthError } from '@supabase/supabase-js'
 import { toast } from 'react-hot-toast/headless'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 export const LoginForm = () => {
-  const { mutateAsync: signIn, isLoading: isSigningIn } = useSignIn()
-
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignInSchema>({
-    resolver: zodResolver(signInSchema),
+  } = useForm<SignInValues>({
+    resolver: zodResolver(SignInSchema),
+  })
+
+  const { mutateAsync: signIn, isLoading: isSigningIn } = useSignIn({
+    onError: () => toast('😔 Try again!'),
   })
 
   const handleLogin = handleSubmit(async (data) => {
-    try {
-      await toast.promise(signIn(data), {
-        error: ({ message }: AuthError) => message,
-        loading: 'Signing in...',
-        success: 'Successfully signed in',
-      })
-    } catch {
-      toast('😔 Try again!')
-    }
+    await toast.promise(signIn(data), {
+      error: ({ message }: AuthError) => message,
+      loading: 'Signing in...',
+      success: 'Successfully signed in',
+    })
   })
 
   return (

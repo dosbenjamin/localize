@@ -1,12 +1,7 @@
-import { queryKeys } from '@localize/web/libs/react-query'
+import type { AuthError, UserResponse } from '@supabase/supabase-js'
+import { type WrappedUseQuery, queryKeys } from '@localize/web/libs/react-query'
+import { getUser } from '@localize/web/features/auth/client'
 import { useQuery } from '@tanstack/react-query'
-import { useSupabase } from '@localize/web/libs/supabase/client'
 
-export const useUser = () => {
-  const { supabase } = useSupabase()
-
-  return useQuery({
-    queryFn: () => supabase.auth.getUser(),
-    queryKey: queryKeys.getUser(),
-  })
-}
+export const useUser: WrappedUseQuery<UserResponse, AuthError> = (options) =>
+  useQuery(queryKeys.getUser(), getUser, options)

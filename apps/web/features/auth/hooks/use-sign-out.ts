@@ -1,18 +1,7 @@
+import type { AuthResponse } from '@supabase/supabase-js'
+import type { WrappedUseMutation } from '@localize/web/libs/react-query'
+import { signOut } from '@localize/web/features/auth/client'
 import { useMutation } from '@tanstack/react-query'
-import { useSupabase } from '@localize/web/libs/supabase/client'
 
-export const useSignOut = () => {
-  const { supabase } = useSupabase()
-
-  return useMutation({
-    mutationFn: async () => {
-      const { error } = await supabase.auth.signOut()
-
-      if (error) {
-        return Promise.reject(error)
-      }
-
-      return Promise.resolve()
-    },
-  })
-}
+export const useSignOut: WrappedUseMutation<void, AuthResponse['error'], void> = (options) =>
+  useMutation(signOut, options)
