@@ -1,7 +1,7 @@
 'use client'
 
-export * from './components/LoginForm.client'
-export * from './components/RegisterForm.client'
+export * from './components/SignInForm.client'
+export * from './components/SignUpForm.client'
 export * from './components/SignOutButton.client'
 export * from './mutations/sign-in.client'
 export * from './mutations/sign-out.client'

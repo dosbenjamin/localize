@@ -6,7 +6,7 @@ export const signIn = async (credentials: SignInValues): Promise<AuthResponse['d
   const { data, error } = await supabase.auth.signInWithPassword(credentials)
 
   if (error) {
-    return Promise.reject(error)
+    return Promise.reject(error.message)
   }
 
   return Promise.resolve(data)

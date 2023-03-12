@@ -2,12 +2,11 @@
 
 import { Button, Form } from '@localize/ui'
 import { SignInSchema, type SignInValues, useSignIn } from '@localize/web/features/auth/client'
-import type { AuthError } from '@supabase/supabase-js'
 import { toast } from 'react-hot-toast/headless'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-export const LoginForm = () => {
+export const SignInForm = () => {
   const {
     register,
     handleSubmit,
@@ -22,7 +21,7 @@ export const LoginForm = () => {
 
   const handleLogin = handleSubmit(async (data) => {
     await toast.promise(signIn(data), {
-      error: ({ message }: AuthError) => message,
+      error: (message: string) => message,
       loading: 'Signing in...',
       success: 'Successfully signed in',
     })

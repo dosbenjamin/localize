@@ -4,7 +4,7 @@ export const signOut = async (): Promise<void> => {
   const { error } = await supabase.auth.signOut()
 
   if (error) {
-    return Promise.reject(error)
+    return Promise.reject(error.message)
   }
 
   return Promise.resolve()

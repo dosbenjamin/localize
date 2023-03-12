@@ -2,14 +2,11 @@
 
 import { Button, Form } from '@localize/ui'
 import { SignUpSchema, type SignUpValues, useSignUp } from '@localize/web/features/auth/client'
-import type { AuthError } from '@supabase/supabase-js'
 import { toast } from 'react-hot-toast/headless'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-export const RegisterForm = () => {
-  const { mutateAsync: signUp, isLoading: isSigningUp } = useSignUp()
-
+export const SignUpForm = () => {
   const {
     register,
     handleSubmit,
@@ -18,16 +15,16 @@ export const RegisterForm = () => {
     resolver: zodResolver(SignUpSchema),
   })
 
+  const { mutateAsync: signUp, isLoading: isSigningUp } = useSignUp({
+    onError: () => toast('😔 Try again!'),
+  })
+
   const handleRegister = handleSubmit(async (data) => {
-    try {
-      await toast.promise(signUp(data), {
-        error: ({ message }: AuthError) => message,
-        loading: 'Signing up...',
-        success: 'Successfully signed up',
-      })
-    } catch {
-      toast('😔 Try again!')
-    }
+    await toast.promise(signUp(data), {
+      error: (message: string) => message,
+      loading: 'Signing up...',
+      success: 'Successfully signed up',
+    })
   })
 
   return (
@@ -35,6 +32,7 @@ export const RegisterForm = () => {
       <form
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onSubmit={handleRegister}
+        id="register-form"
         className="space-y-4"
       >
         <Form.Control>
@@ -60,12 +58,12 @@ export const RegisterForm = () => {
           <Form.Input
             type="password"
             placeholder="********"
-            errorMessage={errors.confirmPassword?.message}
-            {...register('confirmPassword')}
+            errorMessage={errors.passwordConfirmation?.message}
+            {...register('passwordConfirmation')}
           />
         </Form.Control>
       </form>
-      <Button id="register-form" disabled={isSigningUp} loading={isSigningUp} loadingMessage="Signing up">
+      <Button form="register-form" disabled={isSigningUp} loading={isSigningUp} loadingMessage="Signing up">
         Sign up
       </Button>
     </>

@@ -1,13 +1,13 @@
 import { Link as CustomLink, Heading } from '@localize/ui'
 import Link from 'next/link'
-import { RegisterForm } from '@localize/web/features/auth/client'
+import { SignUpForm } from '@localize/web/features/auth/client'
 
 const Register = () => (
   <>
     <Heading size="large" className="text-center">
       Register
     </Heading>
-    <RegisterForm />
+    <SignUpForm />
     <CustomLink as={Link} href="/login" className="text-center">
       Already have an account? Sign in instead!
     </CustomLink>
