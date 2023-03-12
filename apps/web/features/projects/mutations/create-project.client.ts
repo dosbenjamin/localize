@@ -9,7 +9,7 @@ export const createProject = async (values: CreateProjectValues): Promise<ReadPr
   const { data, error } = await supabase.rpc('create_project', values)
 
   if (error) {
-    return Promise.reject(error)
+    return Promise.reject()
   }
 
   return Promise.resolve(ReadProjectSchema.array().parse(data))

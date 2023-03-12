@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 export const CreateProjectSchema = z.object({
-  title: z.string(),
+  title: z.string().min(1, 'You have to define a title for your project'),
 })
 
 export type CreateProjectValues = z.infer<typeof CreateProjectSchema>

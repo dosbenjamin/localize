@@ -3,7 +3,6 @@
 import { Button, Form } from '@localize/ui'
 import { CreateProjectSchema, type CreateProjectValues, useCreateProject } from '@localize/web/features/projects/client'
 import { Dialog } from '@localize/ui'
-import type { PostgrestError } from '@supabase/supabase-js'
 import { toast } from 'react-hot-toast/headless'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
@@ -25,7 +24,7 @@ export const CreateProjectForm = () => {
 
   const handleCreateProject = handleSubmit(async (data) => {
     await toast.promise(createProject(data), {
-      error: ({ message }: PostgrestError) => message,
+      error: 'Error while creating the project',
       loading: 'Creating your project...',
       success: 'Project successfully created',
     })
@@ -41,7 +40,7 @@ export const CreateProjectForm = () => {
       className="flex flex-col space-y-8"
     >
       <Form.Control>
-        <Form.Label>Name</Form.Label>
+        <Form.Label>Title</Form.Label>
         <Form.Input placeholder="Localize" errorMessage={errors.title?.message} {...register('title')} />
       </Form.Control>
       <Button loading={isLoading} disabled={isLoading}>
