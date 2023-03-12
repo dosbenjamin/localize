@@ -1,7 +1,6 @@
 'use client'
 
 import { Button } from '@localize/ui'
-import type { PostgrestError } from '@supabase/supabase-js'
 import { toast } from 'react-hot-toast/headless'
 import { useDeleteProject } from '@localize/web/features/projects/client'
 import { useRouter } from 'next/navigation'
@@ -16,7 +15,7 @@ export const DeleteProjectButton = ({ projectId }: DeleteProjectButtonProps) => 
 
   const handleProjectDelete = async () => {
     await toast.promise(deleteProject(projectId), {
-      error: ({ message }: PostgrestError) => message,
+      error: 'Error while deleting the project',
       loading: 'Deleting your project...',
       success: 'Project successfully deleted',
     })
