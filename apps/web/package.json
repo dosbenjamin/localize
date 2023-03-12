@@ -5,7 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:types": "pnpm supabase gen types typescript --local > libs/supabase/types/database.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",

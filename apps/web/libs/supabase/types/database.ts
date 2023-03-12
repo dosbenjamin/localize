@@ -57,6 +57,52 @@ export interface Database {
           role?: Database["public"]["Enums"]["affiliate_role"]
         }
       }
+      dictionaries: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          project_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          project_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          project_id?: string
+        }
+      }
+      languages: {
+        Row: {
+          created_at: string
+          dictionary_id: string
+          id: string
+          iso: string
+          name: string
+          project_id: string
+        }
+        Insert: {
+          created_at?: string
+          dictionary_id: string
+          id?: string
+          iso: string
+          name: string
+          project_id: string
+        }
+        Update: {
+          created_at?: string
+          dictionary_id?: string
+          id?: string
+          iso?: string
+          name?: string
+          project_id?: string
+        }
+      }
       profiles: {
         Row: {
           created_at: string
@@ -96,6 +142,21 @@ export interface Database {
       [_ in never]: never
     }
     Functions: {
+      create_dictionary: {
+        Args: {
+          name: string
+          project_id: string
+          languages: Database["public"]["CompositeTypes"]["language"][]
+        }
+        Returns: {
+          created_at: string
+          dictionary_id: string
+          id: string
+          iso: string
+          name: string
+          project_id: string
+        }[]
+      }
       create_project: {
         Args: {
           title: string
@@ -111,7 +172,10 @@ export interface Database {
       affiliate_role: "Administrator" | "Editor" | "Contributor"
     }
     CompositeTypes: {
-      [_ in never]: never
+      language: {
+        iso: string
+        name: string
+      }
     }
   }
   storage: {
