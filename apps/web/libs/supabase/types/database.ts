@@ -150,12 +150,10 @@ export interface Database {
         }
         Returns: {
           created_at: string
-          dictionary_id: string
           id: string
-          iso: string
           name: string
           project_id: string
-        }[]
+        }
       }
       create_project: {
         Args: {

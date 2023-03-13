@@ -5,12 +5,12 @@ import {
 } from '@localize/web/features/projects/client'
 import { supabase } from '@localize/web/libs/supabase/client'
 
-export const createDictionary = async (values: CreateDictionaryValues): Promise<ReadDictionaryValues[]> => {
+export const createDictionary = async (values: CreateDictionaryValues): Promise<ReadDictionaryValues> => {
   const { data, error } = await supabase.rpc('create_dictionary', values)
 
   if (error) {
     return Promise.reject()
   }
 
-  return Promise.resolve(ReadDictionarySchema.array().parse(data))
+  return Promise.resolve(ReadDictionarySchema.parse(data))
 }

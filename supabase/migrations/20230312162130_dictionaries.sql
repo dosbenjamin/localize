@@ -20,22 +20,22 @@ CREATE TABLE "public"."languages" (
 );
 
 CREATE FUNCTION "public"."create_dictionary"("name" VARCHAR, "project_id" UUID, "languages" "public"."language"[])
-  RETURNS SETOF "public"."languages"
+  RETURNS "public"."dictionaries"
   LANGUAGE PLPGSQL
   SECURITY DEFINER
 AS $$
   DECLARE
-    "new_dictionary_id" UUID;
+    "dictionary" "public"."dictionaries";
   BEGIN
     INSERT INTO "public"."dictionaries"("name", "project_id")
     VALUES ("create_dictionary"."name", "create_dictionary"."project_id")
-    RETURNING "id" INTO "new_dictionary_id";
+    RETURNING * INTO "dictionary";
 
     INSERT INTO "public"."languages"("project_id", "dictionary_id", "iso", "name")
     SELECT "relations"."project_id", "relations"."dictionary_id", "language"."iso", "language"."name"
-    FROM (VALUES ("create_dictionary"."project_id", "new_dictionary_id")) AS "relations"("project_id", "dictionary_id")
+    FROM (VALUES ("create_dictionary"."project_id", "dictionary"."id")) AS "relations"("project_id", "dictionary_id")
     JOIN UNNEST("create_dictionary"."languages") AS "language" ON TRUE;
 
-    RETURN QUERY SELECT * FROM "public"."languages" WHERE "languages"."dictionary_id" = "new_dictionary_id";
+    RETURN "dictionary";
   END
 $$;

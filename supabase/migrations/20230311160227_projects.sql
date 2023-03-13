@@ -9,8 +9,8 @@ CREATE TABLE public.projects (
 CREATE TABLE public.affiliates (
   "id" UUID NOT NULL DEFAULT uuid_generate_v4() PRIMARY KEY,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-  "profile_id" UUID NOT NULL REFERENCES profiles(id),
-  "project_id" UUID NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
+  "profile_id" UUID NOT NULL REFERENCES public.profiles(id),
+  "project_id" UUID NOT NULL REFERENCES public.projects(id) ON DELETE CASCADE,
   "role" public.AFFILIATE_ROLE NOT NULL DEFAULT 'Contributor'::public.AFFILIATE_ROLE
 );
 

@@ -1,5 +1,6 @@
 import { AlertDialog, CrossButton, Link as CustomLink, Dialog, Dropdown, Heading, Icon } from '@localize/ui'
 import {
+  CreateDictionaryForm,
   CreateMemberInvitationForm,
   CreateProjectForm,
   DeleteProjectButton,
@@ -91,12 +92,19 @@ const Dashboard = async () => {
                 {Array.from({ length: 2 }, (_, index) => (
                   <div className="bg-purple-540 aspect-square flex-1" key={index} />
                 ))}
-                <button
-                  className="bg-purple-540 grid aspect-square flex-1 place-content-center"
-                  aria-label="Add a team member"
+                <Dialog.Container
+                  trigger={
+                    <button
+                      className="bg-purple-540 grid aspect-square flex-1 place-content-center"
+                      aria-label="Add a team member"
+                    >
+                      <Icon.Cross className="fill-purple-180 h-10 w-10" />
+                    </button>
+                  }
                 >
-                  <Icon.Cross className="fill-purple-180 h-10 w-10" />
-                </button>
+                  <Dialog.Title>Create a dictionary</Dialog.Title>
+                  <CreateDictionaryForm projectId={id} />
+                </Dialog.Container>
               </div>
             </ProjectFolder>
             <ProjectFolder
