@@ -1,17 +1,16 @@
-import { CreateLanguageSchema, ReadLanguageSchema } from '@localize/web/features/projects/client'
+import { CreateLanguageInputSchema } from '@localize/web/features/projects/client'
 import { z } from 'zod'
 
-export const CreateDictionarySchema = z.object({
-  languages: CreateLanguageSchema.array().nonempty('Add at least one language to create the dictionary'),
+export const CreateDictionaryInputSchema = z.object({
+  languages: CreateLanguageInputSchema.array().nonempty('Add at least one language to create the dictionary'),
   name: z.string().min(1, 'Define a name to create the dictionary'),
   project_id: z.string().uuid('Project ID is invalid'),
 })
 
-export type CreateDictionaryValues = z.infer<typeof CreateDictionarySchema>
+export type CreateDictionaryInput = z.infer<typeof CreateDictionaryInputSchema>
 
-export const ReadDictionarySchema = z.object({
-  languages: ReadLanguageSchema.array().optional(),
+export const CreateDictionaryOutputSchema = z.object({
   name: z.string(),
 })
 
-export type ReadDictionaryValues = z.infer<typeof ReadDictionarySchema>
+export type CreateDictionaryOutput = z.infer<typeof CreateDictionaryOutputSchema>

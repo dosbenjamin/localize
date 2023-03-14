@@ -24,7 +24,7 @@ type InputProps = ComponentPropsWithRef<'input'> &
     errorMessage?: string
   }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(({ errorMessage = '', intent, size, ...props }, ref) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>(({ errorMessage, intent, size, ...props }, ref) => {
   return (
     <div className="space-y-1">
       <input ref={ref} className={inputVariants({ error: !!errorMessage, intent, size })} {...props} />

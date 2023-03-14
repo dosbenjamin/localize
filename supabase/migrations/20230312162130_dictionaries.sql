@@ -13,7 +13,7 @@ CREATE TABLE "public"."dictionaries" (
 CREATE TABLE "public"."languages" (
   "id" UUID NOT NULL DEFAULT UUID_GENERATE_V4() PRIMARY KEY,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-  "project_id" UUID NOT NULL REFERENCES "public"."projects"("id"),
+  "project_id" UUID NOT NULL REFERENCES "public"."projects"("id") ON DELETE CASCADE,
   "dictionary_id" UUID NOT NULL REFERENCES "public"."dictionaries"("id") ON DELETE CASCADE,
   "iso" VARCHAR NOT NULL,
   "name" VARCHAR NOT NULL
