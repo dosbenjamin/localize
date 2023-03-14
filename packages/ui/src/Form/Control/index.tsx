@@ -1,5 +1,14 @@
-import type { ComponentPropsWithRef } from 'react'
+import type { ComponentPropsWithRef, ElementType } from 'react'
+import { cx } from 'class-variance-authority'
+import { polymorphicFactory } from '@polymorphic-factory/react'
 
 type ControlProps = ComponentPropsWithRef<'div'>
 
-export const Control = (props: ControlProps) => <div className="space-y-2" {...props} />
+const poly = polymorphicFactory<ElementType, ControlProps>({
+  styled:
+    (component) =>
+    ({ className, as: Component = component, ...props }) =>
+      <Component className={cx('space-y-2', className)} {...props} />,
+})
+
+export const Control = poly<'div', ControlProps>('div')

@@ -1,5 +1,6 @@
+import type { ComponentPropsWithRef, ElementType } from 'react'
 import { type VariantProps, cva } from 'class-variance-authority'
-import type { ComponentPropsWithRef } from 'react'
+import { polymorphicFactory } from '@polymorphic-factory/react'
 
 const labelVariants = cva('uppercase', {
   defaultVariants: {
@@ -18,6 +19,11 @@ const labelVariants = cva('uppercase', {
 
 type LabelProps = ComponentPropsWithRef<'label'> & VariantProps<typeof labelVariants>
 
-export const Label = ({ size, color, ...props }: LabelProps) => (
-  <label className={labelVariants({ color, size })} {...props} />
-)
+const poly = polymorphicFactory<ElementType, LabelProps>({
+  styled:
+    (component) =>
+    ({ className, color, size, as: Component = component, ...props }) =>
+      <Component className={labelVariants({ className, color, size })} {...props} />,
+})
+
+export const Label = poly<'label', LabelProps>('label')
