@@ -3,7 +3,7 @@ import { z } from 'zod'
 
 export const CreateDictionaryInputSchema = z.object({
   languages: CreateLanguageInputSchema.array().nonempty('Add at least one language to create the dictionary'),
-  name: z.string().min(1, 'Define a name to create the dictionary'),
+  name: z.string().min(1, 'Enter a name to create the dictionary'),
   project_id: z.string().uuid('Project ID is invalid'),
 })
 
