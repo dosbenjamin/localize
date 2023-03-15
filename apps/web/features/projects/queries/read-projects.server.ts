@@ -1,4 +1,4 @@
-import { type ReadProjectOutput, ReadProjectOutputSchema } from '@localize/web/features/projects/server'
+import { type ReadProjectOutput, ReadProjectOutputSchema } from '@localize/web/features/projects'
 import type { Database } from '@localize/web/libs/supabase/client'
 import type { SupabaseClient } from '@supabase/supabase-js'
 

@@ -1,9 +1,10 @@
 'use client'
 
 import { Button, Form } from '@localize/ui'
-import { type SignUpInput, SignUpInputSchema, useSignUp } from '@localize/web/features/auth/client'
+import { type SignUpInput, SignUpInputSchema } from '@localize/web/features/auth'
 import { toast } from 'react-hot-toast/headless'
 import { useForm } from 'react-hook-form'
+import { useSignUp } from '@localize/web/features/auth/client'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 export const SignUpForm = () => {

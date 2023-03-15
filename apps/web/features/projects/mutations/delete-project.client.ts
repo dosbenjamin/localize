@@ -1,4 +1,4 @@
-import { type DeleteProjectInput, DeleteProjectInputSchema } from '@localize/web/features/projects/client'
+import { type DeleteProjectInput, DeleteProjectInputSchema } from '@localize/web/features/projects'
 import { supabase } from '@localize/web/libs/supabase/client'
 
 export const deleteClient = async (id: DeleteProjectInput): Promise<void> => {

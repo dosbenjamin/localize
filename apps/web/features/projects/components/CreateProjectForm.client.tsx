@@ -1,13 +1,10 @@
 'use client'
 
 import { Button, Form } from '@localize/ui'
-import {
-  type CreateProjectInput,
-  CreateProjectInputSchema,
-  useCreateProject,
-} from '@localize/web/features/projects/client'
+import { type CreateProjectInput, CreateProjectInputSchema } from '@localize/web/features/projects'
 import { Dialog } from '@localize/ui'
 import { toast } from 'react-hot-toast/headless'
+import { useCreateProject } from '@localize/web/features/projects/client'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -16,7 +13,13 @@ import useDialog = Dialog.useDialog
 export const CreateProjectForm = () => {
   const router = useRouter()
   const { toggleDialog } = useDialog()
-  const { mutateAsync: createProject, isLoading } = useCreateProject()
+
+  const { mutateAsync: createProject, isLoading } = useCreateProject({
+    onSuccess: () => {
+      toggleDialog()
+      router.refresh()
+    },
+  })
 
   const {
     register,
@@ -32,9 +35,6 @@ export const CreateProjectForm = () => {
       loading: 'Creating your project...',
       success: 'Project successfully created',
     })
-
-    toggleDialog()
-    router.refresh()
   })
 
   return (

@@ -2,7 +2,7 @@ import {
   type CreateDictionaryInput,
   type CreateDictionaryOutput,
   CreateDictionaryOutputSchema,
-} from '@localize/web/features/projects/client'
+} from '@localize/web/features/projects'
 import { supabase } from '@localize/web/libs/supabase/client'
 
 export const createDictionary = async (values: CreateDictionaryInput): Promise<CreateDictionaryOutput> => {

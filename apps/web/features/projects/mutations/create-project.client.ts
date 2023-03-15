@@ -2,7 +2,7 @@ import {
   type CreateProjectInput,
   type CreateProjectOutput,
   CreateProjectOutputSchema,
-} from '@localize/web/features/projects/client'
+} from '@localize/web/features/projects'
 import { supabase } from '@localize/web/libs/supabase/client'
 
 export const createProject = async (values: CreateProjectInput): Promise<CreateProjectOutput> => {

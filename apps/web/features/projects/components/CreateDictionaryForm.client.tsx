@@ -6,10 +6,10 @@ import {
   CreateDictionaryInputSchema,
   type CreateLanguageInput,
   CreateLanguageInputSchema,
-  useCreateDictionary,
-} from '@localize/web/features/projects/client'
+} from '@localize/web/features/projects'
 import { useFieldArray, useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast/headless'
+import { useCreateDictionary } from '@localize/web/features/projects/client'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import useDialog = Dialog.useDialog
@@ -74,6 +74,7 @@ export const CreateDictionaryForm = ({ projectId }: CreateDictionaryFormProps) =
     setLanguageFocus('name')
     resetLanguage()
   })
+
   const handleRemoveLanguage = (index: number) => removeLanguage(index)
 
   return (

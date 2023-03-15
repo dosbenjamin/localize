@@ -9,6 +9,7 @@ export const SignOutButton = () => {
   const queryClient = useQueryClient()
   const { mutateAsync: signOut } = useSignOut({
     onError: () => toast('😔 Try again!'),
+    onSuccess: () => queryClient.invalidateQueries(),
   })
 
   const handleSignOut = async () => {
@@ -17,7 +18,6 @@ export const SignOutButton = () => {
       loading: 'Signing out...',
       success: 'Successfully signed out',
     })
-    await queryClient.invalidateQueries()
   }
 
   return (

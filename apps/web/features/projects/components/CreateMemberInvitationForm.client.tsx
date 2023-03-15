@@ -1,10 +1,7 @@
 'use client'
 
 import { Button, Form } from '@localize/ui'
-import {
-  type CreateMemberInvitationInput,
-  CreateMemberInvitationInputSchema,
-} from '@localize/web/features/projects/client'
+import { type CreateMemberInvitationInput, CreateMemberInvitationInputSchema } from '@localize/web/features/projects'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
