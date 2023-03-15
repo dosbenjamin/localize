@@ -1,13 +1,8 @@
-import { AlertDialog, CrossButton, Link as CustomLink, Dialog, Dropdown, Heading, Icon } from '@localize/ui'
-import {
-  CreateDictionaryForm,
-  CreateMemberInvitationForm,
-  CreateProjectForm,
-  DeleteProjectButton,
-} from '@localize/web/features/projects/client'
-import { ProjectFolder, readProjects } from '@localize/web/features/projects/server'
+import { AlertDialog, Link as CustomLink, Dialog, Dropdown, Heading, Icon } from '@localize/ui'
+import { CreateDictionaryForm, CreateProjectForm, DeleteProjectButton } from '@localize/web/features/projects/client'
 import Link from 'next/link'
 import { createClient } from '@localize/web/libs/supabase/server'
+import { readProjects } from '@localize/web/features/projects/server'
 
 const Dashboard = async () => {
   const supabase = createClient()
@@ -26,11 +21,11 @@ const Dashboard = async () => {
         <Dialog.Title>New project</Dialog.Title>
         <CreateProjectForm />
       </Dialog.Container>
-      {projects.map(({ id, title }) => (
-        <article key={id} className="bg-purple-720">
+      {projects.map(({ id: projectId, title, dictionaries }) => (
+        <article key={projectId} className="bg-purple-720">
           <header className="border-purple-360 flex items-center justify-between border-b p-8">
             <Heading size="large">
-              <Link href={`/dashboard/projects/${id}`}>{title}</Link>
+              <Link href={`/dashboard/projects/${projectId}`}>{title}</Link>
             </Heading>
             <Dropdown.Container
               trigger={
@@ -71,62 +66,48 @@ const Dashboard = async () => {
                   </AlertDialog.Description>
                   <div className="grid grid-cols-2 gap-4">
                     <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
-                    <DeleteProjectButton projectId={id} />
+                    <DeleteProjectButton projectId={projectId} />
                   </div>
                 </AlertDialog.Container>
               </Dropdown.Item>
             </Dropdown.Container>
           </header>
-          <div className="divide-purple-360 flex divide-x">
-            <ProjectFolder
-              header={
-                <>
-                  <Heading size="medium">Dictionaries</Heading>
-                  <CustomLink as={Link} href="#">
-                    See all
-                  </CustomLink>
-                </>
-              }
-            >
-              <div className="flex space-x-4">
-                {Array.from({ length: 2 }, (_, index) => (
-                  <div className="bg-purple-540 aspect-square flex-1" key={index} />
-                ))}
-                <Dialog.Container
-                  trigger={
-                    <button
-                      className="bg-purple-540 grid aspect-square flex-1 place-content-center"
-                      aria-label="Add a team member"
-                    >
-                      <Icon.Cross className="fill-purple-180 h-10 w-10" />
-                    </button>
-                  }
-                >
-                  <Dialog.Title>Create a dictionary</Dialog.Title>
-                  <CreateDictionaryForm projectId={id} />
-                </Dialog.Container>
-              </div>
-            </ProjectFolder>
-            <ProjectFolder
-              header={
-                <>
-                  <Heading size="medium">Team</Heading>
-                  <CustomLink as={Link} href="#">
-                    See all
-                  </CustomLink>
-                </>
-              }
-            >
-              <div className="grid grid-cols-6 gap-4">
-                {Array.from({ length: 8 }, (_, index) => (
-                  <div className="bg-purple-540 aspect-square" key={index} />
-                ))}
-                <Dialog.Container trigger={<CrossButton className="col-start-5 col-end-7 row-start-1 row-end-3" />}>
-                  <Dialog.Title>Invite a member</Dialog.Title>
-                  <CreateMemberInvitationForm projectId={id} />
-                </Dialog.Container>
-              </div>
-            </ProjectFolder>
+          <div className="flex-1 p-8">
+            <div className="flex space-x-4">
+              {dictionaries.flatMap(({ id: dictionaryId, name, languages }, index) =>
+                index < 4
+                  ? [
+                      <article className="aspect-square flex-1 text-center" key={name}>
+                        <Link
+                          className="bg-purple-540 grid h-full place-content-center space-y-2 p-6"
+                          href={`/dashboard/projects/${projectId}/dictionaries/${dictionaryId}`}
+                        >
+                          <Heading as="h3" size="medium">
+                            {name}
+                          </Heading>
+                          <p>{languages.length} languages</p>
+                        </Link>
+                      </article>,
+                    ]
+                  : [],
+              )}
+              {Array.from({ length: 4 - dictionaries.length }, (_, index) => (
+                <div className="bg-purple-540 aspect-square flex-1" key={index} />
+              ))}
+              <Dialog.Container
+                trigger={
+                  <button
+                    className="bg-purple-540 grid aspect-square flex-1 place-content-center"
+                    aria-label="Add a team member"
+                  >
+                    <Icon.Cross className="fill-purple-180 h-10 w-10" />
+                  </button>
+                }
+              >
+                <Dialog.Title>Create a dictionary</Dialog.Title>
+                <CreateDictionaryForm projectId={projectId} />
+              </Dialog.Container>
+            </div>
           </div>
         </article>
       ))}

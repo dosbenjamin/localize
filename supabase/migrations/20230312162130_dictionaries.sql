@@ -19,6 +19,21 @@ CREATE TABLE "public"."languages" (
   "name" VARCHAR NOT NULL
 );
 
+-- ALTER TABLE "public"."dictionaries" ENABLE ROW LEVEL SECURITY;
+-- ALTER TABLE "public"."languages" ENABLE ROW LEVEL SECURITY;
+
+-- CREATE POLICY "Enable insert for authenticated users and affiliates only"
+-- ON "public"."dictionaries"
+-- AS PERMISSIVE
+-- FOR INSERT
+-- TO AUTHENTICATED
+-- WITH CHECK (
+--   EXISTS (
+--     SELECT * FROM "public"."affiliates"
+--     WHERE "affiliates"."project_id" = "project_id" AND "auth"."uid"() = "affiliates"."profile_id" AND "affiliates"."role" = 'Administrator'::"public"."affiliate_role"
+--   )
+-- );
+
 CREATE FUNCTION "public"."create_dictionary"("name" VARCHAR, "project_id" UUID, "languages" "public"."language"[])
   RETURNS "public"."dictionaries"
   LANGUAGE PLPGSQL

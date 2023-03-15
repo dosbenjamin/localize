@@ -23,7 +23,7 @@ AS PERMISSIVE
 FOR INSERT
 TO AUTHENTICATED;
 
-CREATE POLICY "Enable select for authenticated users only and project affiliates"
+CREATE POLICY "Enable select for authenticated users and affiliates only"
 ON "public"."projects"
 AS PERMISSIVE
 FOR SELECT
@@ -35,7 +35,7 @@ USING (
   )
 );
 
-CREATE POLICY "Enable delete for authenticated users only and project affiliates"
+CREATE POLICY "Enable delete for authenticated users and affiliates only"
 ON "public"."projects"
 AS PERMISSIVE
 FOR DELETE
@@ -43,7 +43,7 @@ TO AUTHENTICATED
 USING (
   EXISTS (
     SELECT * FROM "public"."affiliates"
-    WHERE "auth"."uid"() = "profile_id" AND role = 'Administrator'::"public"."affiliate_role"
+    WHERE "auth"."uid"() = "profile_id" AND "role" = 'Administrator'::"public"."affiliate_role"
   )
 );
 
@@ -53,19 +53,19 @@ AS PERMISSIVE
 FOR INSERT
 TO AUTHENTICATED;
 
-CREATE POLICY "Enable select for authenticated users only and project affiliates"
+CREATE POLICY "Enable select for authenticated users and affiliates only"
 ON "public"."affiliates"
 AS PERMISSIVE
 FOR SELECT
 TO AUTHENTICATED
 USING ("auth"."uid"() = "profile_id");
 
-CREATE POLICY "Enable delete for authenticated users only and project affiliates"
+CREATE POLICY "Enable delete for authenticated users and affiliates only"
 ON "public"."affiliates"
 AS PERMISSIVE
 FOR DELETE
 TO AUTHENTICATED
-USING ("auth"."uid"() = "profile_id" AND role = 'Administrator'::"public"."affiliate_role");
+USING ("auth"."uid"() = "profile_id" AND "role" = 'Administrator'::"public"."affiliate_role");
 
 CREATE FUNCTION "public"."create_project"("title" VARCHAR)
   RETURNS "public"."projects"

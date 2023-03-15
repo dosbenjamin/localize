@@ -54,7 +54,12 @@ export const CreateDictionaryForm = ({ projectId }: CreateDictionaryFormProps) =
     name: 'languages',
   })
 
-  const { mutateAsync: createDictionary } = useCreateDictionary()
+  const { mutateAsync: createDictionary } = useCreateDictionary({
+    onSuccess: () => {
+      toggleDialog()
+      router.refresh()
+    },
+  })
 
   const handleCreateDictionary = handleGlobalSubmit(async (data) => {
     await toast.promise(createDictionary(data), {
@@ -62,9 +67,6 @@ export const CreateDictionaryForm = ({ projectId }: CreateDictionaryFormProps) =
       loading: 'creatin',
       success: 'success',
     })
-
-    toggleDialog()
-    router.refresh()
   })
 
   const handleAddLanguage = handleLanguageSubmit((data) => {
