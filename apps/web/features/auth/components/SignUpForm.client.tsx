@@ -1,7 +1,7 @@
 'use client'
 
 import { Button, Form } from '@localize/ui'
-import { SignUpSchema, type SignUpValues, useSignUp } from '@localize/web/features/auth/client'
+import { type SignUpInput, SignUpInputSchema, useSignUp } from '@localize/web/features/auth/client'
 import { toast } from 'react-hot-toast/headless'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -11,8 +11,8 @@ export const SignUpForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignUpValues>({
-    resolver: zodResolver(SignUpSchema),
+  } = useForm<SignUpInput>({
+    resolver: zodResolver(SignUpInputSchema),
   })
 
   const { mutateAsync: signUp, isLoading: isSigningUp } = useSignUp({

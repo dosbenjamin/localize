@@ -1,7 +1,10 @@
 'use client'
 
 import { Button, Form } from '@localize/ui'
-import { CreateMemberInvitationSchema, type CreateMemberInvitationValues } from '@localize/web/features/projects/client'
+import {
+  type CreateMemberInvitationInput,
+  CreateMemberInvitationInputSchema,
+} from '@localize/web/features/projects/client'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
@@ -14,9 +17,9 @@ export const CreateMemberInvitationForm = ({ projectId }: CreateMemberInvitation
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<CreateMemberInvitationValues>({
+  } = useForm<CreateMemberInvitationInput>({
     defaultValues: { projectId },
-    resolver: zodResolver(CreateMemberInvitationSchema),
+    resolver: zodResolver(CreateMemberInvitationInputSchema),
   })
 
   const handleInvitation = handleSubmit((values) => {

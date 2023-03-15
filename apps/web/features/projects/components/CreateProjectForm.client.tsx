@@ -1,7 +1,11 @@
 'use client'
 
 import { Button, Form } from '@localize/ui'
-import { CreateProjectSchema, type CreateProjectValues, useCreateProject } from '@localize/web/features/projects/client'
+import {
+  type CreateProjectInput,
+  CreateProjectInputSchema,
+  useCreateProject,
+} from '@localize/web/features/projects/client'
 import { Dialog } from '@localize/ui'
 import { toast } from 'react-hot-toast/headless'
 import { useForm } from 'react-hook-form'
@@ -18,8 +22,8 @@ export const CreateProjectForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<CreateProjectValues>({
-    resolver: zodResolver(CreateProjectSchema),
+  } = useForm<CreateProjectInput>({
+    resolver: zodResolver(CreateProjectInputSchema),
   })
 
   const handleCreateProject = handleSubmit(async (data) => {

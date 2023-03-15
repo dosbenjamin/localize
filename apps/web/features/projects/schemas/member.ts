@@ -1,8 +1,8 @@
 import { z } from 'zod'
 
-export const CreateMemberInvitationSchema = z.object({
+export const CreateMemberInvitationInputSchema = z.object({
   email: z.string().email(),
   projectId: z.string(),
 })
 
-export type CreateMemberInvitationValues = z.infer<typeof CreateMemberInvitationSchema>
+export type CreateMemberInvitationInput = z.infer<typeof CreateMemberInvitationInputSchema>

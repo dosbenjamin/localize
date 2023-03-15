@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const SignUpSchema = z
+export const SignUpInputSchema = z
   .object({
     email: z.string().email('Email is invalid'),
     password: z.string().min(8, 'Password must be at least 8 character(s)'),
@@ -11,4 +11,4 @@ export const SignUpSchema = z
     path: ['passwordConfirmation'],
   })
 
-export type SignUpValues = z.infer<typeof SignUpSchema>
+export type SignUpInput = z.infer<typeof SignUpInputSchema>

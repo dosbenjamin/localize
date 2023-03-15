@@ -1,17 +1,24 @@
 import { z } from 'zod'
 
-export const CreateProjectSchema = z.object({
+export const CreateProjectInputSchema = z.object({
   title: z.string().min(1, 'Enter a title to create the project'),
 })
 
-export type CreateProjectValues = z.infer<typeof CreateProjectSchema>
+export type CreateProjectInput = z.infer<typeof CreateProjectInputSchema>
 
-export const ReadProjectSchema = z.object({
+export const CreateProjectOutputSchema = z.object({
   id: z.string().uuid(),
   title: z.string(),
 })
 
-export type ReadProjectValues = z.infer<typeof ReadProjectSchema>
+export type CreateProjectOutput = z.infer<typeof CreateProjectOutputSchema>
 
-export const DeleteProjectSchema = z.string().uuid()
-export type DeleteProjectValue = z.infer<typeof DeleteProjectSchema>
+export const ReadProjectOutputSchema = z.object({
+  id: z.string().uuid(),
+  title: z.string(),
+})
+
+export type ReadProjectOutput = z.infer<typeof ReadProjectOutputSchema>
+
+export const DeleteProjectInputSchema = z.string().uuid()
+export type DeleteProjectInput = z.infer<typeof DeleteProjectInputSchema>
