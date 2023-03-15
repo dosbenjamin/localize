@@ -102,7 +102,7 @@ export const CreateDictionaryForm = ({ projectId }: CreateDictionaryFormProps) =
             </li>
           ))}
         </ul>
-        <div className="flex items-end space-x-2">
+        <div className="flex items-start space-x-2">
           <Form.Input
             {...registerLanguage('name')}
             placeholder="Language name"
@@ -118,6 +118,7 @@ export const CreateDictionaryForm = ({ projectId }: CreateDictionaryFormProps) =
             +
           </Button>
         </div>
+        <Form.Error>{globalErrors.languages?.message}</Form.Error>
       </Form.Control>
       <Button
         // eslint-disable-next-line @typescript-eslint/no-misused-promises

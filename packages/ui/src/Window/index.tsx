@@ -3,14 +3,14 @@ import type { ComponentPropsWithoutRef } from 'react'
 
 const windowVariants = cva('border-purple-360 border bg-purple-900', {
   defaultVariants: {
-    size: 'base'
+    size: 'base',
   },
   variants: {
     size: {
       sm: 'space-y-1 py-4 px-6',
-      base: 'space-y-8 p-8 min-w-md'
+      base: 'space-y-8 p-8 min-w-md w-full max-w-xl',
     },
-  }
+  },
 })
 
 type WindowProps = ComponentPropsWithoutRef<'div'> & VariantProps<typeof windowVariants>
