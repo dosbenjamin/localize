@@ -163,7 +163,7 @@ export interface Database {
           created_at: string
           id: string
           title: string
-        }[]
+        }
       }
     }
     Enums: {
