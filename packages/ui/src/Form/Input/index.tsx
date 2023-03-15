@@ -1,5 +1,6 @@
 import { type ComponentPropsWithRef, forwardRef } from 'react'
-import { type VariantProps, cva } from 'class-variance-authority'
+import { type VariantProps, cva, cx } from 'class-variance-authority'
+import { Form } from '../..'
 
 const inputVariants = cva('w-full outline-none focus:ring-1', {
   defaultVariants: {
@@ -24,15 +25,15 @@ type InputProps = ComponentPropsWithRef<'input'> &
     errorMessage?: string
   }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(({ errorMessage, intent, size, ...props }, ref) => {
-  return (
-    <div className="space-y-1">
-      <input ref={ref} className={inputVariants({ error: !!errorMessage, intent, size })} {...props} />
-      <p role="alert" aria-atomic="true" className="text-danger empty:absolute">
-        {errorMessage}
-      </p>
-    </div>
-  )
-})
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ className, errorMessage, intent, size, ...props }, ref) => {
+    return (
+      <div className={cx('space-y-2', className)}>
+        <input ref={ref} className={inputVariants({ error: !!errorMessage, intent, size })} {...props} />
+        <Form.Error>{errorMessage}</Form.Error>
+      </div>
+    )
+  },
+)
 
 Input.displayName = 'Input'
