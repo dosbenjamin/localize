@@ -5,5 +5,7 @@ import type { PropsWithChildren } from 'react'
 type TitleProps = PropsWithChildren
 
 export const Title = (props: TitleProps) => (
-  <Heading as={Dialog.Title} size="large" {...props} />
+  <Dialog.Title asChild>
+    <Heading size="large" {...props} />
+  </Dialog.Title>
 )
