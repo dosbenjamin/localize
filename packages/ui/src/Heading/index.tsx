@@ -2,7 +2,7 @@ import { type VariantProps, cva } from 'class-variance-authority'
 import type { ElementType } from 'react'
 import { polymorphicFactory } from '@polymorphic-factory/react'
 
-const headingVariants = cva('uppercase', {
+const headingVariants = cva(null, {
   variants: {
     size: {
       base: 'text-base',

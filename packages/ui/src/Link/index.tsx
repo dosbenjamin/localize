@@ -2,14 +2,14 @@ import type { ComponentPropsWithRef, ElementType } from 'react'
 import { type VariantProps, cva } from 'class-variance-authority'
 import { polymorphicFactory } from '@polymorphic-factory/react'
 
-const linkVariants = cva('uppercase outline-none', {
+const linkVariants = cva('outline-none', {
   defaultVariants: {
     color: 'purple-180',
     size: 'base',
   },
   variants: {
     color: {
-      'danger': 'text-danger',
+      danger: 'text-danger',
       'purple-180': 'text-purple-180',
     },
     size: {

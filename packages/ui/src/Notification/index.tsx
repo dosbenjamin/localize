@@ -2,7 +2,7 @@ import { type VariantProps, cva } from 'class-variance-authority'
 import type { PropsWithChildren } from 'react'
 import { Spinner } from '../Icons'
 
-const notificationVariants = cva('border border-purple-720 uppercase p-4 w-80 variation-wght-600', {
+const notificationVariants = cva('border border-purple-720 p-4 w-80 variation-wght-600', {
   compoundVariants: [
     {
       className: 'flex items-center',

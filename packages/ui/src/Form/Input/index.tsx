@@ -1,7 +1,7 @@
 import { type ComponentPropsWithRef, forwardRef } from 'react'
 import { type VariantProps, cva } from 'class-variance-authority'
 
-const inputVariants = cva('w-full placeholder:uppercase outline-none focus:ring-1', {
+const inputVariants = cva('w-full outline-none focus:ring-1', {
   defaultVariants: {
     intent: 'primary',
     size: 'base',

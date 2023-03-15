@@ -2,7 +2,7 @@ import type { ComponentPropsWithRef, ReactNode } from 'react'
 import { type VariantProps, cva } from 'class-variance-authority'
 import { Spinner } from '../Icons'
 
-const buttonVariants = cva('uppercase text-center outline-none', {
+const buttonVariants = cva('text-center outline-none', {
   defaultVariants: {
     intent: 'primary',
     size: 'base',
@@ -31,8 +31,17 @@ type ButtonProps = ComponentPropsWithRef<'button'> &
     loadingMessage?: ReactNode
   }
 
-export const Button = ({ children, disabled, intent, loading, loadingMessage, size, ...props }: ButtonProps) => (
-  <button disabled={disabled} className={buttonVariants({ disabled, intent, loading, size })} {...props}>
+export const Button = ({
+  children,
+  disabled,
+  intent,
+  loading,
+  loadingMessage,
+  size,
+  className,
+  ...props
+}: ButtonProps) => (
+  <button disabled={disabled} className={buttonVariants({ className, disabled, intent, loading, size })} {...props}>
     {loading && loadingMessage ? loadingMessage : children}
     {loading && <Spinner className="ml-4 w-4" />}
   </button>

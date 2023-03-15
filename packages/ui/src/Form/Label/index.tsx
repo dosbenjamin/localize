@@ -2,7 +2,7 @@ import type { ComponentPropsWithRef, ElementType } from 'react'
 import { type VariantProps, cva } from 'class-variance-authority'
 import { polymorphicFactory } from '@polymorphic-factory/react'
 
-const labelVariants = cva('uppercase', {
+const labelVariants = cva(null, {
   defaultVariants: {
     color: 'white',
     size: 'base',
