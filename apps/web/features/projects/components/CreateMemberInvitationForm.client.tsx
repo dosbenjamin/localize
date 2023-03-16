@@ -27,7 +27,7 @@ export const CreateMemberInvitationForm = ({ projectId }: CreateMemberInvitation
     <form
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={handleInvitation}
-      className="flex flex-col space-y-8"
+      className="flex flex-col gap-y-8"
     >
       <Form.Control>
         <Form.Label htmlFor="member-email">Email</Form.Label>

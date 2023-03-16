@@ -41,13 +41,13 @@ export const CreateProjectForm = () => {
     <form
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={handleCreateProject}
-      className="flex flex-col space-y-8"
+      className="flex flex-col gap-y-8"
     >
       <Form.Control>
         <Form.Label>Title</Form.Label>
         <Form.Input placeholder="Localize" errorMessage={errors.title?.message} {...register('title')} />
       </Form.Control>
-      <Button loading={isLoading} disabled={isLoading}>
+      <Button loading={isLoading} disabled={isLoading} className="ml-auto">
         Create
       </Button>
     </form>

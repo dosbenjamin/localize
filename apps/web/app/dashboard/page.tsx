@@ -78,7 +78,7 @@ const Dashboard = async () => {
               {dictionaries.flatMap(({ id: dictionaryId, name, languages }, index) =>
                 index < 4
                   ? [
-                      <article className="aspect-square flex-1 text-center" key={name}>
+                      <article className="aspect-square flex-1 text-center" key={dictionaryId}>
                         <Link
                           className="bg-purple-540 relative grid h-full place-content-center p-6"
                           href={`/dashboard/projects/${projectId}/dictionaries/${dictionaryId}`}

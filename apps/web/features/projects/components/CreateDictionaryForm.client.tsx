@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Dialog, Form, Icon } from '@localize/ui'
+import { Button, CrossButton, Dialog, Form, Icon } from '@localize/ui'
 import {
   type CreateDictionaryInput,
   CreateDictionaryInputSchema,
@@ -86,7 +86,7 @@ export const CreateDictionaryForm = ({ projectId }: CreateDictionaryFormProps) =
     <form
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={handleAddLanguage}
-      className="space-y-8"
+      className="flex flex-col gap-y-8"
     >
       <Form.Control>
         <Form.Label>Name</Form.Label>
@@ -100,7 +100,7 @@ export const CreateDictionaryForm = ({ projectId }: CreateDictionaryFormProps) =
         <Form.Label as="legend">Languages</Form.Label>
         <ul className="bg-purple-540 flex flex-wrap gap-2 p-2 empty:hidden">
           {languages.map(({ iso, name, id }, index) => (
-            <li key={id} className="bg-purple-360 flex items-center space-x-2 py-1 px-2">
+            <li key={id} className="bg-purple-360 flex items-center gap-2 py-1 px-2">
               <span>
                 [{iso}] {name}
               </span>
@@ -110,21 +110,21 @@ export const CreateDictionaryForm = ({ projectId }: CreateDictionaryFormProps) =
             </li>
           ))}
         </ul>
-        <div className="flex items-start space-x-2">
+        <div className="flex items-start gap-x-2">
           <Form.Input
-            {...registerLanguage('name')}
+            className="flex-1"
             placeholder="Language name"
             errorMessage={languageErrors.name?.message}
+            {...registerLanguage('name')}
           />
           <Form.Input
-            {...registerLanguage('iso')}
+            className="flex-1"
             placeholder="ISO Code"
             maxLength={2}
             errorMessage={languageErrors.iso?.message}
+            {...registerLanguage('iso')}
           />
-          <Button aria-label="Add language" intent="neutral">
-            +
-          </Button>
+          <CrossButton className="w-14" aria-label="Add a language" />
         </div>
         <Form.Error>{globalErrors.languages?.message}</Form.Error>
       </Form.Control>
@@ -132,6 +132,7 @@ export const CreateDictionaryForm = ({ projectId }: CreateDictionaryFormProps) =
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onClick={handleCreateDictionary}
         type="button"
+        className="ml-auto"
       >
         Submit
       </Button>
