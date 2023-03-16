@@ -21,7 +21,7 @@
     "supabase": "^1.42.5"
   },
   "dependencies": {
-    "turbo": "^1.8.2",
+    "turbo": "^1.8.3",
     "vercel": "^28.16.7"
   }
 }
