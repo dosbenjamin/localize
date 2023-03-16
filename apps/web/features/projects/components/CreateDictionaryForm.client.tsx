@@ -8,6 +8,7 @@ import {
   CreateLanguageInputSchema,
 } from '@localize/web/features/projects'
 import { useFieldArray, useForm } from 'react-hook-form'
+import type { BaseSyntheticEvent } from 'react'
 import { toast } from 'react-hot-toast/headless'
 import { useCreateDictionary } from '@localize/web/features/projects/client'
 import { useRouter } from 'next/navigation'
@@ -61,13 +62,17 @@ export const CreateDictionaryForm = ({ projectId }: CreateDictionaryFormProps) =
     },
   })
 
-  const handleCreateDictionary = handleGlobalSubmit(async (data) => {
-    await toast.promise(createDictionary(data), {
-      error: 'error',
-      loading: 'creatin',
-      success: 'success',
-    })
-  })
+  const handleCreateDictionary = async (event: BaseSyntheticEvent) => {
+    await handleLanguageSubmit((data) => addLanguage(data))(event)
+
+    await handleGlobalSubmit(async (data) => {
+      await toast.promise(createDictionary(data), {
+        error: 'error',
+        loading: 'creatin',
+        success: 'success',
+      })
+    })(event)
+  }
 
   const handleAddLanguage = handleLanguageSubmit((data) => {
     addLanguage(data)
