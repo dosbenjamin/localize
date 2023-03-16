@@ -35,9 +35,10 @@ const Dashboard = async () => {
               }
             >
               <Dropdown.Item asChild>
-                <CustomLink as="button" disabled>
-                  Create dictionary
-                </CustomLink>
+                <Dialog.Container trigger={<CustomLink as="button">Create a dictionary</CustomLink>}>
+                  <Dialog.Title>Create a dictionary</Dialog.Title>
+                  <CreateDictionaryForm projectId={projectId} />
+                </Dialog.Container>
               </Dropdown.Item>
               <Dropdown.Item asChild>
                 <CustomLink as="button" disabled>
@@ -64,7 +65,7 @@ const Dashboard = async () => {
                     This action cannot be undone. This will permanently delete{' '}
                     <strong className="variation-wght-600">{title}</strong> project.
                   </AlertDialog.Description>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="flex justify-end space-x-4">
                     <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
                     <DeleteProjectButton projectId={projectId} />
                   </div>
@@ -79,13 +80,13 @@ const Dashboard = async () => {
                   ? [
                       <article className="aspect-square flex-1 text-center" key={name}>
                         <Link
-                          className="bg-purple-540 grid h-full place-content-center space-y-2 p-6"
+                          className="bg-purple-540 relative grid h-full place-content-center p-6"
                           href={`/dashboard/projects/${projectId}/dictionaries/${dictionaryId}`}
                         >
                           <Heading as="h3" size="medium">
                             {name}
                           </Heading>
-                          <p>{languages.length} languages</p>
+                          <p className="absolute top-4 left-4">{languages.length} language(s)</p>
                         </Link>
                       </article>,
                     ]
@@ -98,7 +99,7 @@ const Dashboard = async () => {
                 trigger={
                   <button
                     className="bg-purple-540 grid aspect-square flex-1 place-content-center"
-                    aria-label="Add a team member"
+                    aria-label="Create a dictionary"
                   >
                     <Icon.Cross className="fill-purple-180 h-10 w-10" />
                   </button>
