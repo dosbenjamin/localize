@@ -1,4 +1,4 @@
-import { AlertDialog, Link as CustomLink, Dialog, Dropdown, Heading, Icon } from '@localize/ui'
+import { AlertDialog, Button, Link as CustomLink, Dialog, Dropdown, Heading, Icon } from '@localize/ui'
 import { CreateDictionaryForm, CreateProjectForm, DeleteProjectButton } from '@localize/web/features/projects/client'
 import Link from 'next/link'
 import { createClient } from '@localize/web/libs/supabase/server'
@@ -13,9 +13,9 @@ const Dashboard = async () => {
       <Heading size="large">Projects</Heading>
       <Dialog.Container
         trigger={
-          <button className="bg-purple-720 grid h-48 w-full place-content-center p-8 outline-none">
+          <Button intent="tertiary" className="grid aspect-square h-48 w-full place-content-center" variant="card">
             <CustomLink as="span">New project</CustomLink>
-          </button>
+          </Button>
         }
       >
         <Dialog.Title>New project</Dialog.Title>
@@ -75,34 +75,42 @@ const Dashboard = async () => {
           </header>
           <div className="flex-1 p-8">
             <div className="flex space-x-4">
-              {dictionaries.flatMap(({ id: dictionaryId, name, languages }, index) =>
-                index < 4
-                  ? [
-                      <article className="aspect-square flex-1 text-center" key={dictionaryId}>
-                        <Link
-                          className="bg-purple-540 relative grid h-full place-content-center p-6"
-                          href={`/dashboard/projects/${projectId}/dictionaries/${dictionaryId}`}
-                        >
-                          <Heading as="h3" size="medium">
-                            {name}
-                          </Heading>
-                          <p className="absolute top-4 left-4">{languages.length} language(s)</p>
-                        </Link>
-                      </article>,
-                    ]
-                  : [],
+              {dictionaries.map(({ id: dictionaryId, name, languages }, index) =>
+                index < 4 ? (
+                  <Button
+                    key={dictionaryId}
+                    as="article"
+                    intent="tertiary"
+                    size="unstyled"
+                    variant="card"
+                    className="flex-1"
+                  >
+                    <Link
+                      className="flex aspect-square h-full flex-col items-start p-4"
+                      href={`/dashboard/projects/${projectId}/dictionaries/${dictionaryId}`}
+                    >
+                      <Heading as="h3" size="medium" className="mt-auto">
+                        {name}
+                      </Heading>
+                      <p className="order-first">{languages.length} language(s)</p>
+                    </Link>
+                  </Button>
+                ) : null,
               )}
               {Array.from({ length: 4 - dictionaries.length }, (_, index) => (
                 <div className="bg-purple-540 aspect-square flex-1" key={index} />
               ))}
               <Dialog.Container
                 trigger={
-                  <button
-                    className="bg-purple-540 grid aspect-square flex-1 place-content-center"
+                  <Button
+                    intent="tertiary"
+                    className="grid aspect-square flex-1 place-content-center"
                     aria-label="Create a dictionary"
+                    size="unstyled"
+                    variant="card"
                   >
-                    <Icon.Cross className="fill-purple-180 h-10 w-10" />
-                  </button>
+                    <Icon.Cross className="h-10 w-10" />
+                  </Button>
                 }
               >
                 <Dialog.Title>Create a dictionary</Dialog.Title>

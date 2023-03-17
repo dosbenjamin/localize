@@ -94,5 +94,6 @@ module.exports = {
         },
       )
     }),
+    plugin(({ addVariant }) => addVariant('except-loading-within', '& > :not([data-loading])')),
   ],
 }

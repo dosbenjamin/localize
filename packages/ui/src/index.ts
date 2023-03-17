@@ -1,5 +1,4 @@
 export * from './Button'
-export * from './CrossButton'
 export * as Form from './Form'
 export * from './Heading'
 export * as Icon from './Icons'

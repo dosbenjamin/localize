@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, CrossButton, Dialog, Form, Icon } from '@localize/ui'
+import { Button, Dialog, Form, Icon } from '@localize/ui'
 import {
   type CreateDictionaryInput,
   CreateDictionaryInputSchema,
@@ -124,7 +124,9 @@ export const CreateDictionaryForm = ({ projectId }: CreateDictionaryFormProps) =
             errorMessage={languageErrors.iso?.message}
             {...registerLanguage('iso')}
           />
-          <CrossButton className="w-14" aria-label="Add a language" />
+          <Button intent="tertiary" size="unstyled" className="w-14 p-4" aria-label="Add a language">
+            <Icon.Cross />
+          </Button>
         </div>
         <Form.Error>{globalErrors.languages?.message}</Form.Error>
       </Form.Control>
