@@ -1,4 +1,8 @@
-import { ReadDictionaryOutputSchema } from '@localize/web/features/projects'
+import {
+  ReadAffiliateOutputSchema,
+  ReadAffiliateRoleOutputSchema,
+  ReadDictionaryOutputSchema,
+} from '@localize/web/features/projects'
 import { z } from 'zod'
 
 export const CreateProjectInputSchema = z.object({
@@ -13,8 +17,10 @@ export const CreateProjectOutputSchema = z.object({
 export type CreateProjectOutput = z.infer<typeof CreateProjectOutputSchema>
 
 export const ReadProjectOutputSchema = z.object({
+  affiliates: ReadAffiliateOutputSchema.array(),
   dictionaries: ReadDictionaryOutputSchema.array(),
   id: z.string().uuid(),
+  role: ReadAffiliateRoleOutputSchema,
   title: z.string(),
 })
 export type ReadProjectOutput = z.infer<typeof ReadProjectOutputSchema>
