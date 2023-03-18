@@ -67,9 +67,9 @@ export const CreateDictionaryForm = ({ projectId }: CreateDictionaryFormProps) =
 
     await handleGlobalSubmit(async (data) => {
       await toast.promise(createDictionary(data), {
-        error: 'error',
-        loading: 'creatin',
-        success: 'success',
+        error: 'Error while creating the dictionary',
+        loading: 'Creating your dictionary...',
+        success: 'Dictionary successfully created',
       })
     })(event)
   }
