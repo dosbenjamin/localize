@@ -148,12 +148,7 @@ export interface Database {
           project_id: string
           languages: Database["public"]["CompositeTypes"]["language"][]
         }
-        Returns: {
-          created_at: string
-          id: string
-          name: string
-          project_id: string
-        }
+        Returns: undefined
       }
       create_project: {
         Args: {

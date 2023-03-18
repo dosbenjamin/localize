@@ -8,11 +8,6 @@ export const CreateDictionaryInputSchema = z.object({
 })
 export type CreateDictionaryInput = z.infer<typeof CreateDictionaryInputSchema>
 
-export const CreateDictionaryOutputSchema = z.object({
-  name: z.string(),
-})
-export type CreateDictionaryOutput = z.infer<typeof CreateDictionaryOutputSchema>
-
 export const ReadDictionaryOutputSchema = z.object({
   id: z.string().uuid(),
   languages: ReadLanguageOutputSchema.array(),
