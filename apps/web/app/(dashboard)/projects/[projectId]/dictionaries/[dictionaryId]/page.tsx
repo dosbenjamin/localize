@@ -1,4 +1,5 @@
-import { createClient } from '@localize/web/libs/supabase/server'
+import { BackToProjectLink } from '@localize/web/features/projects/client'
+import { Heading } from '@localize/ui'
 import { readDictionaryById } from '@localize/web/features/projects/server'
 
 type DictionaryPageParams = {
@@ -10,13 +11,18 @@ type DictionaryPageProps = {
   params: DictionaryPageParams
 }
 
-const DictionaryPage = async ({ params }: DictionaryPageProps) => {
-  const supabase = createClient()
+const DictionaryPage = async ({ params: { dictionaryId } }: DictionaryPageProps) => {
+  const dictionary = await readDictionaryById(dictionaryId)
 
-  const dictionary = await readDictionaryById(supabase, params.dictionaryId)
-  console.log(dictionary.id)
-
-  return <div>{params.dictionaryId}</div>
+  return (
+    <>
+      <header className="border-purple-360 sticky top-0 border-b p-8">
+        <BackToProjectLink />
+        <Heading size="large">{dictionary.name}</Heading>
+      </header>
+      <div className="h-screen" />
+    </>
+  )
 }
 
 export default DictionaryPage

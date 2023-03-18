@@ -1,12 +1,10 @@
 import { AlertDialog, Button, Link as CustomLink, Dialog, Dropdown, Heading, Icon } from '@localize/ui'
 import { CreateDictionaryForm, CreateProjectForm, DeleteProjectButton } from '@localize/web/features/projects/client'
 import Link from 'next/link'
-import { createClient } from '@localize/web/libs/supabase/server'
 import { readProjects } from '@localize/web/features/projects/server'
 
 const ProjectsPage = async () => {
-  const supabase = createClient()
-  const projects = await readProjects(supabase)
+  const projects = await readProjects()
 
   return (
     <div className="space-y-8 p-8">

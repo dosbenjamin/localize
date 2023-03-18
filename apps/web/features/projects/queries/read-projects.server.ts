@@ -1,8 +1,10 @@
 import { type ReadProjectOutput, ReadProjectOutputSchema } from '@localize/web/features/projects'
-import type { Database } from '@localize/web/libs/supabase/client'
-import type { SupabaseClient } from '@supabase/supabase-js'
+import { cache } from 'react'
+import { createClient } from '@localize/web/libs/supabase/server'
 
-export const readProjects = async (supabase: SupabaseClient<Database>): Promise<ReadProjectOutput[]> => {
+export const readProjects = cache(async (): Promise<ReadProjectOutput[]> => {
+  const supabase = createClient()
+
   const {
     data: { user },
   } = await supabase.auth.getUser()
@@ -17,10 +19,10 @@ export const readProjects = async (supabase: SupabaseClient<Database>): Promise<
   const projectsWithUserRole = await Promise.all(
     projects.map(({ affiliates, ...project }) => {
       if (!affiliates || !Array.isArray(affiliates)) return Promise.reject()
-      const role = affiliates.find(({ profile_id }) => profile_id === user?.id)?.role
-      return { affiliates, role, ...project }
+      const userRole = affiliates.find(({ profile_id }) => profile_id === user?.id)?.role
+      return { affiliates, userRole, ...project }
     }),
   )
 
   return ReadProjectOutputSchema.array().parse(projectsWithUserRole)
-}
+})

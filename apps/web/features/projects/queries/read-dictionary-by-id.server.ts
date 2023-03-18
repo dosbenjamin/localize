@@ -1,17 +1,15 @@
 import { type ReadDictionaryOutput, ReadDictionaryOutputSchema } from '@localize/web/features/projects'
-import type { Database } from '@localize/web/libs/supabase/client'
-import type { SupabaseClient } from '@supabase/supabase-js'
+import { createClient } from '@localize/web/libs/supabase/server'
 import { z } from 'zod'
 
-export const readDictionaryById = async (
-  supabase: SupabaseClient<Database>,
-  id: string,
-): Promise<ReadDictionaryOutput> => {
+export const readDictionaryById = async (id: string): Promise<ReadDictionaryOutput> => {
+  const supabase = createClient()
+
   const dictionaryId = z.string().uuid().parse(id)
 
   const { data: dictionary } = await supabase
     .from('dictionaries')
-    .select('*, languages(*)')
+    .select('*, languages(*), project: projects(*, dictionaries(*))')
     .eq('id', dictionaryId)
     .single()
 

@@ -7,7 +7,6 @@ type DashboardLayoutProps = PropsWithChildren
 
 const DashboardLayout = async ({ children }: DashboardLayoutProps) => {
   const supabase = createClient()
-
   const {
     data: { user },
   } = await supabase.auth.getUser()

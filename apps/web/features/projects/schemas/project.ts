@@ -14,7 +14,7 @@ export const ReadProjectOutputSchema = z.object({
   affiliates: ReadAffiliateOutputSchema.array(),
   dictionaries: ReadDictionaryOutputSchema.array(),
   id: z.string().uuid(),
-  role: ReadAffiliateRoleOutputSchema,
   title: z.string(),
+  userRole: ReadAffiliateRoleOutputSchema,
 })
 export type ReadProjectOutput = z.infer<typeof ReadProjectOutputSchema>
