@@ -18,6 +18,3 @@ export const ReadProjectOutputSchema = z.object({
   title: z.string(),
 })
 export type ReadProjectOutput = z.infer<typeof ReadProjectOutputSchema>
-
-export const DeleteProjectInputSchema = z.string().uuid()
-export type DeleteProjectInput = z.infer<typeof DeleteProjectInputSchema>

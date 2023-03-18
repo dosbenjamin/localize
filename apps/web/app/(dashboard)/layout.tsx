@@ -7,14 +7,17 @@ type DashboardLayoutProps = PropsWithChildren
 
 const DashboardLayout = async ({ children }: DashboardLayoutProps) => {
   const supabase = createClient()
-  const { data } = await supabase.auth.getUser()
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
 
   return (
     <>
       <header className="border-purple-360 divide-purple-360 flex items-center divide-x border-b">
         <Logo className="mx-10 w-72" />
         <div className="flex flex-1 flex-col items-end p-8">
-          <p>Connected as {data.user?.email}</p>
+          <p>Connected as {user?.email}</p>
           <SignOutButton />
         </div>
       </header>

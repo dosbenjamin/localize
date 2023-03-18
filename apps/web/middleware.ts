@@ -16,7 +16,7 @@ export const middleware = async (request: NextRequest) => {
   } = await supabase.auth.getSession()
 
   if (session && isAuthRoute(request)) {
-    return NextResponse.redirect(new URL('/dashboard', request.url))
+    return NextResponse.redirect(new URL('/projects', request.url))
   }
 
   if (!session && !isAuthRoute(request)) {
@@ -27,5 +27,5 @@ export const middleware = async (request: NextRequest) => {
 }
 
 export const config = {
-  matcher: ['/', '/login', '/register', '/dashboard/:path*'],
+  matcher: ['/', '/login', '/register', '/projects/:path*'],
 }

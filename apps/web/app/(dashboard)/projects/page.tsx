@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { createClient } from '@localize/web/libs/supabase/server'
 import { readProjects } from '@localize/web/features/projects/server'
 
-const Dashboard = async () => {
+const ProjectsPage = async () => {
   const supabase = createClient()
   const projects = await readProjects(supabase)
 
@@ -25,7 +25,7 @@ const Dashboard = async () => {
         <article key={projectId} className="bg-purple-720">
           <header className="border-purple-360 flex items-center justify-between border-b p-8">
             <Heading size="large">
-              <Link href={`/dashboard/projects/${projectId}`}>{title}</Link>
+              <Link href={`/projects/${projectId}`}>{title}</Link>
             </Heading>
             <Dropdown.Container
               trigger={
@@ -87,7 +87,7 @@ const Dashboard = async () => {
                   >
                     <Link
                       className="flex aspect-square h-full flex-col items-start p-4"
-                      href={`/dashboard/projects/${projectId}/dictionaries/${dictionaryId}`}
+                      href={`/projects/${projectId}/dictionaries/${dictionaryId}`}
                     >
                       <Heading as="h3" size="medium" className="mt-auto">
                         {name}
@@ -124,4 +124,4 @@ const Dashboard = async () => {
   )
 }
 
-export default Dashboard
+export default ProjectsPage

@@ -2,7 +2,7 @@ import { Link as CustomLink, Heading } from '@localize/ui'
 import Link from 'next/link'
 import { SignInForm } from '@localize/web/features/auth/client'
 
-const Login = () => (
+const LoginPage = () => (
   <>
     <Heading size="large" className="text-center">
       Login
@@ -14,4 +14,4 @@ const Login = () => (
   </>
 )
 
-export default Login
+export default LoginPage

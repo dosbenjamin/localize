@@ -2,7 +2,7 @@ import { Link as CustomLink, Heading } from '@localize/ui'
 import Link from 'next/link'
 import { SignUpForm } from '@localize/web/features/auth/client'
 
-const Register = () => (
+const RegisterPage = () => (
   <>
     <Heading size="large" className="text-center">
       Register
@@ -14,4 +14,4 @@ const Register = () => (
   </>
 )
 
-export default Register
+export default RegisterPage
