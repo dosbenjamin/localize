@@ -10,12 +10,6 @@ export const CreateProjectInputSchema = z.object({
 })
 export type CreateProjectInput = z.infer<typeof CreateProjectInputSchema>
 
-export const CreateProjectOutputSchema = z.object({
-  id: z.string().uuid(),
-  title: z.string(),
-})
-export type CreateProjectOutput = z.infer<typeof CreateProjectOutputSchema>
-
 export const ReadProjectOutputSchema = z.object({
   affiliates: ReadAffiliateOutputSchema.array(),
   dictionaries: ReadDictionaryOutputSchema.array(),

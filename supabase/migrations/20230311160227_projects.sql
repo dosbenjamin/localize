@@ -21,7 +21,8 @@ CREATE POLICY "Enable insert for authenticated users only"
 ON "public"."projects"
 AS PERMISSIVE
 FOR INSERT
-TO AUTHENTICATED;
+TO AUTHENTICATED
+WITH CHECK (TRUE);
 
 CREATE POLICY "Enable select for authenticated users and affiliates only"
 ON "public"."projects"
@@ -51,7 +52,8 @@ CREATE POLICY "Enable insert for authenticated users only"
 ON "public"."affiliates"
 AS PERMISSIVE
 FOR INSERT
-TO AUTHENTICATED;
+TO AUTHENTICATED
+WITH CHECK (TRUE);
 
 CREATE POLICY "Enable select for authenticated users and affiliates only"
 ON "public"."affiliates"
@@ -68,20 +70,17 @@ TO AUTHENTICATED
 USING ("auth"."uid"() = "profile_id" AND "role" = 'Administrator'::"public"."affiliate_role");
 
 CREATE FUNCTION "public"."create_project"("title" VARCHAR)
-  RETURNS "public"."projects"
+  RETURNS VOID
   LANGUAGE PLPGSQL
-  SECURITY DEFINER
+  SECURITY INVOKER
 AS $$
   DECLARE
-    "project" "public"."projects";
+    "project_id" UUID DEFAULT UUID_GENERATE_V4();
   BEGIN
-    INSERT INTO "public"."projects"("title")
-    VALUES ("create_project"."title")
-    RETURNING * INTO "project";
+    INSERT INTO "public"."projects"("id", "title")
+    VALUES ("project_id", "create_project"."title");
 
     INSERT INTO "public"."affiliates"("profile_id", "project_id", "role")
-    VALUES ("auth"."uid"(), "project"."id", 'Administrator'::"public"."affiliate_role");
-
-    RETURN "project";
+    VALUES ("auth"."uid"(), "project_id", 'Administrator'::"public"."affiliate_role");
   END
 $$;

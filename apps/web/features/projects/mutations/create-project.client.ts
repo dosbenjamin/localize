@@ -1,16 +1,7 @@
-import {
-  type CreateProjectInput,
-  type CreateProjectOutput,
-  CreateProjectOutputSchema,
-} from '@localize/web/features/projects'
+import { type CreateProjectInput } from '@localize/web/features/projects'
 import { supabase } from '@localize/web/libs/supabase/client'
 
-export const createProject = async (values: CreateProjectInput): Promise<CreateProjectOutput> => {
-  const { data, error } = await supabase.rpc('create_project', values)
-
-  if (error) {
-    return Promise.reject()
-  }
-
-  return Promise.resolve(CreateProjectOutputSchema.parse(data))
+export const createProject = async (values: CreateProjectInput): Promise<void> => {
+  const { error } = await supabase.rpc('create_project', values)
+  return error ? Promise.reject() : Promise.resolve()
 }

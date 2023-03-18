@@ -159,11 +159,7 @@ export interface Database {
         Args: {
           title: string
         }
-        Returns: {
-          created_at: string
-          id: string
-          title: string
-        }
+        Returns: undefined
       }
     }
     Enums: {
