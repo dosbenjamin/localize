@@ -1,8 +1,9 @@
 import { type ReadProjectOutput, ReadProjectOutputSchema } from '@localize/web/features/projects'
+import { cache } from 'react'
 import { createClient } from '@localize/web/libs/supabase/server'
 import { z } from 'zod'
 
-export const readProjectById = async (id: string): Promise<ReadProjectOutput> => {
+export const readProjectById = cache(async (id: string): Promise<ReadProjectOutput> => {
   const supabase = createClient()
 
   const {
@@ -25,4 +26,4 @@ export const readProjectById = async (id: string): Promise<ReadProjectOutput> =>
   }
 
   return ReadProjectOutputSchema.parse(projectWithUserRole)
-}
+})
