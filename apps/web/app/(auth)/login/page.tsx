@@ -1,3 +1,4 @@
+import 'server-only'
 import { Link as CustomLink, Heading } from '@localize/ui'
 import Link from 'next/link'
 import { SignInForm } from '@localize/web/features/auth/client'

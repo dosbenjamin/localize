@@ -1,3 +1,4 @@
+import 'server-only'
 import { ProjectContextProvider } from '@localize/web/features/projects/client'
 import type { PropsWithChildren } from 'react'
 import { readProjectById } from '@localize/web/features/projects/queries/read-project-by-id.server'

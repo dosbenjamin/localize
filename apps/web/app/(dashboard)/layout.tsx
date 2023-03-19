@@ -1,3 +1,4 @@
+import 'server-only'
 import { Logo } from '@localize/ui'
 import type { PropsWithChildren } from 'react'
 import { SignOutButton } from '@localize/web/features/auth/client'

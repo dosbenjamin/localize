@@ -1,3 +1,4 @@
+import 'server-only'
 import { Logo } from '@localize/ui'
 import type { PropsWithChildren } from 'react'
 

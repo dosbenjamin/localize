@@ -1,5 +1,6 @@
-import { BackToProjectLink } from '@localize/web/features/projects/client'
+import 'server-only'
 import { Heading } from '@localize/ui'
+import Link from 'next/link'
 import { readDictionaryById } from '@localize/web/features/projects/server'
 
 type DictionaryPageParams = {
@@ -17,7 +18,7 @@ const DictionaryPage = async ({ params: { dictionaryId } }: DictionaryPageProps)
   return (
     <>
       <header className="border-purple-360 sticky top-0 border-b p-8">
-        <BackToProjectLink />
+        <Link href="/projects/">Back</Link>
         <Heading size="large">{dictionary.name}</Heading>
       </header>
       <div className="h-screen" />

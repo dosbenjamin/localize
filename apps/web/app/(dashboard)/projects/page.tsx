@@ -1,3 +1,4 @@
+import 'server-only'
 import { AlertDialog, Button, Link as CustomLink, Dialog, Dropdown, Heading, Icon } from '@localize/ui'
 import { CreateDictionaryForm, CreateProjectForm, DeleteProjectButton } from '@localize/web/features/projects/client'
 import Link from 'next/link'
