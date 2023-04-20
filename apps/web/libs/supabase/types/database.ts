@@ -139,7 +139,16 @@ export interface Database {
       }
     }
     Views: {
-      [_ in never]: never
+      current_user_projects: {
+        Row: {
+          affiliates: Json | null
+          created_at: string | null
+          dictionaries: Json | null
+          id: string | null
+          role: Database["public"]["Enums"]["affiliate_role"] | null
+          title: string | null
+        }
+      }
     }
     Functions: {
       create_dictionary: {
