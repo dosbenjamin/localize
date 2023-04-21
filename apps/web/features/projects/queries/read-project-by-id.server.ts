@@ -7,7 +7,11 @@ export const readProjectById = async (id: string): Promise<ReadProjectOutput> =>
 
   const projectId = z.string().uuid().parse(id)
 
-  const { data: project } = await supabase.from('current_user_projects').select('*').eq('id', projectId).single()
+  const { data: project } = await supabase
+    .from('current_user_projects')
+    .select('*, dictionaries(*, languages(*)), affiliates(*)')
+    .eq('id', projectId)
+    .single()
 
   return ReadProjectOutputSchema.parse(project)
 }

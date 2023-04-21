@@ -6,7 +6,7 @@ export const readProjects = async (): Promise<ReadProjectOutput[]> => {
 
   const { data: projects } = await supabase
     .from('current_user_projects')
-    .select('*')
+    .select('*, dictionaries(*, languages(*)), affiliates(*)')
     .order('created_at', { ascending: false })
 
   return ReadProjectOutputSchema.array().parse(projects)
