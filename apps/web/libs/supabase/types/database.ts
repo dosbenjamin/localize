@@ -137,6 +137,58 @@ export interface Database {
           title?: string
         }
       }
+      records: {
+        Row: {
+          created_at: string
+          dictionary_id: string
+          id: string
+          key: string
+          project_id: string
+        }
+        Insert: {
+          created_at?: string
+          dictionary_id: string
+          id?: string
+          key: string
+          project_id: string
+        }
+        Update: {
+          created_at?: string
+          dictionary_id?: string
+          id?: string
+          key?: string
+          project_id?: string
+        }
+      }
+      translations: {
+        Row: {
+          created_at: string
+          dictionary_id: string
+          id: string
+          language_id: string
+          project_id: string
+          record_id: string
+          value: string | null
+        }
+        Insert: {
+          created_at?: string
+          dictionary_id: string
+          id?: string
+          language_id: string
+          project_id: string
+          record_id: string
+          value?: string | null
+        }
+        Update: {
+          created_at?: string
+          dictionary_id?: string
+          id?: string
+          language_id?: string
+          project_id?: string
+          record_id?: string
+          value?: string | null
+        }
+      }
     }
     Views: {
       current_user_projects: {
