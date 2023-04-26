@@ -1,4 +1,4 @@
-import { ReadAffiliateOutputSchema, ReadAffiliateRoleOutputSchema } from '@localize/web/features/projects'
+import { ReadAffiliateOutputSchema, ReadAffiliateRoleOutputSchema } from '@localize/web/features/affiliates'
 import { ReadDictionaryOutputSchema } from '@localize/web/features/dictionaries'
 import { z } from 'zod'
 
