@@ -10,6 +10,7 @@ export const CreateLanguageInputSchema = z.object({
 export type CreateLanguageInput = z.infer<typeof CreateLanguageInputSchema>
 
 export const ReadLanguageOutputSchema = z.object({
+  id: z.string().uuid(),
   iso: z.string(),
   name: z.string(),
 })

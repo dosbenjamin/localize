@@ -1,4 +1,4 @@
-import { CreateLanguageInputSchema, ReadLanguageOutputSchema } from '@localize/web/features/projects'
+import { CreateLanguageInputSchema, ReadLanguageOutputSchema } from '@localize/web/features/languages'
 import { z } from 'zod'
 
 export const CreateDictionaryInputSchema = z.object({

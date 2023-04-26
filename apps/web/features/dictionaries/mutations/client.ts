@@ -1,4 +1,4 @@
-import { type CreateDictionaryInput } from '@localize/web/features/projects'
+import type { CreateDictionaryInput } from '@localize/web/features/dictionaries'
 import { supabase } from '@localize/web/libs/supabase/client'
 
 export const createDictionary = async (values: CreateDictionaryInput): Promise<void> => {

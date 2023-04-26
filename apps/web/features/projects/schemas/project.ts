@@ -1,8 +1,5 @@
-import {
-  ReadAffiliateOutputSchema,
-  ReadAffiliateRoleOutputSchema,
-  ReadDictionaryOutputSchema,
-} from '@localize/web/features/projects'
+import { ReadAffiliateOutputSchema, ReadAffiliateRoleOutputSchema } from '@localize/web/features/projects'
+import { ReadDictionaryOutputSchema } from '@localize/web/features/dictionaries'
 import { z } from 'zod'
 
 export const CreateProjectInputSchema = z.object({

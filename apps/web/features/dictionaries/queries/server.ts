@@ -1,4 +1,4 @@
-import { type ReadDictionaryOutput, ReadDictionaryOutputSchema } from '@localize/web/features/projects'
+import { type ReadDictionaryOutput, ReadDictionaryOutputSchema } from '@localize/web/features/dictionaries'
 import { createClient } from '@localize/web/libs/supabase/server'
 import { z } from 'zod'
 

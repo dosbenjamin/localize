@@ -1,4 +1,4 @@
-import { type ReadUserOutput, ReadUserOutputSchema } from '@localize/web/features/users/schemas'
+import { type ReadUserOutput, ReadUserOutputSchema } from '@localize/web/features/users'
 import { createClient } from '@localize/web/libs/supabase/server'
 
 export const getUser = async (): Promise<ReadUserOutput> => {

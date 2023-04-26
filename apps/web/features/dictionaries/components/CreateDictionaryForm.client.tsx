@@ -1,16 +1,12 @@
 'use client'
 
 import { Button, Dialog, Form, Icon } from '@localize/ui'
-import {
-  type CreateDictionaryInput,
-  CreateDictionaryInputSchema,
-  type CreateLanguageInput,
-  CreateLanguageInputSchema,
-} from '@localize/web/features/projects'
+import { type CreateDictionaryInput, CreateDictionaryInputSchema } from '@localize/web/features/dictionaries'
+import { type CreateLanguageInput, CreateLanguageInputSchema } from '@localize/web/features/languages'
 import { useFieldArray, useForm } from 'react-hook-form'
 import type { BaseSyntheticEvent } from 'react'
 import { toast } from 'react-hot-toast/headless'
-import { useCreateDictionary } from '@localize/web/features/projects/client'
+import { useCreateDictionary } from '@localize/web/features/dictionaries/client'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import useDialog = Dialog.useDialog
