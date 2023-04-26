@@ -1,10 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server'
 import { createMiddlewareSupabaseClient } from '@supabase/auth-helpers-nextjs'
-
-const AUTH_ROUTES = ['/login', '/register']
-const isAuthRoute = (request: NextRequest) => {
-  return AUTH_ROUTES.some((route) => request.nextUrl.pathname.startsWith(route))
-}
+import { isAuthRoute } from '@localize/web/features/auth/server'
 
 export const middleware = async (request: NextRequest) => {
   const response = NextResponse.next()

@@ -2,8 +2,8 @@ import 'server-only'
 import '@localize/theme/globals.css'
 import { SupabaseContextProvider, SupabaseListener } from '@localize/web/libs/supabase/client'
 import type { PropsWithChildren } from 'react'
-import { QueryClient } from '@localize/web/libs/react-query'
-import { Toaster } from '@localize/web/libs/react-hot-toast'
+import { QueryClient } from '@localize/web/libs/react-query/client'
+import { Toaster } from '@localize/web/libs/react-hot-toast/client'
 import { createClient } from '@localize/web/libs/supabase/server'
 
 type RootLayoutProps = PropsWithChildren

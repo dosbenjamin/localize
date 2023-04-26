@@ -77,6 +77,29 @@ export interface Database {
           project_id?: string
         }
       }
+      keys: {
+        Row: {
+          created_at: string
+          dictionary_id: string
+          id: string
+          key: string
+          project_id: string
+        }
+        Insert: {
+          created_at?: string
+          dictionary_id: string
+          id?: string
+          key: string
+          project_id: string
+        }
+        Update: {
+          created_at?: string
+          dictionary_id?: string
+          id?: string
+          key?: string
+          project_id?: string
+        }
+      }
       languages: {
         Row: {
           created_at: string
@@ -135,29 +158,6 @@ export interface Database {
           created_at?: string
           id?: string
           title?: string
-        }
-      }
-      records: {
-        Row: {
-          created_at: string
-          dictionary_id: string
-          id: string
-          key: string
-          project_id: string
-        }
-        Insert: {
-          created_at?: string
-          dictionary_id: string
-          id?: string
-          key: string
-          project_id: string
-        }
-        Update: {
-          created_at?: string
-          dictionary_id?: string
-          id?: string
-          key?: string
-          project_id?: string
         }
       }
       translations: {

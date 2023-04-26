@@ -1,20 +1,17 @@
 import 'server-only'
+import { type DictionaryLayoutParams, DictionaryLayoutParamsSchema } from '@localize/web/features/dictionaries'
 import { Heading } from '@localize/ui'
 import Link from 'next/link'
 import type { PropsWithChildren } from 'react'
 import { readDictionaryById } from '@localize/web/features/dictionaries/server'
 import { readProjectById } from '@localize/web/features/projects/server'
 
-type DictionaryLayoutParams = {
-  dictionaryId: string
-  projectId: string
-}
-
 type DictionaryLayoutProps = PropsWithChildren<{
   params: DictionaryLayoutParams
 }>
 
-const DictionaryLayout = async ({ params: { dictionaryId, projectId }, children }: DictionaryLayoutProps) => {
+const DictionaryLayout = async ({ params, children }: DictionaryLayoutProps) => {
+  const { dictionaryId, projectId } = DictionaryLayoutParamsSchema.parse(params)
   const [project, dictionary] = await Promise.all([readProjectById(projectId), readDictionaryById(dictionaryId)])
 
   return (

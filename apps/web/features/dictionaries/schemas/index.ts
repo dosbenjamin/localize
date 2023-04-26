@@ -14,3 +14,9 @@ export const ReadDictionaryOutputSchema = z.object({
   name: z.string(),
 })
 export type ReadDictionaryOutput = z.infer<typeof ReadDictionaryOutputSchema>
+
+export const DictionaryLayoutParamsSchema = z.object({
+  dictionaryId: z.string().uuid(),
+  projectId: z.string().uuid(),
+})
+export type DictionaryLayoutParams = z.infer<typeof DictionaryLayoutParamsSchema>

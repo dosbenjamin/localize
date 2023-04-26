@@ -1,4 +1,4 @@
-import { type WrappedUseQuery, queryKeys } from '@localize/web/libs/react-query'
+import { type WrappedUseQuery, queryKeys } from '@localize/web/libs/react-query/client'
 import type { AuthError } from '@supabase/supabase-js'
 import type { ReadUserOutput } from '@localize/web/features/users'
 import { getUser } from '@localize/web/features/users/queries/client'

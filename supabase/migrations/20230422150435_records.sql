@@ -1,4 +1,4 @@
-CREATE TABLE "public"."records" (
+CREATE TABLE "public"."keys" (
   "id" UUID NOT NULL DEFAULT UUID_GENERATE_V4() PRIMARY KEY,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   "key" VARCHAR NOT NULL,
@@ -12,15 +12,15 @@ CREATE TABLE "public"."translations" (
   "value" VARCHAR,
   "project_id" UUID NOT NULL REFERENCES "public"."projects"("id") ON DELETE CASCADE,
   "language_id" UUID NOT NULL REFERENCES "public"."languages"("id") ON DELETE CASCADE,
-  "record_id" UUID NOT NULL REFERENCES "public"."records"("id") ON DELETE CASCADE,
+  "record_id" UUID NOT NULL REFERENCES "public"."keys"("id") ON DELETE CASCADE,
   "dictionary_id" UUID NOT NULL REFERENCES "public"."dictionaries"("id") ON DELETE CASCADE
 );
 
-ALTER TABLE "public"."records" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "public"."keys" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "public"."translations" ENABLE ROW LEVEL SECURITY;
 
 CREATE POLICY "Enable insert for authenticated users and affiliates only"
-ON "public"."records"
+ON "public"."keys"
 AS PERMISSIVE
 FOR INSERT
 TO AUTHENTICATED
@@ -32,7 +32,7 @@ WITH CHECK (
 );
 
 CREATE POLICY "Enable select for authenticated users and affiliates only"
-ON "public"."records"
+ON "public"."keys"
 AS PERMISSIVE
 FOR SELECT
 TO AUTHENTICATED

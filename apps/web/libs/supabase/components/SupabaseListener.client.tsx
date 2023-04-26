@@ -13,7 +13,9 @@ export const SupabaseListener = ({ accessToken }: SupabaseListenerProps) => {
   const { supabase } = useSupabase()
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_, session) => {
       if (session?.access_token !== accessToken) {
         router.refresh()
       }
