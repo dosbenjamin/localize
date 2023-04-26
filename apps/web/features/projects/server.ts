@@ -1,1 +1,1 @@
-export * from './queries/read-projects.server'
+export * from './queries/server'
