@@ -23,7 +23,7 @@ const buttonVariants = cva('text-center outline-none', {
       danger: 'bg-danger text-white',
       neutral: 'bg-white text-purple-900',
       primary: 'bg-orange text-white disabled:brightness-50',
-      secondary: '',
+      secondary: 'bg-purple-360 text-white fill-white',
       tertiary: 'bg-purple-540 text-white fill-purple-180',
     },
     loading: {
