@@ -1,4 +1,3 @@
-import 'server-only'
 import { type DictionaryLayoutParams, DictionaryLayoutParamsSchema } from '@localize/web/features/dictionaries'
 import { Heading } from '@localize/ui'
 import Link from 'next/link'

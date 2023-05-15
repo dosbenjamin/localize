@@ -1,4 +1,3 @@
-import 'server-only'
 import '@localize/theme/globals.css'
 import { SupabaseContextProvider, SupabaseListener } from '@localize/web/libs/supabase/client'
 import type { PropsWithChildren } from 'react'

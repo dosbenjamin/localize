@@ -1,4 +1,3 @@
-import 'server-only'
 import { AlertDialog, Button, Link as CustomLink, Dialog, Dropdown, Heading, Icon } from '@localize/ui'
 import { CreateProjectForm, DeleteProjectButton } from '@localize/web/features/projects/client'
 import { CreateDictionaryForm } from '@localize/web/features/dictionaries/client'
