@@ -1,5 +1,6 @@
+import { Button, Dialog, Heading, Icon } from '@localize/ui'
 import { type DictionaryLayoutParams, DictionaryLayoutParamsSchema } from '@localize/web/features/dictionaries'
-import { Heading } from '@localize/ui'
+import { CreateKeyForm } from '@localize/web/features/keys/client'
 import Link from 'next/link'
 import type { PropsWithChildren } from 'react'
 import { readDictionaryById } from '@localize/web/features/dictionaries/server'
@@ -19,15 +20,30 @@ const DictionaryLayout = async ({ params, children }: DictionaryLayoutProps) => 
         <Link href={`/projects/${project.id}`}>Back to {project.title}</Link>
         <Heading size="large">{dictionary.name}</Heading>
       </header>
-      <section className="p-8">
-        <nav className="space-x-4">
+      <section>
+        <header className="border-purple-360 flex items-center justify-between border-b p-8">
+          <Heading size="medium">Translations</Heading>
+          <div>
+            <Dialog.Container
+              trigger={
+                <Button intent="secondary" size="unstyled" className="grid h-4 w-4 place-content-center p-4">
+                  <Icon.Cross className="h-4 w-4" />
+                </Button>
+              }
+            >
+              <Dialog.Title>Add translation key</Dialog.Title>
+              <CreateKeyForm dictionaryId={dictionaryId} projectId={projectId} />
+            </Dialog.Container>
+          </div>
+        </header>
+        <div className="p-8">{children}</div>
+        {/* <nav className="space-x-4">
           {dictionary.languages.map(({ id, name }) => (
             <Link key={id} href={`/projects/${project.id}/dictionaries/${dictionary.id}/translations/${id}`}>
               {name}
             </Link>
           ))}
-        </nav>
-        {children}
+        </nav> */}
       </section>
     </>
   )

@@ -1,13 +1,17 @@
 import { type TranslationPageParams, TranslationPageParamsSchema } from '@localize/web/features/translations'
-
 type TranslationPageProps = {
   params: TranslationPageParams
 }
 
 const TranslationPage = ({ params }: TranslationPageProps) => {
-  const { translationId } = TranslationPageParamsSchema.parse(params)
+  const { dictionaryId, projectId } = TranslationPageParamsSchema.parse(params)
 
-  return translationId
+  return (
+    <div className="flex flex-col">
+      {dictionaryId}
+      {projectId}
+    </div>
+  )
 }
 
 export default TranslationPage

@@ -4,7 +4,7 @@ import { z } from 'zod'
 
 export const createProject = async (values: CreateProjectInput): Promise<void> => {
   const { error } = await supabase.rpc('create_project', values)
-  return error ? Promise.reject() : Promise.resolve()
+  return error ? Promise.reject(error.message) : Promise.resolve()
 }
 
 export const deleteProject = async (id: string): Promise<void> => {

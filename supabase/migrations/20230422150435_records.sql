@@ -1,7 +1,7 @@
 CREATE TABLE "public"."keys" (
   "id" UUID NOT NULL DEFAULT UUID_GENERATE_V4() PRIMARY KEY,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-  "key" VARCHAR NOT NULL,
+  "key" VARCHAR NOT NULL UNIQUE,
   "project_id" UUID NOT NULL REFERENCES "public"."projects"("id") ON DELETE CASCADE,
   "dictionary_id" UUID NOT NULL REFERENCES "public"."dictionaries"("id") ON DELETE CASCADE
 );
@@ -27,7 +27,9 @@ TO AUTHENTICATED
 WITH CHECK (
   EXISTS (
     SELECT * FROM "public"."affiliates" AS "affiliates"
-    WHERE "affiliates"."project_id" = "project_id" AND "affiliates"."profile_id" = "auth"."uid"() AND "affiliates"."role" = 'Editor'::"public"."affiliate_role"
+    WHERE "affiliates"."project_id" = "project_id" AND "affiliates"."profile_id" = "auth"."uid"() AND (
+      "affiliates"."role" = 'Editor'::"public"."affiliate_role" OR "affiliates"."role" = 'Administrator'::"public"."affiliate_role"
+    )
   )
 );
 
