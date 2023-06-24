@@ -1,13 +1,13 @@
 'use client'
 
-import { Button, Form } from '@localize/ui'
-import { type CreateKeyInput, CreateKeyInputSchema } from '@localize/web/features/keys/schemas'
+import { Button, Dialog, Form } from '@localize/ui'
+import { type CreateKeyInput, CreateKeyInputSchema } from '@localize/web/features/keys'
 import { toast } from 'react-hot-toast/headless'
 import { useCreateKey } from '@localize/web/features/keys/hooks'
-import { useDialog } from '@localize/ui/src/Dialog'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
+import useDialog = Dialog.useDialog
 
 type Props = {
   projectId: string

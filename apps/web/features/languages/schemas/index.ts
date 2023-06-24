@@ -15,3 +15,9 @@ export const ReadLanguageOutputSchema = z.object({
   name: z.string(),
 })
 export type ReadLanguageOutput = z.infer<typeof ReadLanguageOutputSchema>
+
+export const LanguagePageParamsSchema = z.object({
+  dictionaryId: z.string().uuid(),
+  languageId: z.string().uuid(),
+})
+export type LanguagePageParams = z.infer<typeof LanguagePageParamsSchema>

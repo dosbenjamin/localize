@@ -165,27 +165,27 @@ export interface Database {
           created_at: string
           dictionary_id: string
           id: string
+          key_id: string
           language_id: string
           project_id: string
-          record_id: string
           value: string | null
         }
         Insert: {
           created_at?: string
           dictionary_id: string
           id?: string
+          key_id: string
           language_id: string
           project_id: string
-          record_id: string
           value?: string | null
         }
         Update: {
           created_at?: string
           dictionary_id?: string
           id?: string
+          key_id?: string
           language_id?: string
           project_id?: string
-          record_id?: string
           value?: string | null
         }
       }

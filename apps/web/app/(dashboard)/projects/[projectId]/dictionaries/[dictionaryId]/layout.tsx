@@ -36,14 +36,14 @@ const DictionaryLayout = async ({ params, children }: DictionaryLayoutProps) => 
             </Dialog.Container>
           </div>
         </header>
-        <div className="p-8">{children}</div>
-        {/* <nav className="space-x-4">
+        <nav className="space-x-4">
           {dictionary.languages.map(({ id, name }) => (
-            <Link key={id} href={`/projects/${project.id}/dictionaries/${dictionary.id}/translations/${id}`}>
+            <Link key={id} href={`/projects/${project.id}/dictionaries/${dictionary.id}/languages/${id}`}>
               {name}
             </Link>
           ))}
-        </nav> */}
+        </nav>
+        <div className="p-8">{children}</div>
       </section>
     </>
   )
